@@ -1,0 +1,206 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "careers": "Careers",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Professional Cleaning Services in Montreal",
+    "subtitle": "Reliable, eco-friendly cleaning for your home, office, or rental property",
+    "cta": "Get a Quote",
+    "ctaSecondary": "Our Services"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive cleaning solutions tailored to your needs",
+    "residential": {
+      "title": "Residential Cleaning",
+      "description": "Keep your home spotless with our trusted residential cleaning services. Background-checked staff using eco-friendly products.",
+      "features": [
+        "Regular or one-time cleaning",
+        "Deep cleaning services",
+        "Eco-friendly products",
+        "Flexible scheduling",
+        "Background-checked staff"
+      ]
+    },
+    "commercial": {
+      "title": "Commercial Cleaning",
+      "description": "Professional cleaning for offices, retail spaces, and clinics. Maintain a clean, healthy work environment.",
+      "features": [
+        "Office buildings",
+        "Retail stores",
+        "Medical clinics",
+        "After-hours service",
+        "Customized cleaning plans"
+      ]
+    },
+    "airbnb": {
+      "title": "Airbnb Cleaning",
+      "description": "Specialized cleaning for short-term rentals. Quick turnaround between guests with attention to detail.",
+      "features": [
+        "Same-day turnaround",
+        "Linen service available",
+        "Inventory checks",
+        "Guest-ready standards",
+        "Flexible scheduling"
+      ]
+    },
+    "staffing": {
+      "title": "Staffing & Trained Resources",
+      "description": "Need experienced cleaning staff? We provide trained, reliable housekeeping professionals to fill your positions.",
+      "features": [
+        "Trained professionals",
+        "Background-checked",
+        "Temporary or permanent",
+        "Quick placement",
+        "Quality guarantee"
+      ]
+    }
+  },
+  "about": {
+    "title": "About KeepClean",
+    "subtitle": "Your trusted cleaning partner in Montreal",
+    "description": "KeepClean is a professional cleaning company serving Montreal and surrounding areas. We pride ourselves on reliability, quality, and using eco-friendly products. Our team consists of trained, background-checked professionals committed to exceeding your expectations.",
+    "whyChooseUs": "Why Choose Us",
+    "values": [
+      {
+        "title": "Reliability",
+        "description": "On-time service you can count on, every time."
+      },
+      {
+        "title": "Trained Staff",
+        "description": "All team members are professionally trained and background-checked."
+      },
+      {
+        "title": "Eco-Friendly",
+        "description": "We use environmentally safe cleaning products that are effective and safe."
+      },
+      {
+        "title": "Quality Guarantee",
+        "description": "100% satisfaction guarantee on all our services."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "items": [
+      {
+        "name": "Marie Dupont",
+        "text": "Excellent service! The team is always punctual and thorough. My apartment has never looked better.",
+        "service": "Residential Cleaning"
+      },
+      {
+        "name": "John Smith",
+        "text": "We've been using KeepClean for our office for over a year. Professional, reliable, and great value.",
+        "service": "Commercial Cleaning"
+      },
+      {
+        "name": "Sophie Laurent",
+        "text": "Perfect for my Airbnb! Quick turnaround and attention to detail. My guests always comment on how clean it is.",
+        "service": "Airbnb Cleaning"
+      }
+    ]
+  },
+  "careers": {
+    "title": "Join Our Team",
+    "subtitle": "Looking for reliable, motivated cleaning professionals",
+    "description": "KeepClean is always looking for dedicated cleaning professionals to join our team. We offer competitive pay, flexible schedules, and a supportive work environment.",
+    "benefits": "Benefits",
+    "benefitsList": [
+      "Competitive hourly rates",
+      "Flexible scheduling",
+      "Professional training provided",
+      "Supportive team environment",
+      "Growth opportunities"
+    ],
+    "requirements": "Requirements",
+    "requirementsList": [
+      "Reliable and punctual",
+      "Attention to detail",
+      "Physical ability to perform cleaning tasks",
+      "Valid ID and references",
+      "Legal right to work in Canada"
+    ],
+    "form": {
+      "title": "Apply Now",
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "experience": "Previous Experience",
+      "availability": "Availability",
+      "message": "Tell us about yourself",
+      "submit": "Submit Application",
+      "success": "Application submitted successfully! We'll contact you soon.",
+      "error": "Error submitting application. Please try again."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch for a free quote",
+    "info": "Contact Information",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Business Hours",
+    "hoursValue": "Monday - Friday: 8am - 6pm<br/>Saturday: 9am - 4pm<br/>Sunday: Closed",
+    "serviceArea": "Service Area",
+    "serviceAreaValue": "Montreal and surrounding areas",
+    "form": {
+      "title": "Request a Quote",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "serviceType": "Service Type",
+      "selectService": "Select a service",
+      "residential": "Residential Cleaning",
+      "commercial": "Commercial Cleaning",
+      "airbnb": "Airbnb Cleaning",
+      "staffing": "Staffing",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent successfully! We'll contact you within 24 hours.",
+      "error": "Error sending message. Please try again or call us directly."
+    }
+  },
+  "footer": {
+    "description": "Professional cleaning services in Montreal. Reliable, eco-friendly, and trusted by hundreds of satisfied clients.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "followUs": "Follow Us",
+    "rights": "© 2026 KeepClean. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getQuote": "Get a Quote",
+    "contactUs": "Contact Us",
+    "readMore": "Read More",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "meta": {
+    "home": {
+      "title": "KeepClean - Professional Cleaning Services in Montreal",
+      "description": "Professional residential, commercial, and Airbnb cleaning services in Montreal. Eco-friendly products, trained staff, and reliable service."
+    },
+    "services": {
+      "title": "Our Cleaning Services - KeepClean Montreal",
+      "description": "Residential cleaning, commercial cleaning, Airbnb cleaning, and trained staffing services in Montreal. Get a free quote today."
+    },
+    "about": {
+      "title": "About Us - KeepClean Montreal",
+      "description": "Learn about KeepClean, your trusted cleaning partner in Montreal. Eco-friendly, reliable, and professional cleaning services."
+    },
+    "careers": {
+      "title": "Careers - Join KeepClean",
+      "description": "Join our team of professional cleaners in Montreal. Competitive pay, flexible schedules, and growth opportunities."
+    },
+    "contact": {
+      "title": "Contact Us - KeepClean Montreal",
+      "description": "Get in touch for a free quote. Professional cleaning services in Montreal and surrounding areas."
+    }
+  }
+}

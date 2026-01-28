@@ -1,0 +1,206 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À Propos",
+    "careers": "Carrières",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Services de Nettoyage Professionnels à Montréal",
+    "subtitle": "Nettoyage fiable et écologique pour votre maison, bureau ou propriété locative",
+    "cta": "Demander un Devis",
+    "ctaSecondary": "Nos Services"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Solutions de nettoyage complètes adaptées à vos besoins",
+    "residential": {
+      "title": "Nettoyage Résidentiel",
+      "description": "Gardez votre maison impeccable avec nos services de nettoyage résidentiel de confiance. Personnel vérifié utilisant des produits écologiques.",
+      "features": [
+        "Nettoyage régulier ou ponctuel",
+        "Services de nettoyage en profondeur",
+        "Produits écologiques",
+        "Horaires flexibles",
+        "Personnel avec vérification des antécédents"
+      ]
+    },
+    "commercial": {
+      "title": "Nettoyage Commercial",
+      "description": "Nettoyage professionnel pour bureaux, commerces et cliniques. Maintenez un environnement de travail propre et sain.",
+      "features": [
+        "Immeubles de bureaux",
+        "Magasins de détail",
+        "Cliniques médicales",
+        "Service après les heures",
+        "Plans de nettoyage personnalisés"
+      ]
+    },
+    "airbnb": {
+      "title": "Nettoyage Airbnb",
+      "description": "Nettoyage spécialisé pour locations à court terme. Rotation rapide entre les invités avec attention aux détails.",
+      "features": [
+        "Rotation le jour même",
+        "Service de lingerie disponible",
+        "Vérification d'inventaire",
+        "Standards prêts pour les invités",
+        "Horaires flexibles"
+      ]
+    },
+    "staffing": {
+      "title": "Personnel et Ressources Formées",
+      "description": "Besoin de personnel de nettoyage expérimenté? Nous fournissons des professionnels formés et fiables pour combler vos postes.",
+      "features": [
+        "Professionnels formés",
+        "Vérification des antécédents",
+        "Temporaire ou permanent",
+        "Placement rapide",
+        "Garantie de qualité"
+      ]
+    }
+  },
+  "about": {
+    "title": "À Propos de KeepClean",
+    "subtitle": "Votre partenaire de nettoyage de confiance à Montréal",
+    "description": "KeepClean est une entreprise de nettoyage professionnelle desservant Montréal et les environs. Nous sommes fiers de notre fiabilité, notre qualité et l'utilisation de produits écologiques. Notre équipe est composée de professionnels formés et vérifiés, engagés à dépasser vos attentes.",
+    "whyChooseUs": "Pourquoi Nous Choisir",
+    "values": [
+      {
+        "title": "Fiabilité",
+        "description": "Un service ponctuel sur lequel vous pouvez compter, à chaque fois."
+      },
+      {
+        "title": "Personnel Formé",
+        "description": "Tous les membres de l'équipe sont professionnellement formés et vérifiés."
+      },
+      {
+        "title": "Écologique",
+        "description": "Nous utilisons des produits de nettoyage écologiques efficaces et sûrs."
+      },
+      {
+        "title": "Garantie de Qualité",
+        "description": "Garantie de satisfaction à 100% sur tous nos services."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Ce Que Disent Nos Clients",
+    "items": [
+      {
+        "name": "Marie Dupont",
+        "text": "Excellent service! L'équipe est toujours ponctuelle et minutieuse. Mon appartement n'a jamais été aussi propre.",
+        "service": "Nettoyage Résidentiel"
+      },
+      {
+        "name": "Jean Tremblay",
+        "text": "Nous utilisons KeepClean pour notre bureau depuis plus d'un an. Professionnel, fiable et excellent rapport qualité-prix.",
+        "service": "Nettoyage Commercial"
+      },
+      {
+        "name": "Sophie Laurent",
+        "text": "Parfait pour mon Airbnb! Rotation rapide et attention aux détails. Mes invités commentent toujours sur la propreté.",
+        "service": "Nettoyage Airbnb"
+      }
+    ]
+  },
+  "careers": {
+    "title": "Rejoignez Notre Équipe",
+    "subtitle": "À la recherche de professionnels de nettoyage fiables et motivés",
+    "description": "KeepClean est toujours à la recherche de professionnels de nettoyage dévoués pour rejoindre notre équipe. Nous offrons une rémunération compétitive, des horaires flexibles et un environnement de travail favorable.",
+    "benefits": "Avantages",
+    "benefitsList": [
+      "Taux horaires compétitifs",
+      "Horaires flexibles",
+      "Formation professionnelle fournie",
+      "Environnement d'équipe favorable",
+      "Opportunités de croissance"
+    ],
+    "requirements": "Exigences",
+    "requirementsList": [
+      "Fiable et ponctuel",
+      "Souci du détail",
+      "Capacité physique pour effectuer les tâches de nettoyage",
+      "Pièce d'identité valide et références",
+      "Droit légal de travailler au Canada"
+    ],
+    "form": {
+      "title": "Postuler Maintenant",
+      "fullName": "Nom Complet",
+      "email": "Courriel",
+      "phone": "Numéro de Téléphone",
+      "experience": "Expérience Antérieure",
+      "availability": "Disponibilité",
+      "message": "Parlez-nous de vous",
+      "submit": "Soumettre la Candidature",
+      "success": "Candidature soumise avec succès! Nous vous contacterons bientôt.",
+      "error": "Erreur lors de la soumission. Veuillez réessayer."
+    }
+  },
+  "contact": {
+    "title": "Contactez-Nous",
+    "subtitle": "Contactez-nous pour un devis gratuit",
+    "info": "Coordonnées",
+    "phone": "Téléphone",
+    "email": "Courriel",
+    "hours": "Heures d'Ouverture",
+    "hoursValue": "Lundi - Vendredi: 8h - 18h<br/>Samedi: 9h - 16h<br/>Dimanche: Fermé",
+    "serviceArea": "Zone de Service",
+    "serviceAreaValue": "Montréal et environs",
+    "form": {
+      "title": "Demander un Devis",
+      "name": "Nom",
+      "email": "Courriel",
+      "phone": "Téléphone",
+      "serviceType": "Type de Service",
+      "selectService": "Sélectionnez un service",
+      "residential": "Nettoyage Résidentiel",
+      "commercial": "Nettoyage Commercial",
+      "airbnb": "Nettoyage Airbnb",
+      "staffing": "Personnel",
+      "message": "Message",
+      "submit": "Envoyer le Message",
+      "success": "Message envoyé avec succès! Nous vous contacterons dans les 24 heures.",
+      "error": "Erreur lors de l'envoi. Veuillez réessayer ou nous appeler directement."
+    }
+  },
+  "footer": {
+    "description": "Services de nettoyage professionnels à Montréal. Fiable, écologique et approuvé par des centaines de clients satisfaits.",
+    "quickLinks": "Liens Rapides",
+    "services": "Services",
+    "followUs": "Suivez-Nous",
+    "rights": "© 2026 KeepClean. Tous droits réservés.",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation"
+  },
+  "common": {
+    "learnMore": "En Savoir Plus",
+    "getQuote": "Demander un Devis",
+    "contactUs": "Contactez-Nous",
+    "readMore": "Lire la Suite",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite"
+  },
+  "meta": {
+    "home": {
+      "title": "KeepClean - Services de Nettoyage Professionnels à Montréal",
+      "description": "Services de nettoyage résidentiel, commercial et Airbnb professionnels à Montréal. Produits écologiques, personnel formé et service fiable."
+    },
+    "services": {
+      "title": "Nos Services de Nettoyage - KeepClean Montréal",
+      "description": "Services de nettoyage résidentiel, commercial, Airbnb et personnel formé à Montréal. Obtenez un devis gratuit aujourd'hui."
+    },
+    "about": {
+      "title": "À Propos - KeepClean Montréal",
+      "description": "Découvrez KeepClean, votre partenaire de nettoyage de confiance à Montréal. Services écologiques, fiables et professionnels."
+    },
+    "careers": {
+      "title": "Carrières - Rejoignez KeepClean",
+      "description": "Rejoignez notre équipe de nettoyeurs professionnels à Montréal. Salaire compétitif, horaires flexibles et opportunités de croissance."
+    },
+    "contact": {
+      "title": "Contactez-Nous - KeepClean Montréal",
+      "description": "Contactez-nous pour un devis gratuit. Services de nettoyage professionnels à Montréal et environs."
+    }
+  }
+}
