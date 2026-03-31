@@ -1,0 +1,319 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "faq": "FAQ",
+    "careers": "Careers",
+    "contact": "Contact"
+  },
+  "topBar": {
+    "callText": "Get your free quote online",
+    "callTextLine2": "or contact us for any questions at",
+    "phone": "+1 (514) 431-9741",
+    "reserveBtn": "Reserve Online Now",
+    "slides": [
+      {
+        "text": "Enjoy 20% off on your first quote request",
+        "durationMs": 6000
+      },
+      {
+        "text": "Free quote in less than 2 minutes",
+        "durationMs": 2500
+      },
+      {
+        "text": "Professional, fast and reliable cleaning",
+        "durationMs": 2500
+      }
+    ]
+  },
+  "hero": {
+    "title": "Your expert in residential and commercial cleaning",
+    "subtitle": "Serving Montreal, Laval, North Shore and South Shore",
+    "cta": "Get a Quote",
+    "ctaSecondary": "Our Services"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive cleaning solutions tailored to your needs",
+    "residential": {
+      "title": "Regular residential cleaning",
+      "description": "Give your home impeccable cleanliness with a reliable, discreet service tailored to your needs, including maintenance of exterior surfaces (except the inside of the microwave).",
+      "features": [
+        "Regular maintenance (weekly, biweekly, monthly, or one-time)",
+        "Deep cleaning (complete in-depth cleaning)",
+        "Before / after moving",
+        "Flexible scheduling",
+        "Reliable and verified staff"
+      ]
+    },
+    "commercial": {
+      "title": "Commercial Cleaning",
+      "description": "Give your professional spaces a clean, healthy and spotless environment with tailored cleaning services, adapted to the requirements of your industry.",
+      "features": [
+        "Administrative offices and corporate spaces",
+        "Restaurants, retail stores and boutiques",
+        "Supermarkets and large surfaces (IGA, Pharmaprix, etc.)",
+        "Medical, dental and professional clinics",
+        "After-hours maintenance",
+        "Customized cleaning programs tailored to your needs"
+      ]
+    },
+    "airbnb": {
+      "title": "Deep cleaning",
+      "description": "Give your space a complete and thorough cleaning with a professional, meticulous, and premium service, including interior and exterior surface care, cleaning of hard-to-reach areas, and detailed treatment of each room. All our services are fully customizable based on your needs and the specifics of your space. Certain conditions may apply depending on the level of maintenance required.",
+      "features": [
+        "All regular cleaning",
+        "Interior and exterior of refrigerator and freezer",
+        "Interior cleaning of cabinets and drawers",
+        "High areas (tops of cabinets, light fixtures, vents)",
+        "Interior window cleaning",
+        "Cleaning of doors, frames, and moldings",
+        "Cleaning of baseboards and ledges",
+        "Wall stains, handles, and switches",
+        "Degreasing kitchen surfaces (cooking areas)",
+        "Deep bathroom cleaning (grout, limescale, marks)",
+        "Washing and folding sheets and clothes",
+        "Interior and exterior cleaning of garbage and recycling bins",
+        "Taking out garbage and recycling"
+      ]
+    },
+    "airbnbCleaning": {
+      "title": "Airbnb cleaning",
+      "description": "Service designed for short-term rentals, with fast and meticulous turnover cleaning between guests.",
+      "features": [
+        "Full reset between bookings",
+        "Kitchen, bathroom, and common area cleaning",
+        "Detailed dusting of surfaces and furniture",
+        "Vacuuming and floor washing",
+        "Final quality check before check-in"
+      ]
+    },
+    "staffing": {
+      "title": "Dedicated maintenance staff",
+      "description": "Need experienced cleaning staff? We provide trained, reliable housekeeping professionals to fill your positions.",
+      "features": [
+        "Trained professionals",
+        "Temporary or permanent",
+        "Quick placement",
+        "Quality guarantee"
+      ]
+    },
+    "moveRenovation": {
+      "title": "Post-construction and move-out cleaning",
+      "description": "A specialized service designed to restore your spaces to an impeccable condition after moving or construction work. Our teams work with precision to remove residue, dust, and marks left behind by the work, so you can enjoy a clean, healthy space ready for occupancy.",
+      "features": [
+        "Complete removal of construction dust (walls, ceilings, surfaces)",
+        "Deep cleaning of surfaces, corners, and hard-to-reach areas",
+        "Full washing of floors, baseboards, and stairs",
+        "Interior cleaning of cabinets, drawers, and storage spaces",
+        "Cleaning of doors, handles, switches, and frames",
+        "Detailed finishing for a move-in-ready space",
+        "Final inspection to ensure an impeccable result"
+      ]
+    }
+  },
+  "about": {
+    "title": "About Mr Clean+",
+    "subtitle": "Your trusted cleaning partner in Montreal",
+    "description": "Mr Clean+ is a professional cleaning company serving Montreal, Laval, the North Shore and the South Shore. We offer reliable services tailored to residential and commercial needs. Our team consists of trained, rigorous and trustworthy professionals committed to delivering consistent, high-quality results at every visit.",
+    "companyDescription": "Provides professional cleaning services for residential and commercial sectors, with a rigorous, reliable and client-focused approach. Our qualified team ensures a clean, healthy and spotless environment through effective methods and professional products adapted to each surface, while guaranteeing consistent, high-quality service in Montreal, Laval, on the North Shore and South Shore.",
+    "whyChooseUs": "Why Choose Us",
+    "values": [
+      {
+        "title": "Reliability",
+        "description": "Punctual presence and consistent service at every visit."
+      },
+      {
+        "title": "Trained Staff",
+        "description": "Qualified, supervised and trustworthy team."
+      },
+      {
+        "title": "Quality Guarantee",
+        "description": "If any detail doesn't meet your expectations, we correct it promptly."
+      },
+      {
+        "title": "Total Flexibility",
+        "description": "Services adapted to your schedule, including outside business hours."
+      }
+    ],
+    "proofItems": [
+      "+100 jobs completed",
+      "99% satisfied clients",
+      "Reliable and punctual service"
+    ],
+    "engagementTitle": "Our Commitment",
+    "engagementText": "At Mr Clean+, every job is done with care, precision and discretion. We respect your spaces and your schedule, and we make sure the results always meet your expectations.",
+    "ctaTitle": "Request your free quote today",
+    "ctaButton": "Get a Quote"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "items": [
+      {
+        "name": "Marie Dupont",
+        "text": "Excellent service! The team is always punctual and thorough. My apartment has never looked better.",
+        "service": "Residential Cleaning"
+      },
+      {
+        "name": "John Smith",
+        "text": "We've been using Mr Clean+ for our office for over a year. Professional, reliable, and great value.",
+        "service": "Commercial Cleaning"
+      },
+      {
+        "name": "Giulia Bianchi",
+        "text": "Excellent service for my residential cleaning and deep cleaning. Fast team, great attention to detail, and spotless results.",
+        "service": "Residential and Deep Cleaning"
+      }
+    ]
+  },
+  "careers": {
+    "title": "Join Our Team",
+    "subtitle": "Looking for reliable, motivated cleaning professionals",
+    "description": "Mr Clean+ is always looking for dedicated cleaning professionals to join our team. We offer competitive pay, flexible schedules, and a supportive work environment.",
+    "benefits": "Benefits",
+    "benefitsList": [
+      "Competitive hourly rates",
+      "Flexible scheduling",
+      "Professional training provided",
+      "Supportive team environment",
+      "Growth opportunities"
+    ],
+    "requirements": "Requirements",
+    "requirementsList": [
+      "Reliable and punctual",
+      "Attention to detail",
+      "Physical ability to perform cleaning tasks",
+      "Valid ID and references",
+      "Legal right to work in Canada"
+    ],
+    "form": {
+      "title": "Apply Now",
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "experience": "Previous Experience",
+      "availability": "Availability",
+      "message": "Tell us about yourself",
+      "submit": "Submit Application",
+      "success": "Application submitted successfully! We'll contact you soon.",
+      "error": "Error submitting application. Please try again."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch for a free quote",
+    "info": "Contact Information",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Business Hours",
+    "hoursValue": "Monday - Friday: 8am - 6pm<br/>Saturday: 9am - 4pm<br/>Sunday: Closed",
+    "serviceArea": "Service Area",
+    "serviceAreaValue": "Montreal, Laval, North Shore and South Shore",
+    "form": {
+      "title": "Send us a message",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "serviceType": "Service Type",
+      "selectService": "Select a service",
+      "residential": "Regular residential cleaning",
+      "commercial": "Commercial Cleaning",
+      "airbnb": "Deep cleaning",
+      "airbnbCleaning": "Airbnb cleaning",
+      "staffing": "Dedicated maintenance staff",
+      "moveRenovation": "Post-construction and move-out cleaning",
+      "message": "Message",
+      "submit": "Send Message",
+      "success": "Message sent successfully! We'll contact you within 24 hours.",
+      "error": "Error sending message. Please try again or call us directly."
+    }
+  },
+  "faq": {
+    "title": "FAQ - Frequently Asked Questions",
+    "subtitle": "Here are the most common questions about our cleaning services.",
+    "ctaTitle": "Need a more specific answer?",
+    "ctaText": "Our team can guide you based on your residential or commercial needs.",
+    "items": [
+      {
+        "question": "How are your prices calculated?",
+        "answer": "Our prices are based on the size of the space, the type of service, and the level of cleaning required. We provide a clear, free, no-obligation quote based on your availability before any intervention."
+      },
+      {
+        "question": "What is regular cleaning?",
+        "answer": "Regular cleaning is a recurring maintenance service for your home or business, performed at the frequency of your choice (weekly, biweekly, monthly, or one-time). It includes cleaning essential areas such as the kitchen, bathroom, living room, and bedrooms, including dusting, surface care, vacuuming, and floor washing. This service is ideal to maintain a clean, healthy, and consistently well-kept environment based on your needs."
+      },
+      {
+        "question": "What is included in a deep cleaning?",
+        "answer": "Deep cleaning includes more detailed work on surfaces, harder-to-reach areas, and rooms that require extra time. The exact scope is confirmed with you before the visit."
+      },
+      {
+        "question": "Do you provide commercial cleaning for businesses and retail locations?",
+        "answer": "Yes. We provide commercial cleaning services adapted to large spaces (IGA, Pharmaprix, supermarkets, etc.) as well as small and medium spaces such as offices, restaurants, retail stores, and other establishments. Our interventions are flexible and adjusted to your schedule so your operations are not disrupted. Services can also be performed outside business hours, based on your needs."
+      },
+      {
+        "question": "Do you bring your own products and equipment?",
+        "answer": "Yes. Our team arrives with the required tools and products. If you prefer eco-friendly products or specific supplies, we can adapt."
+      },
+      {
+        "question": "Do I need to be home during the cleaning?",
+        "answer": "It is not required. Many clients provide us with secure access to their home or workplace with confidence. We apply reliable procedures to ensure the security of your premises, and we agree together on the most practical option based on your preferences."
+      },
+      {
+        "question": "Can I reschedule or cancel an appointment?",
+        "answer": "Yes, appointments can be rescheduled or canceled with advance notice. This helps us reorganize scheduling efficiently."
+      },
+      {
+        "question": "Do you serve Montreal and nearby areas?",
+        "answer": "Yes. We serve Montreal, Laval, the North Shore, and the South Shore for both residential and commercial cleaning."
+      },
+      {
+        "question": "What if I am not satisfied with the result?",
+        "answer": "Your satisfaction matters. Contact us quickly and we will review the situation and provide a fair, prompt solution."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Professional and reliable cleaning services offered in Montreal, Laval, on the North Shore, and on the South Shore. Customer satisfaction is at the heart of our commitment.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "followUs": "Follow Us",
+    "rights": "© 2026 Mr Clean+. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getQuote": "Get a Quote",
+    "contactUs": "Contact Us",
+    "readMore": "Read More",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "meta": {
+    "home": {
+      "title": "Mr Clean+ - Professional Cleaning Services in Montreal",
+      "description": "Professional residential, commercial, and Airbnb cleaning services in Montreal. Eco-friendly products, trained staff, and reliable service."
+    },
+    "services": {
+      "title": "Our Cleaning Services - Mr Clean+ Montreal",
+      "description": "Residential cleaning, commercial cleaning, Airbnb cleaning, and trained staffing services in Montreal. Get a free quote today."
+    },
+    "about": {
+      "title": "About Us - Mr Clean+ Montreal",
+      "description": "Learn about Mr Clean+, your trusted cleaning partner in Montreal. Eco-friendly, reliable, and professional cleaning services."
+    },
+    "careers": {
+      "title": "Careers - Join Mr Clean+",
+      "description": "Join our team of professional cleaners in Montreal. Competitive pay, flexible schedules, and growth opportunities."
+    },
+    "contact": {
+      "title": "Contact Us - Mr Clean+ Montreal",
+      "description": "Get in touch for a free quote. Professional cleaning services in Montreal and surrounding areas."
+    },
+    "faq": {
+      "title": "FAQ - Mr Clean+ Montreal",
+      "description": "Find answers to common questions about our residential and commercial cleaning services."
+    }
+  }
+}
