@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   title: 'Mr Clean+',
   description: 'Professional cleaning services in Montreal',
   icons: {
-    icon: '/logo.svg',
-    shortcut: '/logo.svg',
-    apple: '/logo.svg',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 };
 
