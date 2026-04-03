@@ -273,7 +273,7 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
                 {dict.services.moveRenovation.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3 text-gray-700 mc-service-detail-list-item">
                     <span className="text-primary-600 font-bold mt-1">•</span>
-                    <span>{feature}</span>
+                    <span>&nbsp;{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -311,7 +311,7 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
                 {dict.services.airbnbCleaning.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3 text-gray-700 mc-service-detail-list-item">
                     <span className="text-primary-600 font-bold mt-1">•</span>
-                    <span>{feature}</span>
+                    <span>&nbsp;{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -349,7 +349,7 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
                 {dict.services.staffing.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3 text-gray-700 mc-service-detail-list-item">
                     <span className="text-primary-600 font-bold mt-1">•</span>
-                    <span>{feature}</span>
+                    <span>&nbsp;{feature}</span>
                   </li>
                 ))}
               </ul>
