@@ -2,10 +2,10 @@
   "nav": {
     "home": "Accueil",
     "services": "Services",
-    "about": "À Propos",
+    "about": "À propos",
     "faq": "FAQ",
     "careers": "Carrières",
-    "contact": "Contactez-Nous"
+    "contact": "Contactez-nous"
   },
   "topBar": {
     "callText": "Obtenez votre soumission gratuite en ligne",
@@ -14,11 +14,11 @@
     "reserveBtn": "Réservez En Ligne Maintenant",
     "slides": [
       {
-        "text": "Profitez de 20% lors de votre premiere soumission",
+        "text": "Profitez de 20% de rabais sur votre premier nettoyage",
         "durationMs": 6000
       },
       {
-        "text": "Soumission gratuite en moins de 2 minutes",
+        "text": "Remplissez le formulaire en moins de 2 minutes",
         "durationMs": 2500
       },
       {
@@ -34,11 +34,11 @@
     "ctaSecondary": "Nos Services"
   },
   "services": {
-    "title": "Nos Services",
+    "title": "Nos services",
     "subtitle": "Solutions de nettoyage complètes adaptées à vos besoins",
     "residential": {
       "title": "Nettoyage résidentiel régulier",
-      "description": "Offrez à votre maison une propreté impeccable grâce à un service fiable, discret et adapté à vos besoins, incluant l’entretien des surfaces extérieures (à l’exception de l’intérieur du micro-ondes).",
+      "description": "Offrez à votre maison une propreté impeccable grâce à un service fiable, discret et adapté à vos besoins, incluant l'entretien des surfaces extérieures ainsi que le nettoyage des planchers (aspirateur et lavage).",
       "features": [
         "Entretien régulier (hebdomadaire, bihebdomadaire, mensuel ou ponctuel)",
         "Grand ménage (nettoyage en profondeur complet)",
@@ -48,7 +48,7 @@
       ]
     },
     "commercial": {
-      "title": "Nettoyage Commercial",
+      "title": "Nettoyage commercial",
       "description": "Offrez à vos espaces professionnels un environnement propre, sain et irréprochable grâce à des services de nettoyage sur mesure, adaptés aux exigences de votre secteur d'activité.",
       "features": [
         "Bureaux administratifs et espaces corporatifs",
@@ -78,7 +78,7 @@
       ]
     },
     "airbnbCleaning": {
-      "title": "Nettoyage Airbnb",
+      "title": "Nettoyage airbnb",
       "description": "Service conçu pour les locations courte durée, avec remise en état rapide et soignée entre chaque séjour.",
       "features": [
         "Remise à neuf entre deux réservations",
@@ -113,11 +113,11 @@
     }
   },
   "about": {
-    "title": "À Propos de Mr Clean+",
+    "title": "À propos de Mr Clean+",
     "subtitle": "Votre partenaire de nettoyage de confiance à Montréal",
     "description": "Mr Clean+ est une entreprise de nettoyage professionnelle desservant Montréal, Laval, la Rive-Nord et la Rive-Sud. Nous offrons des services fiables et adaptés aux besoins résidentiels et commerciaux. Notre équipe est composée de professionnels formés, rigoureux et dignes de confiance, engagés à fournir un résultat constant et de haute qualité à chaque intervention.",
     "companyDescription": "Offre des services de nettoyage professionnels pour les secteurs résidentiel et commercial, avec une approche rigoureuse, fiable et adaptée à chaque client. Notre équipe qualifiée assure un environnement propre, sain et impeccable grâce à des méthodes efficaces et des produits professionnels adaptés à chaque surface, tout en garantissant un service constant et de haute qualité à Montréal, Laval, sur la Rive-Nord et la Rive-Sud.",
-    "whyChooseUs": "Pourquoi Nous Choisir",
+    "whyChooseUs": "Pourquoi nous choisir",
     "values": [
       {
         "title": "Fiabilité",
@@ -129,7 +129,7 @@
       },
       {
         "title": "Qualité garantie",
-        "description": "Si un détail ne vous convient pas, nous corrigeons rapidement."
+        "description": "Service irréprochable avec correction rapide sans frais si nécessaire."
       },
       {
         "title": "Flexibilité totale",
@@ -147,27 +147,32 @@
     "ctaButton": "Obtenir une soumission"
   },
   "testimonials": {
-    "title": "Ce Que Disent Nos Clients",
+    "title": "Ce que disent nos clients",
     "items": [
       {
         "name": "Marie Dupont",
-        "text": "Excellent service! L'équipe est toujours ponctuelle et minutieuse. Mon appartement n'a jamais été aussi propre.",
+        "stars": 5,
+        "text": "Honnêtement un super service et une équipe ponctuelle et vraiment minutieuse. Ça m'enlève un poids sur les épaules!",
         "service": "Nettoyage résidentiel régulier"
       },
       {
-        "name": "Jean Tremblay",
-        "text": "Nous utilisons Mr Clean+ pour notre bureau depuis plus d'un an. Professionnel, fiable et excellent rapport qualité-prix.",
+        "name": "Jean Charbonneau",
+        "stars": 4,
+        "starsEmpty": 1,
+        "starsEmpty": 1,
+        "text": "Bonne qualité-prix. Ben content d'être passé à vous pour le ménage du bureau. C'est toujours propre.",
         "service": "Nettoyage Commercial"
       },
       {
         "name": "Giulia Bianchi",
-        "text": "Excellent service pour mon entretien résidentiel et mon grand ménage. Équipe rapide, attentive aux détails et résultat impeccable.",
+        "stars": 5,
+        "text": "Bonsoir ! Je suis très satisfaite de l’entretien que vous avez fait. Tout reluit…✨ Merci beaucoup",
         "service": "Grand ménage"
       }
     ]
   },
   "careers": {
-    "title": "Rejoignez Notre Équipe",
+    "title": "Rejoignez notre équipe",
     "subtitle": "À la recherche de professionnels de nettoyage fiables et motivés",
     "description": "Mr Clean+ est toujours à la recherche de professionnels de nettoyage dévoués pour rejoindre notre équipe. Nous offrons une rémunération compétitive, des horaires flexibles et un environnement de travail favorable.",
     "benefits": "Avantages",
@@ -200,7 +205,7 @@
     }
   },
   "contact": {
-    "title": "Contactez-Nous",
+    "title": "Contactez-nous",
     "subtitle": "Contactez-nous pour un devis gratuit",
     "info": "Coordonnées",
     "phone": "Téléphone",
@@ -274,16 +279,16 @@
   },
   "footer": {
     "description": "Des services de nettoyage professionnels et fiables, offerts à Montréal, Laval, sur la Rive-Nord et la Rive-Sud. La satisfaction de nos clients est au cœur de notre engagement.",
-    "quickLinks": "Liens Rapides",
+    "quickLinks": "Liens rapides",
     "services": "Services",
-    "followUs": "Suivez-Nous",
+    "followUs": "Suivez-nous",
     "rights": "© 2026 Mr Clean+. Tous droits réservés.",
     "privacy": "Politique de Confidentialité",
     "terms": "Conditions d'Utilisation"
   },
   "common": {
-    "learnMore": "En Savoir Plus",
-    "getQuote": "Demander un Devis",
+    "learnMore": "En savoir plus",
+    "getQuote": "Demander une soumission",
     "contactUs": "Contactez-Nous",
     "readMore": "Lire la Suite",
     "loading": "Chargement...",

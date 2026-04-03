@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
 
-type FaqItem = {
+type FAQItem = {
   question: string;
   answer: string;
 };
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: { lang: Locale } })
   };
 }
 
-export default async function FaqPage({ params }: { params: { lang: Locale } }) {
+export default async function FAQPage({ params }: { params: { lang: Locale } }) {
   const dict = await getDictionary(params.lang);
   const faqItems = dict.faq.items as FaqItem[];
   const isFr = params.lang === 'fr';

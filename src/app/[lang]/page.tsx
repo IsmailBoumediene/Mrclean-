@@ -9,7 +9,7 @@ import TestimonialCard from '@/components/TestimonialCard';
 import { FaHome, FaBuilding, FaUsers, FaArrowRight, FaSoap, FaTruckMoving, FaKey } from 'react-icons/fa';
 import residentialBg from '@/images/Residentiel.png';
 import commercialBg from '@/images/Commercial.png';
-import deepCleaningBg from '@/images/Grand-menage.png';
+import deepCleaningBg from '@/images/Grand-menage-new.jpg';
 import staffingBg from '@/images/Personnage.png';
 import afterConstructionBg from '@/images/Apres construction.png';
 import airbnbBg from '@/images/airbnb.png';

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import residentialBg from '@/images/Residentiel.png';
 import commercialBg from '@/images/Commercial.png';
-import deepCleaningBg from '@/images/Grand-menage.png';
+import deepCleaningBg from '@/images/Grand-menage-new.jpg';
 import airbnbBg from '@/images/airbnb.png';
 import staffingBg from '@/images/Personnage.png';
 import afterConstructionBg from '@/images/Apres construction.png';
@@ -28,7 +28,6 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
       items: [
         'Comptoirs',
         'Tables',
-        'Table de salle à manger',
         'Éviers de cuisine',
         'Meubles (extérieur)',
         'Électroménagers (extérieur)',
@@ -43,14 +42,14 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
         'Toilettes + pied de toilette',
         'Miroirs',
         'Comptoir',
-        'Lavabo (extérieur des armoires)',
+        'Lavabo et surface du meuble',
       ],
     },
     {
       heading: 'Salon et chambres',
       items: [
-        'Meubles (épousseter)',
-        'Bureaux (épousseter)',
+        'Meubles (époussetage)',
+        'Bureaux (époussetage)',
         'Miroirs',
         'Plinthes',
       ],
@@ -60,8 +59,8 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
       items: [
         'Préparation des lits',
         'Nettoyage intérieur du four',
-        'Nettoyage intérieur du réfrigérateur',
-        'Nettoyage intérieur des armoires de cuisine',
+        'Nettoyage du réfrigérateur',
+        'Nettoyage des armoires de cuisine',
       ],
     },
   ] : [
@@ -102,8 +101,8 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
       items: [
         'Bed preparation',
         'Interior oven cleaning',
-        'Interior refrigerator cleaning',
-        'Interior kitchen cabinet cleaning',
+        'Refrigerator cleaning',
+        'Kitchen cabinet cleaning',
       ],
     },
   ];
@@ -144,15 +143,7 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
                 {isFr ? 'MÉNAGE RÉGULIER' : 'REGULAR CLEANING'}
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed mc-service-detail-description">
-                {isFr ? (
-                  <>
-                    MÉNAGE RÉGULIER : Offrez à votre maison une propreté impeccable grâce à un service fiable, discret et <strong>adapté à vos besoins,</strong> incluant l&apos;entretien des surfaces extérieures <strong>(à l&apos;exception de l&apos;intérieur du micro-ondes)</strong> ainsi que le nettoyage des planchers <strong>(aspirateur et lavage)</strong>.
-                  </>
-                ) : (
-                  <>
-                    REGULAR CLEANING: Give your home impeccable cleanliness with a reliable, discreet service <strong>tailored to your needs,</strong> including the maintenance of exterior surfaces <strong>(except the interior of the microwave)</strong> as well as floor cleaning <strong>(vacuuming and washing)</strong>.
-                  </>
-                )}
+                {dict.services.residential.description}
               </p>
               <h3 className="text-xl font-semibold text-gray-900 mb-4 mc-service-detail-subtitle">
                 {isFr ? 'Ce qui est inclus :' : 'What\'s included:'}
@@ -165,7 +156,7 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
                       {section.items.map((item) => (
                         <li key={item} className="flex items-start gap-3 text-gray-700 mc-service-detail-list-item">
                           <span className="text-primary-600 font-bold mt-1">•</span>
-                          <span>{item}</span>
+                          <span>&nbsp;{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -206,7 +197,7 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
                 {dict.services.airbnb.features.map((item, index) => (
                   <li key={index} className="flex items-start gap-3 text-gray-700 mc-service-detail-list-item">
                     <span className="text-primary-600 font-bold mt-1">•</span>
-                    <span className={isFr && index === 0 ? 'font-bold underline underline-offset-4 decoration-2' : ''}>{item}</span>
+                    <span className={isFr && index === 0 ? 'font-bold underline underline-offset-4 decoration-2' : ''}>&nbsp;{item}</span>
                   </li>
                 ))}
               </ul>
@@ -244,7 +235,7 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
                 {dict.services.commercial.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3 text-gray-700 mc-service-detail-list-item">
                     <span className="text-primary-600 font-bold mt-1">•</span>
-                    <span>{feature}</span>
+                    <span>&nbsp;{feature}</span>
                   </li>
                 ))}
               </ul>

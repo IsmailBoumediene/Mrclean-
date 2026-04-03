@@ -14,11 +14,11 @@
     "reserveBtn": "Reserve Online Now",
     "slides": [
       {
-        "text": "Enjoy 20% off on your first quote request",
+        "text": "Enjoy 20% off your first cleaning",
         "durationMs": 6000
       },
       {
-        "text": "Free quote in less than 2 minutes",
+        "text": "Fill out the form in under 2 minutes",
         "durationMs": 2500
       },
       {
@@ -38,7 +38,7 @@
     "subtitle": "Comprehensive cleaning solutions tailored to your needs",
     "residential": {
       "title": "Regular residential cleaning",
-      "description": "Give your home impeccable cleanliness with a reliable, discreet service tailored to your needs, including maintenance of exterior surfaces (except the inside of the microwave).",
+      "description": "Give your home impeccable cleanliness with a reliable and discreet service tailored to your needs, including complete surface cleaning and floor care (vacuuming and mopping).",
       "features": [
         "Regular maintenance (weekly, biweekly, monthly, or one-time)",
         "Deep cleaning (complete in-depth cleaning)",
@@ -130,7 +130,7 @@
       },
       {
         "title": "Quality Guarantee",
-        "description": "If any detail doesn't meet your expectations, we correct it promptly."
+        "description": "Impeccable service with fast corrections at no extra cost if needed."
       },
       {
         "title": "Total Flexibility",
@@ -152,18 +152,22 @@
     "items": [
       {
         "name": "Marie Dupont",
-        "text": "Excellent service! The team is always punctual and thorough. My apartment has never looked better.",
+        "stars": 5,
+        "text": "Honnêtement un super service et une équipe ponctuelle et vraiment minutieuse. Ça m'enlève un poids sur les épaules!",
         "service": "Residential Cleaning"
       },
       {
-        "name": "John Smith",
-        "text": "We've been using Mr Clean+ for our office for over a year. Professional, reliable, and great value.",
+        "name": "Jean Charbonneau",
+        "stars": 4,
+        "starsEmpty": 1,
+        "text": "Bonne qualité-prix. Ben content d'être passé à vous pour le ménage du bureau. C'est toujours propre.",
         "service": "Commercial Cleaning"
       },
       {
         "name": "Giulia Bianchi",
-        "text": "Excellent service for my residential cleaning and deep cleaning. Fast team, great attention to detail, and spotless results.",
-        "service": "Residential and Deep Cleaning"
+        "stars": 5,
+        "text": "Bonsoir ! Je suis très satisfaite de l’entretien que vous avez fait. Tout reluit…✨ Merci beaucoup",
+        "service": "Deep cleaning"
       }
     ]
   },
