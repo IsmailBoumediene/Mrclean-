@@ -47,7 +47,7 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dictionary 
               </div>
               <div className="mc-footer-contact-item">
                 <FaMapMarkerAlt className="mc-footer-icon" />
-                <span>315 René-Lévesque Est H2X 3P3, Montréal QC, Canada</span>
+                <span>{dict.contact?.address || "315 Bd René-Lévesque E, Montréal, QC H2X 3P3 bureau 1605"}</span>
               </div>
             </div>
           </div>
