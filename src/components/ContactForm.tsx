@@ -33,15 +33,32 @@ export default function ContactForm({ dict }: { dict: ContactFormDict }) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formState);
-      setStatus('success');
-      setFormState({ name: '', email: '', phone: '', serviceType: '', message: '' });
-      
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1000);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          phone: formState.phone,
+          message: formState.message,
+        }),
+      });
+      const data = await response.json();
+      console.log('API response:', data);
+      if (data.success) {
+        setStatus('success');
+        setFormState({ name: '', email: '', phone: '', serviceType: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('error');
+    }
   };
 
   return (

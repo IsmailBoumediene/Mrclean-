@@ -444,17 +444,39 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
         />
         <div className="mc-photo-upload-grid">
           {[0, 1, 2].map((slotIndex) => {
-            return (
-              <button
-                key={slotIndex}
-                type="button"
-                onClick={openPhotoPicker}
-                className="mc-photo-upload-trigger"
-              >
-                <span className="mc-photo-upload-plus">+</span>
-                <span className="mc-photo-upload-action">{dict.photosAction}</span>
-              </button>
-            );
+            const file = photos[slotIndex];
+            if (file) {
+              return (
+                <div key={slotIndex} className="mc-photo-upload-trigger" style={{ position: 'relative', overflow: 'hidden' }}>
+                  <img
+                    src={URL.createObjectURL(file)}
+                    alt={file.name}
+                    className="mc-photo-upload-img"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <button
+                    type="button"
+                    aria-label="Remove photo"
+                    onClick={() => setPhotos(photos.filter((_, i) => i !== slotIndex))}
+                    style={{ position: 'absolute', top: 4, right: 4, background: 'rgba(255,255,255,0.8)', border: 'none', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', fontWeight: 'bold', color: '#d00', zIndex: 2 }}
+                  >
+                    ×
+                  </button>
+                </div>
+              );
+            } else {
+              return (
+                <button
+                  key={slotIndex}
+                  type="button"
+                  onClick={openPhotoPicker}
+                  className="mc-photo-upload-trigger"
+                >
+                  <span className="mc-photo-upload-plus">+</span>
+                  <span className="mc-photo-upload-action">{dict.photosAction}</span>
+                </button>
+              );
+            }
           })}
         </div>
         {showMobilePhotoOptions && (
@@ -486,7 +508,26 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
         <p className="text-sm text-gray-500 mt-2">{dict.photosHelp}</p>
         {photosError && <p className="text-sm text-red-600 mt-1">{photosError}</p>}
         {photos.length > 0 && (
-          <p className="text-sm text-gray-700 mt-1">{photos.length}/3</p>
+          <div className="text-sm text-gray-700 mt-1">
+            <p>{photos.length}/3</p>
+            <ul>
+              {photos.map((file, idx) => (
+                <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span>{file.name}</span>
+                  <button
+                    type="button"
+                    aria-label="Remove photo"
+                    style={{ color: 'red', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 'bold' }}
+                    onClick={() => {
+                      setPhotos(photos.filter((_, i) => i !== idx));
+                    }}
+                  >
+                    ×
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
 
