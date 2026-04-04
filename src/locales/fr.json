@@ -1,4 +1,18 @@
 ﻿{
+  "meta": {
+    "about": {
+      "title": "À propos de Mr Clean+ - Services de nettoyage professionnel à Montréal",
+      "description": "Découvrez Mr Clean+, votre partenaire de confiance pour le nettoyage résidentiel et commercial à Montréal, Laval, Rive-Nord et Rive-Sud. Apprenez-en plus sur nos valeurs, notre engagement et pourquoi nos clients nous choisissent."
+    },
+    "careers": {
+      "title": "Carrières chez Mr Clean+",
+      "description": "Rejoignez l'équipe Mr Clean+ ! Découvrez nos offres d'emploi en nettoyage à Montréal, Laval, Rive-Nord et Rive-Sud. Salaire compétitif, horaires flexibles et environnement favorable."
+    },
+    "contact": {
+      "title": "Contactez Mr Clean+",
+      "description": "Contactez Mr Clean+ pour une soumission gratuite ou toute question sur nos services de nettoyage à Montréal, Laval, Rive-Nord et Rive-Sud."
+    }
+  },
   "nav": {
     "home": "Accueil",
     "services": "Services",

@@ -1,4 +1,18 @@
 {
+  "meta": {
+    "about": {
+      "title": "About Mr Clean+ - Professional Cleaning Services in Montreal",
+      "description": "Learn more about Mr Clean+, your trusted partner for residential and commercial cleaning in Montreal, Laval, North Shore, and South Shore. Discover our values, commitment, and why clients choose us."
+    },
+    "careers": {
+      "title": "Careers at Mr Clean+",
+      "description": "Join the Mr Clean+ team! Explore cleaning job opportunities in Montreal, Laval, North Shore, and South Shore. Competitive pay, flexible schedules, and a supportive environment."
+    },
+    "contact": {
+      "title": "Contact Mr Clean+",
+      "description": "Contact Mr Clean+ for a free quote or any questions about our cleaning services in Montreal, Laval, North Shore, and South Shore."
+    }
+  },
   "nav": {
     "home": "Home",
     "services": "Services",

@@ -4,6 +4,9 @@ import { i18n } from './lib/i18n/config';
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  // Skip all API routes
+  if (pathname.startsWith('/api')) return;
+
   // Check if pathname already has a locale
   const pathnameHasLocale = i18n.locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
@@ -13,7 +16,7 @@ export function middleware(request: NextRequest) {
 
   // Get locale from browser or use default
   const locale = getLocaleFromRequest(request) || i18n.defaultLocale;
-  
+
   // Redirect to locale-prefixed URL
   return NextResponse.redirect(
     new URL(`/${locale}${pathname}`, request.url)
