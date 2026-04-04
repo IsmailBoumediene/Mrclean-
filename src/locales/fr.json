@@ -1,113 +1,183 @@
-{
+﻿{
   "nav": {
     "home": "Accueil",
     "services": "Services",
-    "about": "À Propos",
+    "about": "À propos",
+    "faq": "FAQ",
     "careers": "Carrières",
-    "contact": "Contact"
+    "contact": "Contactez-nous"
+  },
+  "topBar": {
+    "callText": "Obtenez votre soumission gratuite en ligne",
+    "callTextLine2": "ou contactez-nous pour toute question au",
+    "phone": "+1 (514) 431-9741",
+    "reserveBtn": "Réservez En Ligne Maintenant",
+    "slides": [
+      {
+        "text": "Profitez de 20% de rabais sur votre premier nettoyage",
+        "durationMs": 6000
+      },
+      {
+        "text": "Remplissez le formulaire en moins de 2 minutes",
+        "durationMs": 2500
+      },
+      {
+        "text": "Service professionnel, rapide et fiable",
+        "durationMs": 2500
+      }
+    ]
   },
   "hero": {
-    "title": "Services de Nettoyage Professionnels à Montréal",
-    "subtitle": "Nettoyage fiable et écologique pour votre maison, bureau ou propriété locative",
+    "title": "Votre expert en nettoyage résidentiel et commercial",
+    "subtitle": "Partout à Montréal, Laval, Rive-Nord et Rive-Sud",
     "cta": "Demander un Devis",
-    "ctaSecondary": "Nos Services"
+    "ctaSecondary": "Nos services"
   },
   "services": {
-    "title": "Nos Services",
+    "title": "Nos services",
     "subtitle": "Solutions de nettoyage complètes adaptées à vos besoins",
     "residential": {
-      "title": "Nettoyage Résidentiel",
-      "description": "Gardez votre maison impeccable avec nos services de nettoyage résidentiel de confiance. Personnel vérifié utilisant des produits écologiques.",
+      "title": "Nettoyage résidentiel régulier",
+      "description": "Offrez à votre maison une propreté impeccable grâce à un service fiable, discret et adapté à vos besoins, incluant l'entretien des surfaces extérieures ainsi que le nettoyage des planchers (aspirateur et lavage).",
       "features": [
-        "Nettoyage régulier ou ponctuel",
-        "Services de nettoyage en profondeur",
-        "Produits écologiques",
+        "Entretien régulier (hebdomadaire, bihebdomadaire, mensuel ou ponctuel)",
+        "Grand ménage (nettoyage en profondeur complet)",
+        "Avant / après déménagement",
         "Horaires flexibles",
-        "Personnel avec vérification des antécédents"
+        "Personnel fiable et vérifié"
       ]
     },
     "commercial": {
-      "title": "Nettoyage Commercial",
-      "description": "Nettoyage professionnel pour bureaux, commerces et cliniques. Maintenez un environnement de travail propre et sain.",
+      "title": "Nettoyage commercial",
+      "description": "Offrez à vos espaces professionnels un environnement propre, sain et irréprochable grâce à des services de nettoyage sur mesure, adaptés aux exigences de votre secteur d'activité.",
       "features": [
-        "Immeubles de bureaux",
-        "Magasins de détail",
-        "Cliniques médicales",
-        "Service après les heures",
-        "Plans de nettoyage personnalisés"
+        "Bureaux administratifs et espaces corporatifs",
+        "Restaurants, commerces et boutiques",
+        "Supermarchés et grandes surfaces (IGA, Pharmaprix, etc.)",
+        "Cliniques médicales, dentaires et professionnelles",
+        "Entretien après les heures d'ouverture",
+        "Programmes de nettoyage personnalisés selon vos besoins"
       ]
     },
     "airbnb": {
-      "title": "Nettoyage Airbnb",
-      "description": "Nettoyage spécialisé pour locations à court terme. Rotation rapide entre les invités avec attention aux détails.",
+      "title": "Grand ménage",
+      "description": "Offrez à votre espace un nettoyage complet et en profondeur grâce à un service professionnel, minutieux et haut de gamme, incluant l’entretien intérieur et extérieur des surfaces, le nettoyage des zones difficiles d’accès ainsi qu’un traitement détaillé de chaque pièce. Tous nos services sont entièrement personnalisables selon vos besoins et les spécificités de votre espace. Certaines conditions peuvent s’appliquer selon le niveau d’entretien requis.",
       "features": [
-        "Rotation le jour même",
-        "Service de lingerie disponible",
-        "Vérification d'inventaire",
-        "Standards prêts pour les invités",
-        "Horaires flexibles"
+        "Tout le ménage régulier",
+        "Intérieur et extérieur du réfrigérateur et congélateur",
+        "Nettoyage intérieur des armoires et tiroirs",
+        "Hauteurs (dessus des armoires, luminaires, ventilations)",
+        "Nettoyage des vitres",
+        "Nettoyage des portes, cadres et moulures",
+        "Nettoyage des plinthes et rebords",
+        "Taches sur murs, poignées et interrupteurs",
+        "Dégraissage des surfaces de cuisine",
+        "Nettoyage en profondeur des salles de bain",
+        "Nettoyage intérieur et extérieur des poubelles et recyclage",
+        "Sortir les poubelles et recyclage"
+      ]
+    },
+    "airbnbCleaning": {
+      "title": "Nettoyage airbnb",
+      "description": "Service conçu pour les locations courte durée, avec remise en état rapide et soignée entre chaque séjour.",
+      "features": [
+        "Remise à neuf entre deux réservations",
+        "Nettoyage des cuisines, salles de bain et aires communes",
+        "Dépoussiérage complet des surfaces et mobilier",
+        "Aspiration et lavage des planchers",
+        "Contrôle final pour une présentation impeccable"
       ]
     },
     "staffing": {
-      "title": "Personnel et Ressources Formées",
-      "description": "Besoin de personnel de nettoyage expérimenté? Nous fournissons des professionnels formés et fiables pour combler vos postes.",
+      "title": "Personnel d’entretien dédié",
+      "description": "Vous recherchez du personnel de nettoyage fiable pour votre entreprise ?\nMr Clean+ vous propose une solution flexible et professionnelle en mettant à votre disposition des agents qualifiés, adaptés à vos besoins opérationnels.\n\nNous collaborons avec des entreprises, commerces et institutions pour assurer une continuité de service optimale, que ce soit pour combler un manque de personnel, soutenir une équipe existante ou externaliser complètement l’entretien.",
       "features": [
-        "Professionnels formés",
-        "Vérification des antécédents",
-        "Temporaire ou permanent",
-        "Placement rapide",
-        "Garantie de qualité"
+        "Professionnels formés, expérimentés et supervisés",
+        "Placement temporaire ou permanent selon vos besoins",
+        "Intervention rapide en cas d’urgence ou d’absence",
+        "Remplacement garanti (maladie, congé, imprévu)",
+        "Possibilité d’intégration à votre équipe existante",
+        "Sous-traitance complète de vos services d’entretien",
+        "Personnel dédié assigné à votre établissement",
+        "Suivi de qualité et service personnalisé"
+      ]
+    },
+    "moveRenovation": {
+      "title": "Nettoyage après construction et déménagement",
+      "description": "Service spécialisé visant à remettre vos espaces dans un état impeccable après un déménagement ou des travaux de construction. Nos équipes interviennent avec rigueur pour éliminer les résidus, la poussière et les traces laissées par les travaux, afin de vous offrir un environnement propre, sain et prêt à être occupé.",
+      "features": [
+        "Élimination complète de la poussière de chantier (murs, plafonds, surfaces)",
+        "Nettoyage en profondeur des surfaces, coins et zones difficiles d’accès",
+        "Lavage complet des planchers, plinthes et escaliers",
+        "Nettoyage intérieur des armoires, tiroirs et espaces de rangement",
+        "Nettoyage des portes, poignées, interrupteurs et cadrages",
+        "Finition soignée pour un espace prêt à emménager",
+        "Vérification finale pour garantir un résultat impeccable"
       ]
     }
   },
   "about": {
-    "title": "À Propos de KeepClean",
+    "title": "À propos de Mr Clean+",
     "subtitle": "Votre partenaire de nettoyage de confiance à Montréal",
-    "description": "KeepClean est une entreprise de nettoyage professionnelle desservant Montréal et les environs. Nous sommes fiers de notre fiabilité, notre qualité et l'utilisation de produits écologiques. Notre équipe est composée de professionnels formés et vérifiés, engagés à dépasser vos attentes.",
-    "whyChooseUs": "Pourquoi Nous Choisir",
+    "description": "Mr Clean+ est une entreprise de nettoyage professionnelle desservant Montréal, Laval, la Rive-Nord et la Rive-Sud. Nous offrons des services fiables et adaptés aux besoins résidentiels et commerciaux. Notre équipe est composée de professionnels formés, rigoureux et dignes de confiance, engagés à fournir un résultat constant et de haute qualité à chaque intervention.",
+    "companyDescription": "Offre des services de nettoyage professionnels pour les secteurs résidentiel et commercial, avec une approche rigoureuse, fiable et adaptée à chaque client. Notre équipe qualifiée assure un environnement propre, sain et impeccable grâce à des méthodes efficaces et des produits professionnels adaptés à chaque surface, tout en garantissant un service constant et de haute qualité à Montréal, Laval, sur la Rive-Nord et la Rive-Sud.",
+    "whyChooseUs": "Pourquoi nous choisir",
     "values": [
       {
         "title": "Fiabilité",
-        "description": "Un service ponctuel sur lequel vous pouvez compter, à chaque fois."
+        "description": "Présence ponctuelle et service constant à chaque intervention."
       },
       {
-        "title": "Personnel Formé",
-        "description": "Tous les membres de l'équipe sont professionnellement formés et vérifiés."
+        "title": "Personnel formé",
+        "description": "Équipe qualifiée, encadrée et digne de confiance."
       },
       {
-        "title": "Écologique",
-        "description": "Nous utilisons des produits de nettoyage écologiques efficaces et sûrs."
+        "title": "Qualité garantie",
+        "description": "Service irréprochable avec correction rapide sans frais si nécessaire."
       },
       {
-        "title": "Garantie de Qualité",
-        "description": "Garantie de satisfaction à 100% sur tous nos services."
+        "title": "Flexibilité totale",
+        "description": "Interventions adaptées à vos horaires, y compris en dehors des heures d'ouverture."
       }
-    ]
+    ],
+    "proofItems": [
+      "+100 interventions réalisées",
+      "99% de clientèle satisfaite",
+      "Service fiable et ponctuel"
+    ],
+    "engagementTitle": "Notre Engagement",
+    "engagementText": "Chez Mr Clean+, chaque intervention est réalisée avec soin, rigueur et discrétion. Nous respectons vos espaces et vos horaires, et nous nous assurons que le résultat soit toujours à la hauteur de vos attentes.",
+    "ctaTitle": "Demandez votre soumission gratuite dès aujourd'hui",
+    "ctaButton": "Obtenir une soumission"
   },
   "testimonials": {
-    "title": "Ce Que Disent Nos Clients",
+    "title": "Ce que disent nos clients",
     "items": [
       {
         "name": "Marie Dupont",
-        "text": "Excellent service! L'équipe est toujours ponctuelle et minutieuse. Mon appartement n'a jamais été aussi propre.",
-        "service": "Nettoyage Résidentiel"
+        "stars": 5,
+        "text": "Honnêtement un super service et une équipe ponctuelle et vraiment minutieuse. Ça m'enlève un poids sur les épaules!",
+        "service": "Nettoyage résidentiel régulier"
       },
       {
-        "name": "Jean Tremblay",
-        "text": "Nous utilisons KeepClean pour notre bureau depuis plus d'un an. Professionnel, fiable et excellent rapport qualité-prix.",
+        "name": "Jean Charbonneau",
+        "stars": 4,
+        "starsEmpty": 1,
+        "text": "Bonne qualité-prix. Ben content d'être passé à vous pour le ménage du bureau. C'est toujours propre.",
         "service": "Nettoyage Commercial"
       },
       {
-        "name": "Sophie Laurent",
-        "text": "Parfait pour mon Airbnb! Rotation rapide et attention aux détails. Mes invités commentent toujours sur la propreté.",
-        "service": "Nettoyage Airbnb"
+        "name": "Giulia Bianchi",
+        "stars": 5,
+        "text": "Bonsoir ! Je suis très satisfaite de l’entretien que vous avez fait. Tout reluit…✨ Merci beaucoup",
+        "service": "Grand ménage"
       }
     ]
   },
   "careers": {
-    "title": "Rejoignez Notre Équipe",
+    "title": "Rejoignez notre équipe",
     "subtitle": "À la recherche de professionnels de nettoyage fiables et motivés",
-    "description": "KeepClean est toujours à la recherche de professionnels de nettoyage dévoués pour rejoindre notre équipe. Nous offrons une rémunération compétitive, des horaires flexibles et un environnement de travail favorable.",
+    "description": "Mr Clean+ est toujours à la recherche de professionnels de nettoyage dévoués pour rejoindre notre équipe. Nous offrons une rémunération compétitive, des horaires flexibles et un environnement de travail favorable.",
     "benefits": "Avantages",
     "benefitsList": [
       "Taux horaires compétitifs",
@@ -138,69 +208,264 @@
     }
   },
   "contact": {
-    "title": "Contactez-Nous",
+    "title": "Contactez-nous",
     "subtitle": "Contactez-nous pour un devis gratuit",
     "info": "Coordonnées",
     "phone": "Téléphone",
     "email": "Courriel",
     "hours": "Heures d'Ouverture",
     "hoursValue": "Lundi - Vendredi: 8h - 18h<br/>Samedi: 9h - 16h<br/>Dimanche: Fermé",
+    "address": "315 Bd René-Lévesque E, Montréal, QC H2X 3P3, Bureau 1605",
     "serviceArea": "Zone de Service",
-    "serviceAreaValue": "Montréal et environs",
+    "serviceAreaValue": "Montréal, Laval, Rive-Nord et Rive-Sud",
     "form": {
-      "title": "Demander un Devis",
+      "title": "Envoyez-nous un message",
       "name": "Nom",
       "email": "Courriel",
       "phone": "Téléphone",
       "serviceType": "Type de Service",
       "selectService": "Sélectionnez un service",
-      "residential": "Nettoyage Résidentiel",
+      "residential": "Nettoyage résidentiel régulier",
       "commercial": "Nettoyage Commercial",
-      "airbnb": "Nettoyage Airbnb",
-      "staffing": "Personnel",
+      "airbnb": "Grand ménage",
+      "airbnbCleaning": "Nettoyage Airbnb",
+      "staffing": "Personnel d'entretien dédié",
+      "moveRenovation": "Nettoyage après construction et déménagement",
       "message": "Message",
       "submit": "Envoyer le Message",
       "success": "Message envoyé avec succès! Nous vous contacterons dans les 24 heures.",
       "error": "Erreur lors de l'envoi. Veuillez réessayer ou nous appeler directement."
     }
   },
+  "faq": {
+    "title": "FAQ - Foire aux questions",
+    "subtitle": "Voici les questions les plus fréquemment posées sur nos services de nettoyage.",
+    "ctaTitle": "Une question plus spécifique?",
+    "ctaText": "Notre équipe peut vous guider selon vos besoins résidentiels ou commerciaux.",
+    "items": [
+      {
+        "question": "Comment sont calculés vos tarifs?",
+        "answer": "Nos prix sont établis selon la taille du lieu, le type de service et le niveau de nettoyage requis. Nous proposons une soumission claire, gratuite et sans engagement, selon vos disponibilités, avant toute intervention."
+      },
+      {
+        "question": "Qu'est-ce qu'un ménage régulier?",
+        "answer": "Le ménage régulier est un service d'entretien récurrent de votre domicile ou de votre local, réalisé selon la fréquence de votre choix (hebdomadaire, aux deux semaines, mensuel ou ponctuel). Il comprend le nettoyage des surfaces essentielles, notamment la cuisine, la salle de bain, le salon et les chambres, incluant le dépoussiérage, l'entretien des surfaces, ainsi que l'aspirateur et le lavage des planchers. Ce service est idéal pour maintenir un environnement propre, sain et bien entretenu en continu, selon vos besoins."
+      },
+      {
+        "question": "Que comprend un grand ménage?",
+        "answer": "Le grand ménage inclut un nettoyage plus détaillé des surfaces, des zones difficiles d'accès et des pièces qui demandent plus de temps. Le contenu exact est confirmé avec vous avant la visite."
+      },
+      {
+        "question": "Faites-vous du ménage commercial pour les entreprises et commerces ?",
+        "answer": "Oui. Nous proposons des services de ménage commercial adaptés aux grandes surfaces (IGA, Pharmaprix, supermarchés, etc.), ainsi qu’aux petites et moyennes surfaces telles que les bureaux, restaurants, commerces et autres établissements. Nos interventions sont flexibles et s’ajustent à vos horaires afin de ne pas perturber vos opérations. Les interventions peuvent être réalisées en dehors des heures d’ouverture, selon vos besoins."
+      },
+      {
+        "question": "Apportez-vous vos produits et votre matériel?",
+        "answer": "Oui. Notre équipe arrive avec le matériel et les produits nécessaires. Si vous préférez des produits écologiques ou un produit précis, nous pouvons nous adapter."
+      },
+      {
+        "question": "Dois-je être présent lors du nettoyage?",
+        "answer": "Ce n’est pas obligatoire. Plusieurs clients nous confient un accès sécurisé à leur domicile ou à leur local en toute confiance. Nous mettons en place des procédures fiables pour garantir la sécurité des lieux, et nous convenons ensemble de l’option la plus pratique selon vos préférences."
+      },
+      {
+        "question": "Puis-je reprogrammer ou annuler un rendez-vous?",
+        "answer": "Oui, vous pouvez modifier ou annuler un rendez-vous en nous avisant à l'avance. Cela nous permet de réorganiser notre horaire efficacement."
+      },
+      {
+        "question": "Intervenez-vous à Montréal et dans les environs?",
+        "answer": "Oui. Nous desservons Montréal, Laval, la Rive-Nord et la Rive-Sud pour les services résidentiels et commerciaux."
+      },
+      {
+        "question": "Que faire si je ne suis pas satisfait du résultat?",
+        "answer": "Votre satisfaction est essentielle. Contactez-nous rapidement et nous évaluerons la situation afin d'apporter une solution juste et rapide."
+      }
+    ]
+  },
   "footer": {
-    "description": "Services de nettoyage professionnels à Montréal. Fiable, écologique et approuvé par des centaines de clients satisfaits.",
-    "quickLinks": "Liens Rapides",
+    "description": "Des services de nettoyage professionnels et fiables, offerts à Montréal, Laval, sur la Rive-Nord et la Rive-Sud. La satisfaction de nos clients est au cœur de notre engagement.",
+    "quickLinks": "Liens rapides",
     "services": "Services",
-    "followUs": "Suivez-Nous",
-    "rights": "© 2026 KeepClean. Tous droits réservés.",
+    "followUs": "Suivez-nous",
+    "rights": "© 2026 Mr Clean+. Tous droits réservés.",
     "privacy": "Politique de Confidentialité",
     "terms": "Conditions d'Utilisation"
   },
   "common": {
-    "learnMore": "En Savoir Plus",
-    "getQuote": "Demander un Devis",
+    "learnMore": "En savoir plus",
+    "getQuote": "Demander une soumission",
     "contactUs": "Contactez-Nous",
     "readMore": "Lire la Suite",
     "loading": "Chargement...",
     "error": "Une erreur s'est produite"
   },
+  "privacyPolicy": {
+    "title": "POLITIQUE DE CONFIDENTIALITÉ",
+    "lastUpdated": "Dernière mise à jour le 3 avril 2026",
+    "intro": "La présente politique de confidentialité pour Academy Canada (\"nous\", \"notre\" ou \"nos\") décrit comment et pourquoi nous pouvons accéder, collecter, stocker, utiliser et/ou partager (\"traiter\") vos informations personnelles lorsque vous utilisez nos services (\"Services\"), y compris lorsque vous :\n- Visitez notre site web à l'adresse <a href=\"https://www.mrcleanplus.ca/\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.mrcleanplus.ca/</a> ou tout autre site qui renvoie à cette politique de confidentialité\n- Utilisez Mr Clean+, Services de nettoyage professionnels. Mr Clean+ offre des services de nettoyage professionnels destinés aux particuliers et aux entreprises à Montréal, Laval, Rive-Nord et Rive-Sud. Nos services incluent le nettoyage résidentiel, commercial, après déménagement et après rénovation, ainsi que l’entretien régulier et le grand ménage. Nous nous engageons à fournir un service fiable, minutieux et adapté aux besoins spécifiques de chaque client afin de garantir un environnement propre, sain et professionnel.\n- Interagissez avec nous de toute autre manière connexe, y compris lors de campagnes marketing ou d'événements\n\nQuestions ou préoccupations ? La lecture de cette politique de confidentialité vous aidera à comprendre vos droits et choix en matière de confidentialité. Nous sommes responsables des décisions concernant la façon dont vos informations personnelles sont traitées. Si vous n'êtes pas d'accord avec nos politiques et pratiques, veuillez ne pas utiliser nos services. Si vous avez des questions ou des préoccupations, veuillez nous contacter à l'adresse Monsieurcleanplus@gmail.com.",
+    "summaryTitle": "RÉSUMÉ DES POINTS CLÉS",
+    "summaryText": "Ce résumé présente les points clés de notre politique de confidentialité. Vous pouvez obtenir plus de détails sur chacun de ces sujets en utilisant la table des matières ci-dessous pour accéder à la section souhaitée.",
+    "summaryList": [
+      "Quelles informations personnelles traitons-nous ? Lorsque vous visitez, utilisez ou naviguez sur nos services, nous pouvons traiter des informations personnelles selon la façon dont vous interagissez avec nous et les services, les choix que vous faites et les produits et fonctionnalités que vous utilisez.",
+      "Traitons-nous des informations personnelles sensibles ? Nous ne traitons pas d'informations personnelles sensibles.",
+      "Collectons-nous des informations auprès de tiers ? Nous ne collectons aucune information auprès de tiers.",
+      "Comment traitons-nous vos informations ? Nous traitons vos informations pour fournir, améliorer et administrer nos services, communiquer avec vous, assurer la sécurité et la prévention de la fraude, et pour respecter la loi. Nous pouvons également traiter vos informations à d'autres fins uniquement avec votre consentement explicite préalable.",
+      "Dans quelles situations et avec quels tiers partageons-nous des informations personnelles ? Nous pouvons partager des informations dans des situations spécifiques décrites dans cette section et/ou avec les tiers suivants.",
+      "Comment protégeons-nous vos informations ? Nous avons mis en place des processus et des procédures organisationnels et techniques adéquats pour protéger vos informations personnelles. Cependant, aucune transmission électronique sur Internet ou technologie de stockage d'information ne peut être garantie à 100% sécurisée.",
+      "Quels sont vos droits ? Selon votre emplacement géographique, la législation applicable en matière de confidentialité peut vous accorder certains droits concernant vos informations personnelles.",
+      "Comment exercer vos droits ? Le moyen le plus simple d'exercer vos droits est de nous contacter. Nous examinerons et donnerons suite à toute demande conformément à la législation applicable en matière de protection des données."
+    ],
+    "tocTitle": "TABLE DES MATIÈRES",
+    "toc": [
+      { "id": "info-collect", "label": "Quelles informations collectons-nous ?" },
+      { "id": "info-process", "label": "Comment traitons-nous vos informations ?" },
+      { "id": "legal-bases", "label": "Sur quelles bases juridiques nous appuyons-nous pour traiter vos informations ?" },
+      { "id": "info-share", "label": "Quand et avec qui partageons-nous vos informations personnelles ?" },
+      { "id": "third-party", "label": "Quelle est notre position sur les sites tiers ?" },
+      { "id": "cookies", "label": "Utilisons-nous des cookies et autres technologies de suivi ?" },
+      { "id": "info-retain", "label": "Combien de temps conservons-nous vos informations ?" },
+      { "id": "info-safe", "label": "Comment protégeons-nous vos informations ?" },
+      { "id": "minors", "label": "Collectons-nous des informations auprès de mineurs ?" },
+      { "id": "privacy-rights", "label": "Quels sont vos droits en matière de confidentialité ?" },
+      { "id": "dnt", "label": "Contrôles pour les fonctionnalités Do-Not-Track" },
+      { "id": "confidentialite", "label": "Engagement de confidentialité" },
+      { "id": "updates", "label": "Mettons-nous à jour cette politique ?" },
+      { "id": "contact", "label": "Comment nous contacter à propos de cette politique ?" },
+      { "id": "review-update-delete", "label": "Comment consulter, mettre à jour ou supprimer les données que nous collectons ?" }
+    ],
+    "sections": {
+      "info-collect": {
+        "title": "1. QUELLES INFORMATIONS COLLECTONS-NOUS ?",
+        "subtitle": "Informations personnelles que vous nous communiquez",
+        "inShort": "En résumé : Nous collectons les informations personnelles que vous nous fournissez.",
+        "p1": "Nous collectons les informations personnelles que vous nous fournissez volontairement lorsque vous manifestez un intérêt pour obtenir des informations sur nous ou nos services, lorsque vous participez à des activités sur les services ou lorsque vous nous contactez autrement.",
+        "list": [
+          "Informations personnelles fournies par vous. Les informations personnelles que nous collectons dépendent du contexte de vos interactions avec nous et les services, des choix que vous faites et des produits et fonctionnalités que vous utilisez. Les informations personnelles que nous collectons peuvent inclure : noms, numéros de téléphone, adresses e-mail, adresses postales.",
+          "Informations sensibles. Nous ne traitons pas d'informations sensibles."
+        ],
+        "p2": "Toutes les informations personnelles que vous nous fournissez doivent être vraies, complètes et exactes, et vous devez nous informer de toute modification de ces informations."
+      },
+      "info-process": {
+        "title": "2. COMMENT TRAITONS-NOUS VOS INFORMATIONS ?",
+        "inShort": "En résumé : Nous traitons vos informations pour fournir, améliorer et administrer nos services, communiquer avec vous, assurer la sécurité et la prévention de la fraude, et pour respecter la loi. Nous pouvons également traiter vos informations à d'autres fins uniquement avec votre consentement explicite préalable.",
+        "list": [
+          "Fournir et faciliter la prestation de services à l'utilisateur.",
+          "Répondre aux demandes des utilisateurs/offrir un support.",
+          "Gérer vos commandes, paiements, retours et échanges effectués via les services.",
+          "Demander des retours et vous contacter au sujet de votre utilisation de nos services.",
+          "Vous envoyer des communications marketing et promotionnelles, si cela correspond à vos préférences.",
+          "Vous proposer de la publicité ciblée.",
+          "Protéger nos services, y compris la surveillance et la prévention de la fraude.",
+          "Évaluer et améliorer nos services, produits, marketing et votre expérience.",
+          "Déterminer l'efficacité de nos campagnes marketing et promotionnelles.",
+          "Respecter nos obligations légales, répondre aux demandes légales et exercer, établir ou défendre nos droits légaux."
+        ]
+      },
+      "legal-bases": {
+        "title": "3. SUR QUELLES BASES JURIDIQUES NOUS APPUYONS-NOUS POUR TRAITER VOS INFORMATIONS ?",
+        "inShort": "En résumé : Nous ne traitons vos informations personnelles que lorsque nous estimons que cela est nécessaire et que nous avons une raison légale valable (c'est-à-dire une base légale) de le faire en vertu de la loi applicable, comme votre consentement, pour respecter la loi, pour vous fournir des services, pour remplir nos obligations contractuelles, pour protéger vos droits ou pour satisfaire à nos intérêts commerciaux légitimes.",
+        "list": [
+          "Nous pouvons traiter vos informations si vous nous avez donné une autorisation spécifique (consentement exprès) pour utiliser vos informations personnelles à une fin précise, ou dans des situations où votre autorisation peut être déduite (consentement implicite). Vous pouvez retirer votre consentement à tout moment.",
+          "Dans certains cas exceptionnels, nous pouvons être légalement autorisés en vertu de la loi applicable à traiter vos informations sans votre consentement, notamment, par exemple, pour des enquêtes et la détection et la prévention de la fraude, pour des transactions commerciales, pour la conformité légale et d'autres cas requis par la loi."
+        ]
+      },
+      "info-share": {
+        "title": "4. QUAND ET AVEC QUI PARTAGEONS-NOUS VOS INFORMATIONS PERSONNELLES ?",
+        "inShort": "En résumé : Nous pouvons partager des informations dans des situations spécifiques décrites dans cette section et/ou avec les tiers suivants.",
+        "list": [
+          "Transferts d'entreprise : Nous pouvons partager ou transférer vos informations dans le cadre de, ou pendant les négociations de, toute fusion, vente d'actifs de la société, financement ou acquisition de tout ou partie de notre entreprise par une autre société.",
+          "Lorsque nous utilisons les API Google Maps Platform : Nous pouvons partager vos informations avec certaines API Google Maps Platform (par exemple, Google Maps API, Places API)."
+        ]
+      },
+      "third-party": {
+        "title": "5. QUELLE EST NOTRE POSITION SUR LES SITES TIERS ?",
+        "inShort": "En résumé : Nous ne sommes pas responsables de la sécurité des informations que vous partagez avec des tiers auxquels nous pouvons être liés ou qui font de la publicité sur nos services, mais qui ne sont pas affiliés à nos services.",
+        "p1": "Les services peuvent contenir des liens vers des sites web, services en ligne ou applications mobiles tiers et/ou des publicités de tiers qui ne sont pas affiliés à nous et qui peuvent renvoyer vers d'autres sites, services ou applications. Nous ne pouvons pas garantir la sécurité et la confidentialité des données que vous fournissez à des sites tiers. Vous devez consulter les politiques de ces tiers et les contacter directement pour toute question."
+      },
+      "cookies": {
+        "title": "6. UTILISONS-NOUS DES COOKIES ET AUTRES TECHNOLOGIES DE SUIVI ?",
+        "inShort": "En résumé : Nous pouvons utiliser des cookies et d'autres technologies de suivi pour collecter et stocker vos informations.",
+        "p1": "Nous pouvons utiliser des cookies et des technologies de suivi similaires (comme les balises web et les pixels) pour recueillir des informations lorsque vous interagissez avec nos services. Certaines technologies de suivi en ligne nous aident à maintenir la sécurité de nos services, à éviter les pannes, à corriger les bugs, à enregistrer vos préférences et à faciliter les fonctions de base du site. Nous autorisons également des tiers et des prestataires de services à utiliser des technologies de suivi en ligne sur nos services à des fins d'analyse et de publicité."
+      },
+      "info-retain": {
+        "title": "7. COMBIEN DE TEMPS CONSERVONS-NOUS VOS INFORMATIONS ?",
+        "inShort": "En résumé : Nous conservons vos informations aussi longtemps que nécessaire pour atteindre les objectifs décrits dans cette politique de confidentialité, sauf si la loi exige autrement.",
+        "p1": "Nous ne conserverons vos informations personnelles que le temps nécessaire aux fins énoncées dans cette politique de confidentialité, sauf si une période de conservation plus longue est requise ou autorisée par la loi. Lorsque nous n'avons plus de besoin commercial légitime de traiter vos informations personnelles, nous les supprimerons ou les anonymiserons, ou, si cela n'est pas possible, nous les stockerons de manière sécurisée et les isolerons de tout traitement ultérieur jusqu'à ce que la suppression soit possible."
+      },
+      "info-safe": {
+        "title": "8. COMMENT PROTÉGEONS-NOUS VOS INFORMATIONS ?",
+        "inShort": "En résumé : Nous visons à protéger vos informations personnelles par un système de mesures de sécurité organisationnelles et techniques.",
+        "p1": "Nous avons mis en place des mesures de sécurité techniques et organisationnelles appropriées et raisonnables pour protéger la sécurité de toute information personnelle que nous traitons. Cependant, aucune transmission électronique sur Internet ou technologie de stockage d'information ne peut être garantie à 100% sécurisée, nous ne pouvons donc pas promettre ou garantir que des pirates, des cybercriminels ou d'autres tiers non autorisés ne pourront pas déjouer notre sécurité et collecter, accéder, voler ou modifier vos informations."
+      },
+      "minors": {
+        "title": "9. COLLECTONS-NOUS DES INFORMATIONS AUPRÈS DE MINEURS ?",
+        "inShort": "En résumé : Nous ne collectons pas sciemment de données auprès d'enfants de moins de 18 ans ou de l'âge équivalent selon la législation de votre juridiction.",
+        "p1": "Nous ne collectons pas sciemment, ne sollicitons pas de données et ne faisons pas de marketing auprès d'enfants de moins de 18 ans ou de l'âge équivalent selon la législation de votre juridiction, et nous ne vendons pas sciemment de telles informations personnelles. Si vous apprenez que nous avons pu collecter des données auprès d'enfants de moins de 18 ans, veuillez nous contacter à ",
+        "email": "Monsieurcleanplus@gmail.com"
+      },
+      "privacy-rights": {
+        "title": "10. QUELS SONT VOS DROITS EN MATIÈRE DE CONFIDENTIALITÉ ?",
+        "inShort": "En résumé : Dans certaines régions, comme le Canada, vous disposez de droits qui vous permettent un meilleur accès et un meilleur contrôle sur vos informations personnelles. Vous pouvez consulter, modifier ou supprimer votre compte à tout moment, selon votre pays, province ou état de résidence.",
+        "p1": "Dans certaines régions (comme le Canada), vous disposez de certains droits en vertu des lois applicables sur la protection des données. Ceux-ci peuvent inclure le droit de demander l'accès et d'obtenir une copie de vos informations personnelles, de demander la rectification ou la suppression, de restreindre le traitement, la portabilité des données et de ne pas faire l'objet de décisions automatisées. Vous pouvez faire une telle demande en nous contactant via les coordonnées fournies dans la section 'Comment nous contacter à propos de cette politique ?' ci-dessous.",
+        "p2": "Nous examinerons et donnerons suite à toute demande conformément à la législation applicable en matière de protection des données. Si vous avez des questions ou des commentaires concernant vos droits en matière de confidentialité, vous pouvez nous écrire à ",
+        "email": "Monsieurcleanplus@gmail.com"
+      },
+      "dnt": {
+        "title": "11. CONTRÔLES POUR LES FONCTIONNALITÉS DO-NOT-TRACK",
+        "p1": "La plupart des navigateurs web et certains systèmes d'exploitation et applications mobiles incluent une fonctionnalité Do-Not-Track ('DNT') ou un paramètre que vous pouvez activer pour signaler votre préférence de confidentialité afin de ne pas être suivi en ligne. À ce jour, aucune norme technologique uniforme pour la reconnaissance et la mise en œuvre des signaux DNT n'a été finalisée. Par conséquent, nous ne répondons actuellement pas aux signaux DNT du navigateur ni à tout autre mécanisme qui communique automatiquement votre choix de ne pas être suivi en ligne."
+      },
+      "confidentialite": {
+        "title": "12. ENGAGEMENT DE CONFIDENTIALITÉ",
+        "p1": "Chez Mr Clean+, nous accordons une importance particulière à la protection des informations personnelles de nos clients. Nous nous engageons à ne jamais vendre, louer ou partager vos données à des tiers sans votre consentement, sauf obligation légale. Les informations collectées sont utilisées uniquement pour fournir nos services et assurer une communication efficace avec nos clients. Nous mettons en place des mesures de sécurité appropriées afin de protéger ces informations contre tout accès non autorisé, perte ou divulgation."
+      },
+      "updates": {
+        "title": "13. METTONS-NOUS À JOUR CETTE POLITIQUE ?",
+        "inShort": "En résumé : Oui, nous mettrons à jour cette politique si nécessaire pour rester en conformité avec les lois applicables.",
+        "p1": "Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. La version mise à jour sera indiquée par une date 'Révisée' en haut de cette politique. Si nous apportons des modifications importantes, nous pouvons vous en informer soit en affichant un avis bien visible, soit en vous envoyant une notification directe. Nous vous encourageons à consulter régulièrement cette politique pour rester informé de la manière dont nous protégeons vos informations."
+      },
+      "contact": {
+        "title": "14. COMMENT NOUS CONTACTER À PROPOS DE CETTE POLITIQUE ?",
+        "p1": "Si vous avez des questions ou des commentaires concernant cette politique, vous pouvez nous écrire à ",
+        "email": "Monsieurcleanplus@gmail.com",
+        "p2": "ou nous contacter par courrier à :",
+        "address": [
+          "Academy Canada",
+          "315 Bd René-Lévesque E",
+          "appartement 1605",
+          "Montréal, Québec H2X 3P3",
+          "Canada"
+        ]
+      },
+      "review-update-delete": {
+        "title": "15. COMMENT CONSULTER, METTRE À JOUR OU SUPPRIMER LES DONNÉES QUE NOUS COLLECTONS ?",
+        "p1": "Vous avez le droit de demander l'accès aux informations personnelles que nous collectons à votre sujet, des détails sur la façon dont nous les avons traitées, de corriger les inexactitudes ou de supprimer vos informations personnelles. Vous pouvez également avoir le droit de retirer votre consentement à notre traitement de vos informations personnelles. Ces droits peuvent être limités dans certaines circonstances par la loi applicable. Pour demander à consulter, mettre à jour ou supprimer vos informations personnelles, veuillez nous contacter à ",
+        "email": "Monsieurcleanplus@gmail.com"
+      }
+    }
+  },
   "meta": {
     "home": {
-      "title": "KeepClean - Services de Nettoyage Professionnels à Montréal",
+      "title": "Mr Clean+ - Services de Nettoyage Professionnels à Montréal",
       "description": "Services de nettoyage résidentiel, commercial et Airbnb professionnels à Montréal. Produits écologiques, personnel formé et service fiable."
     },
     "services": {
-      "title": "Nos Services de Nettoyage - KeepClean Montréal",
+      "title": "Nos Services de Nettoyage - Mr Clean+ Montréal",
       "description": "Services de nettoyage résidentiel, commercial, Airbnb et personnel formé à Montréal. Obtenez un devis gratuit aujourd'hui."
     },
     "about": {
-      "title": "À Propos - KeepClean Montréal",
-      "description": "Découvrez KeepClean, votre partenaire de nettoyage de confiance à Montréal. Services écologiques, fiables et professionnels."
+      "title": "À Propos - Mr Clean+ Montréal",
+      "description": "Découvrez Mr Clean+, votre partenaire de nettoyage de confiance à Montréal. Services écologiques, fiables et professionnels."
     },
     "careers": {
-      "title": "Carrières - Rejoignez KeepClean",
+      "title": "Carrières - Rejoignez Mr Clean+",
       "description": "Rejoignez notre équipe de nettoyeurs professionnels à Montréal. Salaire compétitif, horaires flexibles et opportunités de croissance."
     },
     "contact": {
-      "title": "Contactez-Nous - KeepClean Montréal",
+      "title": "Contactez-Nous - Mr Clean+ Montréal",
       "description": "Contactez-nous pour un devis gratuit. Services de nettoyage professionnels à Montréal et environs."
+    },
+    "faq": {
+      "title": "FAQ - Mr Clean+ Montréal",
+      "description": "Consultez les réponses aux questions les plus fréquentes sur nos services de nettoyage résidentiel et commercial."
     }
   }
 }

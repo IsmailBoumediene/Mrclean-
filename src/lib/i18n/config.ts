@@ -6,6 +6,6 @@ export const i18n = {
 };
 
 export const localeNames: Record<Locale, string> = {
-  en: 'English',
-  fr: 'Français',
+  en: 'EN',
+  fr: 'FR',
 };

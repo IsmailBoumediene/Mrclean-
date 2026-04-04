@@ -11,7 +11,9 @@ type ContactFormDict = {
   residential: string;
   commercial: string;
   airbnb: string;
+  airbnbCleaning: string;
   staffing: string;
+  moveRenovation: string;
   message: string;
   submit: string;
   success: string;
@@ -43,9 +45,9 @@ export default function ContactForm({ dict }: { dict: ContactFormDict }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+    <form onSubmit={handleSubmit} className="mc-form mc-form-contact">
+      <div className="mc-form-field">
+        <label htmlFor="name" className="mc-form-label">
           {dict.name}
         </label>
         <input
@@ -54,12 +56,12 @@ export default function ContactForm({ dict }: { dict: ContactFormDict }) {
           required
           value={formState.name}
           onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         />
       </div>
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mc-form-field">
+        <label htmlFor="email" className="mc-form-label">
           {dict.email}
         </label>
         <input
@@ -68,12 +70,12 @@ export default function ContactForm({ dict }: { dict: ContactFormDict }) {
           required
           value={formState.email}
           onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         />
       </div>
 
-      <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mc-form-field">
+        <label htmlFor="phone" className="mc-form-label">
           {dict.phone}
         </label>
         <input
@@ -81,12 +83,12 @@ export default function ContactForm({ dict }: { dict: ContactFormDict }) {
           id="phone"
           value={formState.phone}
           onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         />
       </div>
 
-      <div>
-        <label htmlFor="serviceType" className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mc-form-field">
+        <label htmlFor="serviceType" className="mc-form-label">
           {dict.serviceType}
         </label>
         <select
@@ -94,18 +96,20 @@ export default function ContactForm({ dict }: { dict: ContactFormDict }) {
           required
           value={formState.serviceType}
           onChange={(e) => setFormState({ ...formState, serviceType: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         >
           <option value="">{dict.selectService}</option>
           <option value="residential">{dict.residential}</option>
           <option value="commercial">{dict.commercial}</option>
           <option value="airbnb">{dict.airbnb}</option>
+          <option value="airbnbCleaning">{dict.airbnbCleaning}</option>
           <option value="staffing">{dict.staffing}</option>
+          <option value="moveRenovation">{dict.moveRenovation}</option>
         </select>
       </div>
 
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mc-form-field">
+        <label htmlFor="message" className="mc-form-label">
           {dict.message}
         </label>
         <textarea
@@ -114,18 +118,18 @@ export default function ContactForm({ dict }: { dict: ContactFormDict }) {
           rows={4}
           value={formState.message}
           onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         />
       </div>
 
       {status === 'success' && (
-        <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+        <div className="mc-form-alert mc-form-alert-success">
           {dict.success}
         </div>
       )}
 
       {status === 'error' && (
-        <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+        <div className="mc-form-alert mc-form-alert-error">
           {dict.error}
         </div>
       )}
@@ -133,7 +137,7 @@ export default function ContactForm({ dict }: { dict: ContactFormDict }) {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+        className="mc-form-submit"
       >
         {status === 'loading' ? '...' : dict.submit}
       </button>

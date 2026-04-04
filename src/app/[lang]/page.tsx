@@ -2,9 +2,19 @@ import { Metadata } from 'next';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+import ScrollToServicesBtn from '@/components/ScrollToServicesBtn';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
-import { FaHome, FaBuilding, FaKey, FaUsers, FaArrowRight } from 'react-icons/fa';
+import { FaHome, FaBuilding, FaUsers, FaArrowRight, FaSoap, FaTruckMoving, FaKey } from 'react-icons/fa';
+import residentialBg from '@/images/Residentiel.png';
+import commercialBg from '@/images/Commercial.png';
+import deepCleaningBg from '@/images/Grand-menage-new.jpg';
+import staffingBg from '@/images/Personnage.png';
+import afterConstructionBg from '@/images/Apres construction.png';
+import airbnbBg from '@/images/airbnb.png';
+
+const CoverageMap = dynamic(() => import('@/components/CoverageMap'), { ssr: false });
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
   const dict = await getDictionary(params.lang);
@@ -20,36 +30,38 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+      <section
+        className="text-white"
+        style={{
+          backgroundImage: "url('/images/slide.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <div
+            className="text-center max-w-3xl mx-auto"
+            style={{ background: 'rgba(76, 92, 99, 0.58)', padding: 'clamp(1.875rem, 4vw, 2.8125rem)' }}
+          >
+            <h1 className="mc-page-hero-title mb-6 hero-fade-in-title">
               {dict.hero.title}
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-100">
+            <p className="mc-page-hero-subtitle mb-8 text-primary-100 hero-fade-in-subtitle">
               {dict.hero.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href={`/${params.lang}/contact`}
-                className="bg-accent-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-600 transition-colors inline-flex items-center justify-center gap-2"
-              >
-                {dict.hero.cta}
-                <FaArrowRight />
-              </Link>
-              <Link
-                href={`/${params.lang}/services`}
+              <ScrollToServicesBtn
+                label={dict.hero.ctaSecondary}
                 className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-              >
-                {dict.hero.ctaSecondary}
-              </Link>
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
+      <section id="services" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -66,24 +78,63 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
               description={dict.services.residential.description}
               features={dict.services.residential.features}
               icon={<FaHome />}
+              backgroundImage={residentialBg.src}
+              showDetails={false}
+              ctaLabel={dict.common.learnMore}
+              ctaHref={`/${params.lang}/services#service-regular-cleaning`}
+            />
+            <ServiceCard
+              title={dict.services.airbnb.title}
+              description={dict.services.airbnb.description}
+              features={dict.services.airbnb.features}
+              icon={<FaSoap />}
+              backgroundImage={deepCleaningBg.src}
+              backgroundPosition="center 25%"
+              showDetails={false}
+              ctaLabel={dict.common.learnMore}
+              ctaHref={`/${params.lang}/services#service-deep-cleaning`}
             />
             <ServiceCard
               title={dict.services.commercial.title}
               description={dict.services.commercial.description}
               features={dict.services.commercial.features}
               icon={<FaBuilding />}
+              backgroundImage={commercialBg.src}
+              showDetails={false}
+              ctaLabel={dict.common.learnMore}
+              ctaHref={`/${params.lang}/services#service-commercial`}
             />
             <ServiceCard
-              title={dict.services.airbnb.title}
-              description={dict.services.airbnb.description}
-              features={dict.services.airbnb.features}
+              title={dict.services.moveRenovation.title}
+              description={dict.services.moveRenovation.description}
+              features={dict.services.moveRenovation.features}
+              icon={<FaTruckMoving />}
+              backgroundImage={afterConstructionBg.src}
+              backgroundPosition="center 6%"
+              showDetails={false}
+              ctaLabel={dict.common.learnMore}
+              ctaHref={`/${params.lang}/services#service-move-renovation`}
+            />
+            <ServiceCard
+              title={dict.services.airbnbCleaning.title}
+              description={dict.services.airbnbCleaning.description}
+              features={dict.services.airbnbCleaning.features}
               icon={<FaKey />}
+              backgroundImage={airbnbBg.src}
+              showDetails={false}
+              ctaLabel={dict.common.learnMore}
+              ctaHref={`/${params.lang}/services#service-airbnb-cleaning`}
             />
             <ServiceCard
               title={dict.services.staffing.title}
               description={dict.services.staffing.description}
               features={dict.services.staffing.features}
               icon={<FaUsers />}
+              backgroundImage={staffingBg.src}
+              backgroundPosition="center 5%"
+              showDetails={false}
+              ctaLabel={dict.common.learnMore}
+              ctaHref={`/${params.lang}/services#service-staffing`}
             />
           </div>
 
@@ -102,13 +153,18 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
       {/* Why Choose Us Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {dict.about.whyChooseUs}
             </h2>
           </div>
+
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h3 className="text-2xl font-bold text-primary-600 mb-4">Mr Clean+</h3>
+            <p className="text-gray-600 leading-relaxed">{dict.about.companyDescription}</p>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="mc-home-values-grid">
             {dict.about.values.map((value, index) => (
               <div key={index} className="text-center">
                 <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -144,6 +200,21 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
         </div>
       </section>
 
+      {/* Map Section */}
+      <section className="py-0">
+        <div className="relative w-full" style={{ height: '420px' }}>
+          <CoverageMap lang={params.lang} />
+          <div
+            className="absolute bottom-0 left-0 right-0 text-white text-center py-3"
+            style={{ background: 'rgba(2, 132, 199, 0.85)' }}
+          >
+            <p className="font-semibold">
+              {params.lang === 'fr' ? '📍 Zones couvertes : Montréal, Laval, Rive-Nord et Rive-Sud' : '📍 Covered areas: Montreal, Laval, North Shore and South Shore'}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -157,7 +228,7 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
             }
           </p>
           <Link
-            href={`/${params.lang}/contact`}
+            href={`/${params.lang}/consult`}
             className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-block"
           >
             {dict.common.getQuote}

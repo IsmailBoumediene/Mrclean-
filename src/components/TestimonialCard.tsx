@@ -6,16 +6,16 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ name, text, service }: TestimonialCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
-      <div className="flex items-center gap-1 mb-4 text-yellow-400">
+    <div className="mc-testimonial-card">
+      <div className="mc-testimonial-stars">
         {[...Array(5)].map((_, i) => (
           <span key={i}>★</span>
         ))}
       </div>
-      <p className="text-gray-700 mb-4 italic">&ldquo;{text}&rdquo;</p>
-      <div className="border-t pt-4">
-        <p className="font-semibold text-gray-900">{name}</p>
-        <p className="text-sm text-gray-500">{service}</p>
+      <p className="mc-testimonial-text">&ldquo;{text}&rdquo;</p>
+      <div className="mc-testimonial-author-block">
+        <p className="mc-testimonial-author">{name}</p>
+        <p className="mc-testimonial-service">{service}</p>
       </div>
     </div>
   );

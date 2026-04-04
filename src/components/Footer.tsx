@@ -1,13 +1,15 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Locale } from '@/lib/i18n/config';
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import logo from '@/images/logo-nobg.png';
 
 type Dictionary = {
   nav: {
     home: string;
     services: string;
     about: string;
-    careers: string;
+    faq: string;
     contact: string;
   };
   footer: {
@@ -19,64 +21,66 @@ type Dictionary = {
     privacy: string;
     terms: string;
   };
+  contact: {
+    address: string;
+  };
 };
 
 export default function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="mc-footer">
+      <div className="mc-footer-container">
+        <div className="mc-footer-grid">
           {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center mb-4">
-              <span className="text-3xl font-bold text-primary-400">Keep</span>
-              <span className="text-3xl font-bold text-accent-400">Clean</span>
-            </div>
-            <p className="text-gray-400 mb-4">
+          <div className="mc-footer-company">
+            <Link href={`/${lang}`} className="mc-footer-logo-wrap" aria-label="Mr Clean+ home">
+              <Image src={logo} alt="Mr Clean+ logo" width={240} height={84} className="mc-footer-logo" />
+            </Link>
+            <p className="mc-footer-description">
               {dict.footer.description}
             </p>
-            <div className="space-y-2 text-gray-400">
-              <div className="flex items-center gap-2">
-                <FaPhone className="text-primary-400" />
-                <span>(514) 123-4567</span>
+            <div className="mc-footer-contact-list">
+              <div className="mc-footer-contact-item">
+                <FaPhone className="mc-footer-icon" />
+                <a href="tel:+15144319741" className="mc-footer-link hover:text-white transition-colors">+1(514)431-9741</a>
               </div>
-              <div className="flex items-center gap-2">
-                <FaEnvelope className="text-primary-400" />
-                <span>info@keepclean.ca</span>
+              <div className="mc-footer-contact-item">
+                <FaEnvelope className="mc-footer-icon" />
+                <a href="mailto:monsieurcleanplus@gmail.com" className="mc-footer-link hover:text-white transition-colors">monsieurcleanplus@gmail.com</a>
               </div>
-              <div className="flex items-center gap-2">
-                <FaMapMarkerAlt className="text-primary-400" />
-                <span>Montreal, QC</span>
+              <div className="mc-footer-contact-item">
+                <FaMapMarkerAlt className="mc-footer-icon" />
+                <span>{dict.contact.address}</span>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{dict.footer.quickLinks}</h3>
-            <ul className="space-y-2">
+            <h3 className="mc-footer-heading">{dict.footer.quickLinks}</h3>
+            <ul className="mc-footer-links-list">
               <li>
-                <Link href={`/${lang}`} className="text-gray-400 hover:text-white transition-colors">
+                <Link href={`/${lang}`} className="mc-footer-link">
                   {dict.nav.home}
                 </Link>
               </li>
               <li>
-                <Link href={`/${lang}/services`} className="text-gray-400 hover:text-white transition-colors">
+                <Link href={`/${lang}/services`} className="mc-footer-link">
                   {dict.nav.services}
                 </Link>
               </li>
               <li>
-                <Link href={`/${lang}/about`} className="text-gray-400 hover:text-white transition-colors">
+                <Link href={`/${lang}/about`} className="mc-footer-link">
                   {dict.nav.about}
                 </Link>
               </li>
               <li>
-                <Link href={`/${lang}/careers`} className="text-gray-400 hover:text-white transition-colors">
-                  {dict.nav.careers}
+                <Link href={`/${lang}/faq`} className="mc-footer-link">
+                  {dict.nav.faq}
                 </Link>
               </li>
               <li>
-                <Link href={`/${lang}/contact`} className="text-gray-400 hover:text-white transition-colors">
+                <Link href={`/${lang}/contact`} className="mc-footer-link">
                   {dict.nav.contact}
                 </Link>
               </li>
@@ -85,32 +89,26 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dictionary 
 
           {/* Social Media */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{dict.footer.followUs}</h3>
-            <div className="flex gap-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+            <h3 className="mc-footer-heading">{dict.footer.followUs}</h3>
+            <div className="mc-footer-socials">
+              <a href="https://www.facebook.com/MrCleanPlus/?utm_source=ig&utm_medium=social&utm_content=link_in_bio" className="mc-footer-social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                 <FaFacebook size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/monsieurcleanplus/" className="mc-footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 <FaInstagram size={24} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
-                <FaTwitter size={24} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
-                <FaLinkedin size={24} />
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">{dict.footer.rights}</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+        <div className="mc-footer-bottom">
+          <p className="mc-footer-rights">{dict.footer.rights}</p>
+          <div className="mc-footer-legal-links">
+            <Link href={`/${lang}/privacy-policy`} className="mc-footer-link mc-footer-link-small">
               {dict.footer.privacy}
             </Link>
-            <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <Link href={`/${lang}/terms`} className="mc-footer-link mc-footer-link-small">
               {dict.footer.terms}
             </Link>
           </div>

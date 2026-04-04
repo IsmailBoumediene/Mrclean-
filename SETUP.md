@@ -1,4 +1,4 @@
-# KeepClean Website - Setup Instructions
+# Mr Clean+ Website - Setup Instructions
 
 ## Prerequisites
 
@@ -81,18 +81,18 @@ src/
 
 ### ✅ Design
 - Mobile-first responsive design
-- Clean, modern UI with Tailwind CSS
+- Clean, modern UI with native CSS utilities
 - Accessible components
 - Smooth transitions and hover effects
 
 ## Customization
 
 ### Change Colors
-Edit [tailwind.config.ts](tailwind.config.ts):
-```typescript
-colors: {
-  primary: { ... },  // Main brand color
-  accent: { ... },   // Secondary/accent color
+Edit [src/app/globals.css](src/app/globals.css) under the `:root` CSS variables:
+```css
+:root {
+   --color-primary-600: #0284c7;
+   --color-accent-500: #22c55e;
 }
 ```
 
@@ -109,8 +109,8 @@ Place images in `public/images/` directory and reference them:
 
 ### Contact Information
 Update in both translation files:
-- Phone: (514) 123-4567
-- Email: info@keepclean.ca
+- Phone: +1(514)431-9741
+- Email: monsieurcleanplus@gmail.com
 - Location: Montreal, QC
 
 ## Building for Production
@@ -147,9 +147,8 @@ npm start
 
 For questions or issues, refer to:
 - [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [React Icons](https://react-icons.github.io/react-icons/)
 
 ## License
 
-Private - All rights reserved by KeepClean
+Private - All rights reserved by Mr Clean+

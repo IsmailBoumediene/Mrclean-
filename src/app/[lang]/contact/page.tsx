@@ -18,12 +18,12 @@ export default async function ContactPage({ params }: { params: { lang: Locale }
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+      <section className="hero-slide-bg text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="mc-page-hero-title mb-4">
             {dict.contact.title}
           </h1>
-          <p className="text-xl text-primary-100 max-w-3xl mx-auto">
+          <p className="mc-page-hero-subtitle text-primary-100">
             {dict.contact.subtitle}
           </p>
         </div>
@@ -48,8 +48,8 @@ export default async function ContactPage({ params }: { params: { lang: Locale }
                     <h3 className="font-semibold text-gray-900 mb-1">
                       {dict.contact.phone}
                     </h3>
-                    <a href="tel:+15141234567" className="text-gray-600 hover:text-primary-600">
-                      (514) 123-4567
+                    <a href="tel:+15144319741" className="text-gray-600 hover:text-primary-600">
+                      +1(514)431-9741
                     </a>
                   </div>
                 </div>
@@ -62,8 +62,8 @@ export default async function ContactPage({ params }: { params: { lang: Locale }
                     <h3 className="font-semibold text-gray-900 mb-1">
                       {dict.contact.email}
                     </h3>
-                    <a href="mailto:info@keepclean.ca" className="text-gray-600 hover:text-primary-600">
-                      info@keepclean.ca
+                    <a href="mailto:monsieurcleanplus@gmail.com" className="text-gray-600 hover:text-primary-600">
+                      monsieurcleanplus@gmail.com
                     </a>
                   </div>
                 </div>

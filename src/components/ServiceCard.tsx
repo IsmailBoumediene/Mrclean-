@@ -1,26 +1,66 @@
 import { ReactNode } from 'react';
+import Link from 'next/link';
 
 interface ServiceCardProps {
   title: string;
   description: string;
   features: string[];
   icon: ReactNode;
+  backgroundImage?: string;
+  backgroundPosition?: string;
+  showDetails?: boolean;
+  ctaLabel?: string;
+  ctaHref?: string;
 }
 
-export default function ServiceCard({ title, description, features, icon }: ServiceCardProps) {
+export default function ServiceCard({
+  title,
+  description,
+  features,
+  icon,
+  backgroundImage,
+  backgroundPosition = 'center',
+  showDetails = true,
+  ctaLabel,
+  ctaHref,
+}: ServiceCardProps) {
+  const cardStyle = backgroundImage
+    ? {
+        backgroundImage: `linear-gradient(rgba(0, 0, 0,0.8), rgba(255, 255, 255, 0.50)), url('${backgroundImage}')`,
+        backgroundSize: 'cover',
+        backgroundPosition,
+        backgroundRepeat: 'no-repeat',
+      }
+    : undefined;
+
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
-      <div className="text-primary-600 mb-4 text-4xl">{icon}</div>
-      <h3 className="text-2xl font-bold mb-3 text-gray-900">{title}</h3>
-      <p className="text-gray-600 mb-4">{description}</p>
-      <ul className="space-y-2">
-        {features.map((feature, index) => (
-          <li key={index} className="flex items-start gap-2">
-            <span className="text-accent-500 mt-1">✓</span>
-            <span className="text-gray-700">{feature}</span>
-          </li>
-        ))}
-      </ul>
+    <div className="mc-service-card" style={cardStyle}>
+      <div className="mc-service-card-icon">{icon}</div>
+      <h3 className="mc-service-card-title">{title}</h3>
+      {showDetails && (
+        <>
+          <p className="mc-service-card-description">{description}</p>
+          <ul className="mc-service-card-features">
+            {features.map((feature, index) => (
+              <li key={index} className="mc-service-card-feature-item">
+                <span className="mc-service-card-check">✓</span>
+                <span className="mc-service-card-feature-text">{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      {ctaHref && ctaLabel && (
+        ctaHref.includes('#') ? (
+          <a href={ctaHref} className="mc-service-card-cta">
+            {ctaLabel}
+          </a>
+        ) : (
+          <Link href={ctaHref} className="mc-service-card-cta">
+            {ctaLabel}
+          </Link>
+        )
+      )}
     </div>
   );
 }

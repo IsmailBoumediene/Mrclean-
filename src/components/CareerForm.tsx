@@ -40,9 +40,9 @@ export default function CareerForm({ dict }: { dict: CareerFormDict }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
+    <form onSubmit={handleSubmit} className="mc-form mc-form-career">
+      <div className="mc-form-field">
+        <label htmlFor="fullName" className="mc-form-label">
           {dict.fullName}
         </label>
         <input
@@ -51,12 +51,12 @@ export default function CareerForm({ dict }: { dict: CareerFormDict }) {
           required
           value={formState.fullName}
           onChange={(e) => setFormState({ ...formState, fullName: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         />
       </div>
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mc-form-field">
+        <label htmlFor="email" className="mc-form-label">
           {dict.email}
         </label>
         <input
@@ -65,12 +65,12 @@ export default function CareerForm({ dict }: { dict: CareerFormDict }) {
           required
           value={formState.email}
           onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         />
       </div>
 
-      <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mc-form-field">
+        <label htmlFor="phone" className="mc-form-label">
           {dict.phone}
         </label>
         <input
@@ -79,12 +79,12 @@ export default function CareerForm({ dict }: { dict: CareerFormDict }) {
           required
           value={formState.phone}
           onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         />
       </div>
 
-      <div>
-        <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mc-form-field">
+        <label htmlFor="experience" className="mc-form-label">
           {dict.experience}
         </label>
         <textarea
@@ -92,12 +92,12 @@ export default function CareerForm({ dict }: { dict: CareerFormDict }) {
           rows={3}
           value={formState.experience}
           onChange={(e) => setFormState({ ...formState, experience: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         />
       </div>
 
-      <div>
-        <label htmlFor="availability" className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mc-form-field">
+        <label htmlFor="availability" className="mc-form-label">
           {dict.availability}
         </label>
         <input
@@ -106,12 +106,12 @@ export default function CareerForm({ dict }: { dict: CareerFormDict }) {
           placeholder="e.g., Full-time, Part-time, Weekends"
           value={formState.availability}
           onChange={(e) => setFormState({ ...formState, availability: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         />
       </div>
 
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mc-form-field">
+        <label htmlFor="message" className="mc-form-label">
           {dict.message}
         </label>
         <textarea
@@ -120,18 +120,18 @@ export default function CareerForm({ dict }: { dict: CareerFormDict }) {
           rows={4}
           value={formState.message}
           onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+          className="mc-form-control"
         />
       </div>
 
       {status === 'success' && (
-        <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+        <div className="mc-form-alert mc-form-alert-success">
           {dict.success}
         </div>
       )}
 
       {status === 'error' && (
-        <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+        <div className="mc-form-alert mc-form-alert-error">
           {dict.error}
         </div>
       )}
@@ -139,7 +139,7 @@ export default function CareerForm({ dict }: { dict: CareerFormDict }) {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+        className="mc-form-submit"
       >
         {status === 'loading' ? '...' : dict.submit}
       </button>

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
 
@@ -16,25 +17,31 @@ export default async function AboutPage({ params }: { params: { lang: Locale } }
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+      <section className="hero-slide-bg text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="mc-page-hero-title mb-4">
             {dict.about.title}
           </h1>
-          <p className="text-xl text-primary-100 max-w-3xl mx-auto">
+          <p className="mc-page-hero-subtitle text-primary-100">
             {dict.about.subtitle}
           </p>
         </div>
       </section>
 
-      {/* About Content */}
+      {/* About Content + Proof Items */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-700 leading-relaxed">
-              {dict.about.description}
-            </p>
-          </div>
+          <p className="text-xl text-gray-700 leading-relaxed mb-10">
+            {dict.about.description}
+          </p>
+          <ul className="mc-about-proof-list">
+            {dict.about.proofItems.map((item, i) => (
+              <li key={i} className="mc-about-proof-item">
+                <span className="mc-about-proof-check">✔</span>
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -44,12 +51,11 @@ export default async function AboutPage({ params }: { params: { lang: Locale } }
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             {dict.about.whyChooseUs}
           </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="mc-about-values-grid">
             {dict.about.values.map((value, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-center">
                 <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-4xl">{['🎯', '👥', '🌿', '✨'][index]}</span>
+                  <span className="text-4xl">{['🎯', '👥', '✅', '🕐'][index]}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
                 <p className="text-gray-600">{value.description}</p>
@@ -59,35 +65,21 @@ export default async function AboutPage({ params }: { params: { lang: Locale } }
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-primary-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
-              <div className="text-primary-200">
-                {params.lang === 'fr' ? 'Clients Satisfaits' : 'Happy Clients'}
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">5+</div>
-              <div className="text-primary-200">
-                {params.lang === 'fr' ? 'Ans d\'Expérience' : 'Years Experience'}
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">50+</div>
-              <div className="text-primary-200">
-                {params.lang === 'fr' ? 'Personnel Formé' : 'Trained Staff'}
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">100%</div>
-              <div className="text-primary-200">
-                {params.lang === 'fr' ? 'Satisfaction' : 'Satisfaction'}
-              </div>
-            </div>
-          </div>
+      {/* Engagement Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-6 text-gray-900">{dict.about.engagementTitle}</h2>
+          <p className="text-xl text-gray-900 leading-relaxed">{dict.about.engagementText}</p>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">{dict.about.ctaTitle}</h2>
+          <Link href={`/${params.lang}/consult`} className="mc-about-cta-btn">
+            {dict.about.ctaButton}
+          </Link>
         </div>
       </section>
     </div>

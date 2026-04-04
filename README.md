@@ -1,4 +1,4 @@
-# KeepClean - Professional Cleaning Services Website
+# Mr Clean+ - Professional Cleaning Services Website
 
 A professional bilingual (French/English) website for a Montreal-based cleaning company.
 
@@ -43,7 +43,7 @@ npm run dev
 
 - Next.js 14+ (App Router)
 - TypeScript
-- Tailwind CSS
+- Native CSS (global utility classes in src/app/globals.css)
 - React Icons
 
 ## Deployment
