@@ -1941,3 +1941,63 @@ a {
   opacity: 0.9;
   transform: translateY(-2px);
 }
+
+.privacy-policy-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 2.5rem 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+}
+.privacy-policy-container h1 {
+  font-size: 2.7rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #1a4be7;
+}
+.privacy-policy-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  color: #1a4be7;
+  letter-spacing: 0.01em;
+}
+.privacy-policy-container p,
+.privacy-policy-container ul,
+.privacy-policy-container ol,
+.privacy-policy-container address {
+  text-align: justify;
+  font-size: 1.08rem;
+  color: #222;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+}
+.privacy-policy-container ul,
+.privacy-policy-container ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.1rem;
+}
+.privacy-policy-container li {
+  margin-bottom: 0.5rem;
+}
+.privacy-policy-container a {
+  color: #1a4be7;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.privacy-policy-container a:hover {
+  color: #0d2c7a;
+}
+.privacy-policy-container address {
+  font-style: normal;
+  margin-top: 1.5rem;
+}

@@ -129,34 +129,51 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-
-    setTimeout(() => {
-      console.log('Consult request submitted:', {
-        ...formState,
-        photos: photos.map((photo) => photo.name),
+    try {
+      const formData = new FormData();
+      Object.entries(formState).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+          value.forEach((v) => formData.append(key, v));
+        } else {
+          formData.append(key, value);
+        }
       });
-      setStatus('success');
-      setPhotos([]);
-      setPhotosError('');
-      setFormState({
-        companyName: '',
-        lastName: '',
-        firstName: '',
-        email: '',
-        phone: '',
-        city: '',
-        postalCode: '',
-        housingType: '',
-        floors: '',
-        bedrooms: '',
-        services: [],
-        visitPreference: [],
-        frequency: '',
-        oneTimeVisitsPerWeek: '',
-        additionalInfo: '',
+      photos.forEach((photo) => {
+        formData.append('photos', photo);
       });
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1000);
+      formData.append('subject', 'Demande de soumission - Mrcleanplus.ca');
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+      if (res.ok) {
+        setStatus('success');
+        setPhotos([]);
+        setPhotosError('');
+        setFormState({
+          companyName: '',
+          lastName: '',
+          firstName: '',
+          email: '',
+          phone: '',
+          city: '',
+          postalCode: '',
+          housingType: '',
+          floors: '',
+          bedrooms: '',
+          services: [],
+          visitPreference: [],
+          frequency: '',
+          oneTimeVisitsPerWeek: '',
+          additionalInfo: '',
+        });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+    setTimeout(() => setStatus('idle'), 5000);
   };
 
   const handlePhotosChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -219,6 +236,12 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
 
   return (
     <form onSubmit={handleSubmit} className="mc-form">
+      {status === 'success' && (
+        <div className="mc-form-success">Votre demande a été envoyée.</div>
+      )}
+      {status === 'error' && (
+        <div className="mc-form-error">Erreur lors de l'envoi de la demande.</div>
+      )}
       <div className="mc-form-field">
         <label htmlFor="companyName" className="mc-form-label">{dict.companyName}</label>
         <input
@@ -443,8 +466,30 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
           ref={cameraInputRef}
         />
         <div className="mc-photo-upload-grid">
-          {[0, 1, 2].map((slotIndex) => {
-            return (
+          {photos.map((photo, idx) => (
+            <div key={idx} className="mc-photo-preview">
+              <img
+                src={URL.createObjectURL(photo)}
+                alt={photo.name}
+                className="mc-photo-preview-img"
+                style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 8, border: '1px solid #ccc' }}
+              />
+              <button
+                type="button"
+                className="mc-photo-remove-btn"
+                aria-label="Supprimer l'image"
+                onClick={() => {
+                  setPhotos(photos.filter((_, i) => i !== idx));
+                }}
+                style={{ display: 'block', margin: '4px auto 0', color: '#b91c1c', background: 'none', border: 'none', cursor: 'pointer' }}
+              >
+                Supprimer
+              </button>
+              <div className="mc-photo-preview-name" style={{ fontSize: 12, textAlign: 'center', marginTop: 2 }}>{photo.name}</div>
+            </div>
+          ))}
+          {photos.length < 3 &&
+            Array.from({ length: 3 - photos.length }).map((_, slotIndex) => (
               <button
                 key={slotIndex}
                 type="button"
@@ -454,8 +499,7 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
                 <span className="mc-photo-upload-plus">+</span>
                 <span className="mc-photo-upload-action">{dict.photosAction}</span>
               </button>
-            );
-          })}
+            ))}
         </div>
         {showMobilePhotoOptions && (
           <div className="mc-photo-sheet" role="dialog" aria-modal="true" aria-label={dict.photosChoiceTitle}>

@@ -62,8 +62,8 @@ export default async function ContactPage({ params }: { params: { lang: Locale }
                     <h3 className="font-semibold text-gray-900 mb-1">
                       {dict.contact.email}
                     </h3>
-                    <a href="mailto:monsieurcleanplus@gmail.com" className="text-gray-600 hover:text-primary-600">
-                      monsieurcleanplus@gmail.com
+                    <a href="mailto:info@mrcleanplus.ca" className="text-gray-600 hover:text-primary-600">
+                      info@mrcleanplus.ca
                     </a>
                   </div>
                 </div>

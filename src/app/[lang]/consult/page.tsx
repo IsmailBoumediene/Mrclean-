@@ -20,7 +20,7 @@ export default async function ConsultPage({ params }: { params: { lang: Locale }
     subtitle: isFr ? 'Obtenez une soumission rapide et gratuite' : 'Get a quick quote!',
     contactTitle: isFr ? 'NOUS CONTACTER' : 'CONTACT US',
     location: isFr ? '315 René-Lévesque Est H2X 3P3, Montréal QC, Canada' : '315 Rene-Levesque Est H2X 3P3, Montreal QC, Canada',
-    email: 'monsieurcleanplus@gmail.com',
+    email: 'info@mrcleanplus.ca',
     phone: '+1(514)431-9741',
     form: {
       companyName: isFr ? "Nom d'entreprise (optionnel)" : 'Company name (optional)',

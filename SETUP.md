@@ -110,7 +110,7 @@ Place images in `public/images/` directory and reference them:
 ### Contact Information
 Update in both translation files:
 - Phone: +1(514)431-9741
-- Email: monsieurcleanplus@gmail.com
+- Email: info@mrcleanplus.ca
 - Location: Montreal, QC
 
 ## Building for Production

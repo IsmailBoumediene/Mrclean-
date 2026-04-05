@@ -1,12 +1,9 @@
+
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
-
-type FAQItem = {
-  question: string;
-  answer: string;
-};
+import { FAQItem } from '@/types/faq';
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
   const dict = await getDictionary(params.lang);
@@ -18,7 +15,7 @@ export async function generateMetadata({ params }: { params: { lang: Locale } })
 
 export default async function FAQPage({ params }: { params: { lang: Locale } }) {
   const dict = await getDictionary(params.lang);
-  const faqItems = dict.faq.items as FaqItem[];
+  const faqItems = dict.faq.items as FAQItem[];
   const isFr = params.lang === 'fr';
 
   return (

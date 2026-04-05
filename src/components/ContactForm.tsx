@@ -33,19 +33,35 @@ export default function ContactForm({ dict }: { dict: ContactFormDict }) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formState);
-      setStatus('success');
-      setFormState({ name: '', email: '', phone: '', serviceType: '', message: '' });
-      
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1000);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formState,
+          subject: 'Contact - Mrcleanplus.ca',
+        }),
+      });
+      if (res.ok) {
+        setStatus('success');
+        setFormState({ name: '', email: '', phone: '', serviceType: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+    setTimeout(() => setStatus('idle'), 5000);
   };
 
   return (
     <form onSubmit={handleSubmit} className="mc-form mc-form-contact">
+      {status === 'success' && (
+        <div className="mc-form-success">{dict.success || 'Votre message a été envoyé.'}</div>
+      )}
+      {status === 'error' && (
+        <div className="mc-form-error">{dict.error || 'Erreur lors de l\'envoi du message.'}</div>
+      )}
       <div className="mc-form-field">
         <label htmlFor="name" className="mc-form-label">
           {dict.name}
