@@ -240,7 +240,7 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
         <div className="mc-form-success">Votre demande a été envoyée.</div>
       )}
       {status === 'error' && (
-        <div className="mc-form-error">Erreur lors de l'envoi de la demande.</div>
+        <div className="mc-form-error">Erreur lors de l&apos;envoi de la demande.</div>
       )}
       <div className="mc-form-field">
         <label htmlFor="companyName" className="mc-form-label">{dict.companyName}</label>
