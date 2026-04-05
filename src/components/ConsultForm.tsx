@@ -1,6 +1,7 @@
 'use client';
 
 import { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import Image from 'next/image';
 
 type ConsultFormDict = {
   companyName: string;
@@ -468,11 +469,14 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
         <div className="mc-photo-upload-grid">
           {photos.map((photo, idx) => (
             <div key={idx} className="mc-photo-preview">
-              <img
+              <Image
                 src={URL.createObjectURL(photo)}
                 alt={photo.name}
+                width={80}
+                height={80}
                 className="mc-photo-preview-img"
-                style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 8, border: '1px solid #ccc' }}
+                style={{ objectFit: 'cover', borderRadius: 8, border: '1px solid #ccc' }}
+                unoptimized
               />
               <button
                 type="button"
