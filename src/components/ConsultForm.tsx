@@ -477,7 +477,7 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
               <button
                 type="button"
                 className="mc-photo-remove-btn"
-                aria-label="Supprimer l'image"
+                aria-label="Supprimer l&apos;image"
                 onClick={() => {
                   setPhotos(photos.filter((_, i) => i !== idx));
                 }}
