@@ -1,4 +1,4 @@
-﻿{
+{
   "nav": {
     "home": "Accueil",
     "services": "Services",
@@ -215,7 +215,7 @@
     "email": "Courriel",
     "hours": "Heures d'Ouverture",
     "hoursValue": "Lundi - Vendredi: 8h - 18h<br/>Samedi: 9h - 16h<br/>Dimanche: Fermé",
-    "address": "315 Bd René-Lévesque E, Montréal, QC H2X 3P3, Bureau 1605",
+    "address": "315 Bd René-Lévesque E, Montréal, QC H2X 3P3",
     "serviceArea": "Zone de Service",
     "serviceAreaValue": "Montréal, Laval, Rive-Nord et Rive-Sud",
     "form": {
@@ -316,21 +316,66 @@
     ],
     "tocTitle": "TABLE DES MATIÈRES",
     "toc": [
-      { "id": "info-collect", "label": "Quelles informations collectons-nous ?" },
-      { "id": "info-process", "label": "Comment traitons-nous vos informations ?" },
-      { "id": "legal-bases", "label": "Sur quelles bases juridiques nous appuyons-nous pour traiter vos informations ?" },
-      { "id": "info-share", "label": "Quand et avec qui partageons-nous vos informations personnelles ?" },
-      { "id": "third-party", "label": "Quelle est notre position sur les sites tiers ?" },
-      { "id": "cookies", "label": "Utilisons-nous des cookies et autres technologies de suivi ?" },
-      { "id": "info-retain", "label": "Combien de temps conservons-nous vos informations ?" },
-      { "id": "info-safe", "label": "Comment protégeons-nous vos informations ?" },
-      { "id": "minors", "label": "Collectons-nous des informations auprès de mineurs ?" },
-      { "id": "privacy-rights", "label": "Quels sont vos droits en matière de confidentialité ?" },
-      { "id": "dnt", "label": "Contrôles pour les fonctionnalités Do-Not-Track" },
-      { "id": "confidentialite", "label": "Engagement de confidentialité" },
-      { "id": "updates", "label": "Mettons-nous à jour cette politique ?" },
-      { "id": "contact", "label": "Comment nous contacter à propos de cette politique ?" },
-      { "id": "review-update-delete", "label": "Comment consulter, mettre à jour ou supprimer les données que nous collectons ?" }
+      {
+        "id": "info-collect",
+        "label": "Quelles informations collectons-nous ?"
+      },
+      {
+        "id": "info-process",
+        "label": "Comment traitons-nous vos informations ?"
+      },
+      {
+        "id": "legal-bases",
+        "label": "Sur quelles bases juridiques nous appuyons-nous pour traiter vos informations ?"
+      },
+      {
+        "id": "info-share",
+        "label": "Quand et avec qui partageons-nous vos informations personnelles ?"
+      },
+      {
+        "id": "third-party",
+        "label": "Quelle est notre position sur les sites tiers ?"
+      },
+      {
+        "id": "cookies",
+        "label": "Utilisons-nous des cookies et autres technologies de suivi ?"
+      },
+      {
+        "id": "info-retain",
+        "label": "Combien de temps conservons-nous vos informations ?"
+      },
+      {
+        "id": "info-safe",
+        "label": "Comment protégeons-nous vos informations ?"
+      },
+      {
+        "id": "minors",
+        "label": "Collectons-nous des informations auprès de mineurs ?"
+      },
+      {
+        "id": "privacy-rights",
+        "label": "Quels sont vos droits en matière de confidentialité ?"
+      },
+      {
+        "id": "dnt",
+        "label": "Contrôles pour les fonctionnalités Do-Not-Track"
+      },
+      {
+        "id": "confidentialite",
+        "label": "Engagement de confidentialité"
+      },
+      {
+        "id": "updates",
+        "label": "Mettons-nous à jour cette politique ?"
+      },
+      {
+        "id": "contact",
+        "label": "Comment nous contacter à propos de cette politique ?"
+      },
+      {
+        "id": "review-update-delete",
+        "label": "Comment consulter, mettre à jour ou supprimer les données que nous collectons ?"
+      }
     ],
     "sections": {
       "info-collect": {
@@ -466,6 +511,208 @@
     "faq": {
       "title": "FAQ - Mr Clean+ Montréal",
       "description": "Consultez les réponses aux questions les plus fréquentes sur nos services de nettoyage résidentiel et commercial."
+    }
+  },
+  "terms": {
+    "title": "CONDITIONS D'UTILISATION",
+    "lastUpdated": "Dernière mise à jour le 3 avril 2026",
+    "intro": "Nous sommes Mr Clean+, exerçant sous le nom de Mr Clean+ (« Société », « nous », « notre »), une société enregistrée au Canada au 315 Bd René-Lévesque E, Montréal, QC H2X 3P3.\n\nNous exploitons le site web <a href=\"https://www.mrcleanplus.ca/\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.mrcleanplus.ca/</a> (le « Site »), ainsi que tout autre produit et service connexe qui fait référence ou renvoie à ces conditions légales (les « Conditions légales ») (collectivement, les « Services »).\n\nMr Clean+ offre des services de nettoyage professionnels à Montréal, Laval, Rive-Nord et Rive-Sud. Notre plateforme permet aux utilisateurs de demander un devis gratuit pour des services de nettoyage résidentiel et commercial, incluant le nettoyage régulier, le grand ménage, le nettoyage après déménagement et le nettoyage après rénovation. Notre équipe fournit un service fiable, efficace et de haute qualité adapté aux besoins de chaque client.\n\nVous pouvez nous contacter par téléphone au +1(514)431-9741, par courriel à <a href=\"mailto:Info@mrcleanplus.ca\">Info@mrcleanplus.ca</a>, ou par courrier au 315 Bd René-Lévesque E, Montréal, QC H2X 3P3, Canada.\n\nCes Conditions légales constituent un accord juridiquement contraignant conclu entre vous, personnellement ou au nom d’une entité (« vous »), et Mr Clean+, concernant votre accès et votre utilisation des Services. Vous acceptez qu’en accédant aux Services, vous avez lu, compris et accepté d’être lié par l’ensemble de ces Conditions légales. SI VOUS N’ACCEPTEZ PAS L’ENSEMBLE DE CES CONDITIONS LÉGALES, IL VOUS EST EXPRESSÉMENT INTERDIT D’UTILISER LES SERVICES ET VOUS DEVEZ CESSER IMMÉDIATEMENT TOUTE UTILISATION.\n\nLes utilisateurs seront informés des mises à jour par la publication des conditions modifiées sur ce site web.\n\nLes Services sont destinés aux utilisateurs âgés d’au moins 18 ans. Les personnes de moins de 18 ans ne sont pas autorisées à utiliser ou à s’inscrire aux Services.\n\nNous vous recommandons d’imprimer une copie de ces Conditions légales pour vos dossiers.",
+    "tocTitle": "TABLE DES MATIÈRES",
+    "toc": [
+      {
+        "id": "our-services",
+        "label": "Nos Services"
+      },
+      {
+        "id": "intellectual-property",
+        "label": "Droits de propriété intellectuelle"
+      },
+      {
+        "id": "user-representations",
+        "label": "Déclarations de l’utilisateur"
+      },
+      {
+        "id": "prohibited-activities",
+        "label": "Activités interdites"
+      },
+      {
+        "id": "user-contributions",
+        "label": "Contributions générées par les utilisateurs"
+      },
+      {
+        "id": "contribution-license",
+        "label": "Licence de contribution"
+      },
+      {
+        "id": "third-party",
+        "label": "Sites web et contenu tiers"
+      },
+      {
+        "id": "services-management",
+        "label": "Gestion des services"
+      },
+      {
+        "id": "privacy-policy",
+        "label": "Politique de confidentialité"
+      },
+      {
+        "id": "term-termination",
+        "label": "Durée et résiliation"
+      },
+      {
+        "id": "modifications",
+        "label": "Modifications et interruptions"
+      },
+      {
+        "id": "governing-law",
+        "label": "Loi applicable"
+      },
+      {
+        "id": "dispute-resolution",
+        "label": "Règlement des différends"
+      },
+      {
+        "id": "corrections",
+        "label": "Corrections"
+      },
+      {
+        "id": "disclaimer",
+        "label": "Clause de non-responsabilité"
+      },
+      {
+        "id": "limitations-liability",
+        "label": "Limitation de responsabilité"
+      },
+      {
+        "id": "indemnification",
+        "label": "Indemnisation"
+      },
+      {
+        "id": "user-data",
+        "label": "Données utilisateur"
+      },
+      {
+        "id": "electronic-communications",
+        "label": "Communications électroniques, transactions et signatures"
+      },
+      {
+        "id": "miscellaneous",
+        "label": "Divers"
+      },
+      {
+        "id": "contact-us",
+        "label": "Nous contacter"
+      }
+    ],
+    "sections": {
+      "our-services": {
+        "title": "1. NOS SERVICES",
+        "p1": "Les informations fournies lors de l’utilisation des Services ne sont pas destinées à être distribuées ou utilisées par toute personne ou entité dans une juridiction ou un pays où une telle distribution ou utilisation serait contraire à la loi ou à la réglementation ou qui nous soumettrait à une quelconque exigence d’enregistrement dans cette juridiction ou ce pays. En conséquence, les personnes qui choisissent d’accéder aux Services depuis d’autres endroits le font de leur propre initiative et sont seules responsables du respect des lois locales, si et dans la mesure où les lois locales sont applicables."
+      },
+      "intellectual-property": {
+        "title": "2. DROITS DE PROPRIÉTÉ INTELLECTUELLE",
+        "subtitle": "Notre propriété intellectuelle",
+        "p1": "Nous sommes le propriétaire ou le licencié de tous les droits de propriété intellectuelle de nos Services, y compris tout le code source, les bases de données, les fonctionnalités, les logiciels, les conceptions de sites web, l’audio, la vidéo, les textes, les photographies et les graphiques des Services (collectivement, le « Contenu »), ainsi que les marques de commerce, les marques de service et les logos qui y sont contenus (les « Marques »).\n\nNotre Contenu et nos Marques sont protégés par les lois sur le droit d’auteur et les marques de commerce et par divers autres droits de propriété intellectuelle et lois sur la concurrence déloyale, ainsi que par des traités dans le monde entier.\n\nLe Contenu et les Marques sont fournis dans ou à travers les Services « TELS QUELS » pour votre usage personnel et non commercial ou à des fins commerciales internes uniquement.",
+        "p2": "Sous réserve de votre conformité à ces Conditions légales, y compris la section « ACTIVITÉS INTERDITES » ci-dessous, nous vous accordons une licence non exclusive, non transférable et révocable pour : accéder aux Services ; et télécharger ou imprimer une copie de toute partie du Contenu auquel vous avez correctement accédé, uniquement pour votre usage personnel et non commercial ou à des fins commerciales internes.\n\nSauf dans les cas prévus dans cette section ou ailleurs dans nos Conditions légales, aucune partie des Services et aucun Contenu ou Marque ne peut être copié, reproduit, agrégé, républié, téléversé, affiché publiquement, encodé, traduit, transmis, distribué, vendu, licencié ou autrement exploité à des fins commerciales, sans notre autorisation écrite préalable expresse.\n\nNous nous réservons tous les droits qui ne vous sont pas expressément accordés sur les Services, le Contenu et les Marques.\n\nToute violation de ces droits de propriété intellectuelle constituera une violation majeure de nos Conditions légales et votre droit d’utiliser nos Services prendra fin immédiatement.",
+        "p3": "Veuillez consulter cette section et la section « ACTIVITÉS INTERDITES » attentivement avant d’utiliser nos Services pour comprendre les droits que vous nous accordez et les obligations que vous avez lorsque vous publiez ou téléversez du contenu via les Services.\n\nSoumissions : En nous envoyant directement toute question, commentaire, suggestion, idée, retour d’information ou autre information concernant les Services (« Soumissions »), vous acceptez de nous céder tous les droits de propriété intellectuelle sur cette Soumission.\n\nVous êtes seul responsable de vos Soumissions et vous acceptez expressément de nous rembourser pour toute perte que nous pourrions subir en raison de votre violation de cette section, des droits de propriété intellectuelle d’un tiers ou de la loi applicable."
+      },
+      "user-representations": {
+        "title": "3. DÉCLARATIONS DE L’UTILISATEUR",
+        "p1": "En utilisant les Services, vous déclarez et garantissez que : (1) vous avez la capacité juridique et vous acceptez de vous conformer à ces Conditions légales ; (2) vous n’êtes pas mineur dans la juridiction de votre résidence ; (3) vous n’accéderez pas aux Services par des moyens automatisés ou non humains ; (4) vous n’utiliserez pas les Services à des fins illégales ou non autorisées ; et (5) votre utilisation des Services ne violera aucune loi ou réglementation applicable."
+      },
+      "prohibited-activities": {
+        "title": "4. ACTIVITÉS INTERDITES",
+        "p1": "Vous ne pouvez pas accéder aux Services ou les utiliser à d’autres fins que celles pour lesquelles nous les rendons disponibles. Les Services ne peuvent pas être utilisés dans le cadre d’activités commerciales sauf celles qui sont spécifiquement approuvées par nous.",
+        "list": [
+          "Récupérer systématiquement des données ou d’autres contenus des Services sans notre autorisation écrite.",
+          "Tromper, frauder ou induire en erreur nous et d’autres utilisateurs.",
+          "Contourner, désactiver ou interférer avec les fonctionnalités de sécurité des Services.",
+          "Dénigrer, ternir ou nuire à nous et/ou aux Services.",
+          "Utiliser les informations obtenues des Services pour harcèler ou nuire à une autre personne.",
+          "Utiliser les Services de manière non conforme aux lois ou réglementations applicables.",
+          "Téléverser ou transmettre des virus ou tout autre matériel interférant avec l’utilisation des Services.",
+          "Utiliser tout système automatisé, comme des scripts pour envoyer des messages.",
+          "Tenter d’usurper l’identité d’un autre utilisateur.",
+          "Interférer avec le fonctionnement des Services ou créer une charge excessive.",
+          "Copier ou adapter le logiciel des Services.",
+          "Vendre ou transférer votre profil."
+        ]
+      },
+      "user-contributions": {
+        "title": "5. CONTRIBUTIONS GÉNÉRÉES PAR LES UTILISATEURS",
+        "p1": "Les Services ne permettent pas aux utilisateurs de soumettre ou de publier du contenu. Nous pouvons vous offrir la possibilité de créer, soumettre, afficher, transmettre, exécuter, publier, distribuer ou diffuser du contenu et des matériaux. Les contributions peuvent être visibles par d’autres utilisateurs des Services et par des sites tiers."
+      },
+      "contribution-license": {
+        "title": "6. LICENCE DE CONTRIBUTION",
+        "p1": "Vous et les Services acceptez que nous puissions accéder, stocker, traiter et utiliser toute information et données personnelles que vous fournissez.\n\nEn soumettant des suggestions ou d’autres commentaires concernant les Services, vous acceptez que nous puissions les utiliser et les partager à toute fin sans compensation pour vous."
+      },
+      "third-party": {
+        "title": "7. SITES WEB ET CONTENU TIERS",
+        "p1": "Les Services peuvent contenir des liens vers d’autres sites web (« Sites tiers ») ainsi que des articles, photographies, textes, graphiques et autres contenus provenant de tiers (« Contenu tiers »). Ces Sites tiers et Contenu tiers ne sont pas vérifiés par nous et nous ne sommes pas responsables de leur exactitude ou de leur exhaustivité.\n\nVous acceptez que nous ne cautionnons pas les produits ou services offerts sur les Sites tiers."
+      },
+      "services-management": {
+        "title": "8. GESTION DES SERVICES",
+        "p1": "Nous nous réservons le droit, mais non l’obligation, de : (1) surveiller les Services pour détecter les violations de ces Conditions légales ; (2) prendre les mesures juridiques appropriées contre quiconque viole la loi ou ces Conditions légales ; (3) refuser, restreindre l’accès ou limiter la disponibilité de vos Contributions ; (4) supprimer des Services tous les fichiers et contenus excessifs ; et (5) gérer les Services de manière à protéger nos droits et à faciliter le bon fonctionnement des Services."
+      },
+      "privacy-policy": {
+        "title": "9. POLITIQUE DE CONFIDENTIALITÉ",
+        "p1": "Nous nous soucions de la confidentialité et de la sécurité des données. Veuillez consulter notre Politique de confidentialité. En utilisant les Services, vous acceptez d’être lié par notre Politique de confidentialité, qui est intégrée à ces Conditions légales. Les Services sont hébergés au Canada."
+      },
+      "term-termination": {
+        "title": "10. DURÉE ET RÉSILIATION",
+        "p1": "Ces Conditions légales resteront pleinement en vigueur tant que vous utiliserez les Services. SANS LIMITER TOUTE AUTRE DISPOSITION DE CES CONDITIONS LÉGALES, NOUS NOUS RÉSERVONS LE DROIT DE REFUSER L’ACCÈS AUX SERVICES À TOUTE PERSONNE POUR QUELQUE RAISON QUE CE SOIT.\n\nSi nous résilions ou suspendons votre compte, il vous est interdit de créer un nouveau compte sous votre nom, un faux nom ou le nom d’un tiers."
+      },
+      "modifications": {
+        "title": "11. MODIFICATIONS ET INTERRUPTIONS",
+        "p1": "Nous nous réservons le droit de modifier, changer ou supprimer le contenu des Services à tout moment. Nous ne serons pas responsables envers vous ou un tiers pour toute modification, changement de prix, suspension ou interruption des Services.\n\nNous ne pouvons garantir que les Services seront disponibles en permanence. Nous pouvons rencontrer des problèmes matériels, logiciels ou autres, entraînant des interruptions, des retards ou des erreurs."
+      },
+      "governing-law": {
+        "title": "12. LOI APPLICABLE",
+        "p1": "Ces Conditions légales seront régies par les lois du Canada. Mr Clean+ et vous-même consentez irrévocablement à ce que les tribunaux du Canada aient compétence exclusive pour résoudre tout différend pouvant découler de ces Conditions légales."
+      },
+      "dispute-resolution": {
+        "title": "13. RÈGLEMENT DES DIFFÉRENDS",
+        "p1": "Vous acceptez de soumettre irrévocablement tous les différends liés à ces Conditions légales à la compétence des tribunaux du Canada."
+      },
+      "corrections": {
+        "title": "14. CORRECTIONS",
+        "p1": "Des informations sur les Services peuvent contenir des erreurs typographiques, des inexactitudes ou des omissions. Nous nous réservons le droit de corriger toute erreur et de modifier les informations sur les Services à tout moment, sans préavis."
+      },
+      "disclaimer": {
+        "title": "15. CLAUSE DE NON-RESPONSABILITÉ",
+        "p1": "LES SERVICES SONT FOURNIS « TELS QUELS » ET « TELS QUE DISPONIBLES ». VOUS ACCEPTEZ QUE VOTRE UTILISATION DES SERVICES SERA À VOS SEULS RISQUES. DANS TOUTE LA MESURE PERMISE PAR LA LOI, NOUS DÉCLINONS TOUTE GARANTIE, EXPRESSE OU IMPLICITE, EN LIEN AVEC LES SERVICES ET VOTRE UTILISATION DE CEUX-CI."
+      },
+      "limitations-liability": {
+        "title": "16. LIMITATION DE RESPONSABILITÉ",
+        "p1": "EN AUCUN CAS NOUS OU NOS DIRECTEURS, EMPLOYÉS OU AGENTS NE SERONS RESPONSABLES ENVERS VOUS OU UN TIERS DE TOUT DOMMAGE DIRECT, INDIRECT, CONSÉCUTIF, EXEMPLAIRE, ACCESSOIRE, SPÉCIAL OU PUNITIF DÉCOULANT DE VOTRE UTILISATION DES SERVICES."
+      },
+      "indemnification": {
+        "title": "17. INDEMNISATION",
+        "p1": "Vous acceptez de défendre, indemniser et dégager de toute responsabilité nous-mêmes, nos filiales, affiliés et tous nos dirigeants, agents, partenaires et employés respectifs, contre toute perte, dommage, responsabilité, réclamation ou demande résultant de : (1) l’utilisation des Services ; (2) la violation de ces Conditions légales ; (3) la violation des droits d’un tiers ; (4) tout acte nuisible envers un autre utilisateur des Services."
+      },
+      "user-data": {
+        "title": "18. DONNÉES UTILISATEUR",
+        "p1": "Nous conserverons certaines données que vous transmettez aux Services aux fins de gestion de la performance des Services. Bien que nous effectuions des sauvegardes régulières, vous êtes seul responsable de toutes les données que vous transmettez. Vous acceptez que nous n’ayons aucune responsabilité envers vous pour toute perte ou corruption de ces données."
+      },
+      "electronic-communications": {
+        "title": "19. COMMUNICATIONS ÉLECTRONIQUES, TRANSACTIONS ET SIGNATURES",
+        "p1": "La visite des Services, l’envoi de courriels et le remplissage de formulaires en ligne constituent des communications électroniques. Vous consentez à recevoir des communications électroniques et vous acceptez que tous les accords, avis et autres communications que nous vous fournissons par voie électronique satisfont à toute exigence légale de communication écrite."
+      },
+      "miscellaneous": {
+        "title": "20. DIVERS",
+        "p1": "Ces Conditions légales et toute politique ou règle d’exploitation publiée par nous sur les Services constituent l’intégralité de l’accord et de la compréhension entre vous et nous. Notre défaut d’exercer ou d’appliquer tout droit ou disposition de ces Conditions légales ne constituera pas une renonciation à ce droit ou cette disposition."
+      },
+      "contact-us": {
+        "title": "21. NOUS CONTACTER",
+        "p1": "Pour résoudre une plainte concernant les Services ou pour obtenir de plus amples informations, veuillez nous contacter à :",
+        "email": "Info@mrcleanplus.ca",
+        "address": [
+          "Mr Clean+",
+          "315 Bd René-Lévesque E, Montréal, QC H2X 3P3",
+          "Canada",
+          "Téléphone : +1(514)431-9741"
+        ]
+      }
     }
   }
 }

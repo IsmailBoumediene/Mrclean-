@@ -73,7 +73,7 @@ type FormState = {
   housingType: string;
   floors: string;
   bedrooms: string;
-  services: string[];
+  services: string;
   visitPreference: string[];
   frequency: string;
   oneTimeVisitsPerWeek: string;
@@ -92,28 +92,28 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
     housingType: '',
     floors: '',
     bedrooms: '',
-    services: [],
+    services: '',
     visitPreference: [],
     frequency: '',
     oneTimeVisitsPerWeek: '',
     additionalInfo: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [fieldErrors, setFieldErrors] = useState<{ city?: string; postalCode?: string; lastName?: string; firstName?: string; email?: string }>({});
   const [photos, setPhotos] = useState<File[]>([]);
   const [photosError, setPhotosError] = useState('');
   const [showMobilePhotoOptions, setShowMobilePhotoOptions] = useState(false);
   const galleryInputRef = useRef<HTMLInputElement>(null);
   const cameraInputRef = useRef<HTMLInputElement>(null);
 
-  const toggleService = (value: string) => {
-    setFormState((prev) => {
-      const exists = prev.services.includes(value);
-      return {
-        ...prev,
-        services: exists ? prev.services.filter((s) => s !== value) : [...prev.services, value],
-      };
-    });
-  };
+  // Refs pour scroll automatique sur erreur
+  const lastNameRef = useRef<HTMLInputElement>(null);
+  const firstNameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const cityRef = useRef<HTMLInputElement>(null);
+  const postalCodeRef = useRef<HTMLInputElement>(null);
+
+  // toggleService removed: now using radio buttons for services
 
   const toggleVisitPreference = (value: string) => {
     setFormState((prev) => {
@@ -129,11 +129,63 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    // Validate required fields
+    const errors: { city?: string; postalCode?: string; lastName?: string; firstName?: string; email?: string } = {};
+    if (!formState.lastName.trim()) {
+      errors.lastName = 'Champ obligatoire.';
+    }
+    if (!formState.firstName.trim()) {
+      errors.firstName = 'Champ obligatoire.';
+    }
+    if (!formState.email.trim()) {
+      errors.email = 'Champ obligatoire.';
+    }
+    if (!formState.city.trim()) {
+      errors.city = 'Champ obligatoire.';
+    }
+    if (!formState.postalCode.trim()) {
+      errors.postalCode = 'Champ obligatoire.';
+    } else {
+      // Validation stricte du code postal canadien (format A1A 1A1 ou A1A1A1)
+      const postalCode = formState.postalCode.trim().toUpperCase().replace(/\s+/g, '');
+      const postalCodeRegex = /^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z]\d[ABCEGHJ-NPRSTV-Z]\d$/;
+      if (!postalCodeRegex.test(postalCode)) {
+        errors.postalCode = 'Veuillez entrer un code postal canadien valide (ex: A1A 1A1 ).';
+      }
+    }
+    setFieldErrors(errors);
+    if (Object.keys(errors).length > 0) {
+      // Scroll au premier champ en erreur
+      const order = ['lastName', 'firstName', 'email', 'city', 'postalCode'];
+      for (const key of order) {
+        if (errors[key as keyof typeof errors]) {
+          const refMap: Record<string, React.RefObject<HTMLInputElement>> = {
+            lastName: lastNameRef,
+            firstName: firstNameRef,
+            email: emailRef,
+            city: cityRef,
+            postalCode: postalCodeRef,
+          };
+          const ref = refMap[key];
+          if (ref && ref.current) {
+            ref.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            ref.current.focus();
+          }
+          break;
+        }
+      }
+      setStatus('idle');
+      return;
+    }
     setStatus('loading');
     try {
       const formData = new FormData();
       Object.entries(formState).forEach(([key, value]) => {
-        if (Array.isArray(value)) {
+        if (key === 'postalCode') {
+          // Toujours envoyer le code postal en majuscules et sans espaces
+          const formatted = typeof value === 'string' ? value.trim().toUpperCase().replace(/\s+/g, '') : String(value);
+          formData.append(key, formatted);
+        } else if (Array.isArray(value)) {
           value.forEach((v) => formData.append(key, v));
         } else {
           formData.append(key, value);
@@ -162,12 +214,13 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
           housingType: '',
           floors: '',
           bedrooms: '',
-          services: [],
+          services: '',
           visitPreference: [],
           frequency: '',
           oneTimeVisitsPerWeek: '',
           additionalInfo: '',
         });
+        setFieldErrors({});
       } else {
         setStatus('error');
       }
@@ -238,7 +291,7 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
   return (
     <form onSubmit={handleSubmit} className="mc-form">
       {status === 'success' && (
-        <div className="mc-form-success">Votre demande a été envoyée.</div>
+        <div className="mc-form-success">{dict.success}</div>
       )}
       {status === 'error' && (
         <div className="mc-form-error">Erreur lors de l&apos;envoi de la demande.</div>
@@ -262,10 +315,24 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
               id="lastName"
               type="text"
               required
+              ref={lastNameRef}
               value={formState.lastName}
-              onChange={(e) => setFormState({ ...formState, lastName: e.target.value })}
-              className="mc-form-control"
+              onChange={(e) => {
+                setFormState({ ...formState, lastName: e.target.value });
+                if (fieldErrors.lastName) setFieldErrors((prev) => ({ ...prev, lastName: undefined }));
+              }}
+              className={`mc-form-control${fieldErrors.lastName ? ' border-red-500 focus:border-red-500' : ''}`}
+              aria-invalid={!!fieldErrors.lastName}
+              aria-describedby={fieldErrors.lastName ? 'lastName-error' : undefined}
+              style={fieldErrors.lastName ? { borderColor: '#ef4444', borderWidth: 2 } : {}}
             />
+            <span
+              id="lastName-error"
+              className="text-red-500 text-xs mt-1 block"
+              style={{ minHeight: '18px', visibility: fieldErrors.lastName ? 'visible' : 'hidden' }}
+            >
+              {fieldErrors.lastName || ' '}
+            </span>
           </div>
           <div className="mc-form-field-inline">
             <label htmlFor="firstName" className="mc-form-label">{dict.firstName}</label>
@@ -273,10 +340,24 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
               id="firstName"
               type="text"
               required
+              ref={firstNameRef}
               value={formState.firstName}
-              onChange={(e) => setFormState({ ...formState, firstName: e.target.value })}
-              className="mc-form-control"
+              onChange={(e) => {
+                setFormState({ ...formState, firstName: e.target.value });
+                if (fieldErrors.firstName) setFieldErrors((prev) => ({ ...prev, firstName: undefined }));
+              }}
+              className={`mc-form-control${fieldErrors.firstName ? ' border-red-500 focus:border-red-500' : ''}`}
+              aria-invalid={!!fieldErrors.firstName}
+              aria-describedby={fieldErrors.firstName ? 'firstName-error' : undefined}
+              style={fieldErrors.firstName ? { borderColor: '#ef4444', borderWidth: 2 } : {}}
             />
+            <span
+              id="firstName-error"
+              className="text-red-500 text-xs mt-1 block"
+              style={{ minHeight: '18px', visibility: fieldErrors.firstName ? 'visible' : 'hidden' }}
+            >
+              {fieldErrors.firstName || ' '}
+            </span>
           </div>
         </div>
       </div>
@@ -287,10 +368,24 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
           id="email"
           type="email"
           required
+          ref={emailRef}
           value={formState.email}
-          onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-          className="mc-form-control"
+          onChange={(e) => {
+            setFormState({ ...formState, email: e.target.value });
+            if (fieldErrors.email) setFieldErrors((prev) => ({ ...prev, email: undefined }));
+          }}
+          className={`mc-form-control${fieldErrors.email ? ' border-red-500 focus:border-red-500' : ''}`}
+          aria-invalid={!!fieldErrors.email}
+          aria-describedby={fieldErrors.email ? 'email-error' : undefined}
+          style={fieldErrors.email ? { borderColor: '#ef4444', borderWidth: 2 } : {}}
         />
+        <span
+          id="email-error"
+          className="text-red-500 text-xs mt-1 block"
+          style={{ minHeight: '18px', visibility: fieldErrors.email ? 'visible' : 'hidden' }}
+        >
+          {fieldErrors.email || ' '}
+        </span>
       </div>
 
       <div className="mc-form-field">
@@ -311,20 +406,50 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
             <input
               id="city"
               type="text"
+              required
+              ref={cityRef}
               value={formState.city}
-              onChange={(e) => setFormState({ ...formState, city: e.target.value })}
-              className="mc-form-control"
+              onChange={(e) => {
+                setFormState({ ...formState, city: e.target.value });
+                if (fieldErrors.city) setFieldErrors((prev) => ({ ...prev, city: undefined }));
+              }}
+              className={`mc-form-control${fieldErrors.city ? ' border-red-500 focus:border-red-500' : ''}`}
+              aria-invalid={!!fieldErrors.city}
+              aria-describedby={fieldErrors.city ? 'city-error' : undefined}
+              style={fieldErrors.city ? { borderColor: '#ef4444', borderWidth: 2 } : {}}
             />
+            <span
+              id="city-error"
+              className="text-red-500 text-xs mt-1 block"
+              style={{ minHeight: '18px', visibility: fieldErrors.city ? 'visible' : 'hidden' }}
+            >
+              {fieldErrors.city || ' '}
+            </span>
           </div>
           <div className="mc-form-field-inline">
             <label htmlFor="postalCode" className="mc-form-label">{dict.postalCode}</label>
             <input
               id="postalCode"
               type="text"
+              required
+              ref={postalCodeRef}
               value={formState.postalCode}
-              onChange={(e) => setFormState({ ...formState, postalCode: e.target.value })}
-              className="mc-form-control"
+              onChange={(e) => {
+                setFormState({ ...formState, postalCode: e.target.value });
+                if (fieldErrors.postalCode) setFieldErrors((prev) => ({ ...prev, postalCode: undefined }));
+              }}
+              className={`mc-form-control${fieldErrors.postalCode ? ' border-red-500 focus:border-red-500' : ''}`}
+              aria-invalid={!!fieldErrors.postalCode}
+              aria-describedby={fieldErrors.postalCode ? 'postalCode-error' : undefined}
+              style={fieldErrors.postalCode ? { borderColor: '#ef4444', borderWidth: 2 } : {}}
             />
+            <span
+              id="postalCode-error"
+              className="text-red-500 text-xs mt-1 block"
+              style={{ minHeight: '18px', visibility: fieldErrors.postalCode ? 'visible' : 'hidden' }}
+            >
+              {fieldErrors.postalCode || ' '}
+            </span>
           </div>
         </div>
       </div>
@@ -335,9 +460,11 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
           {serviceEntries.map(([value, label]) => (
             <label key={value} className="flex items-center gap-2 text-gray-700">
               <input
-                type="checkbox"
-                checked={formState.services.includes(value)}
-                onChange={() => toggleService(value)}
+                type="radio"
+                name="services"
+                value={value}
+                checked={formState.services === value}
+                onChange={() => setFormState((prev) => ({ ...prev, services: value }))}
               />
               <span>{label}</span>
             </label>
@@ -468,28 +595,45 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
         />
         <div className="mc-photo-upload-grid">
           {photos.map((photo, idx) => (
-            <div key={idx} className="mc-photo-preview">
+            <div key={idx} className="mc-photo-preview" style={{ width: '100%', height: '100%', position: 'relative', borderRadius: 8, border: '1px solid #ccc', overflow: 'hidden', background: '#fafafa', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Image
                 src={URL.createObjectURL(photo)}
                 alt={photo.name}
-                width={80}
-                height={80}
+                width={100}
+                height={100}
                 className="mc-photo-preview-img"
-                style={{ objectFit: 'cover', borderRadius: 8, border: '1px solid #ccc' }}
+                style={{ objectFit: 'cover', width: '100%', height: '100%', minWidth: '100%', minHeight: '100%', maxWidth: '100%', maxHeight: '100%', display: 'block' }}
                 unoptimized
               />
               <button
                 type="button"
                 className="mc-photo-remove-btn"
-                aria-label="Supprimer l&apos;image"
+                aria-label="Supprimer l'image"
                 onClick={() => {
                   setPhotos(photos.filter((_, i) => i !== idx));
                 }}
-                style={{ display: 'block', margin: '4px auto 0', color: '#b91c1c', background: 'none', border: 'none', cursor: 'pointer' }}
+                style={{
+                  position: 'absolute',
+                  top: 4,
+                  right: 4,
+                  width: 20,
+                  height: 20,
+                  border: 'none',
+                  background: 'rgba(255,255,255,0.7)',
+                  color: '#b91c1c',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 'bold',
+                  fontSize: 16,
+                  cursor: 'pointer',
+                  zIndex: 2,
+                  boxShadow: '0 1px 4px rgba(0,0,0,0.08)'
+                }}
               >
-                Supprimer
+                ×
               </button>
-              <div className="mc-photo-preview-name" style={{ fontSize: 12, textAlign: 'center', marginTop: 2 }}>{photo.name}</div>
             </div>
           ))}
           {photos.length < 3 &&
@@ -533,6 +677,15 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
         )}
         <p className="text-sm text-gray-500 mt-2">{dict.photosHelp}</p>
         {photosError && <p className="text-sm text-red-600 mt-1">{photosError}</p>}
+        {photos.length > 0 && (
+          <div className="mc-photo-names-list" style={{ marginTop: 6 }}>
+            {photos.map((photo, idx) => (
+              <div key={idx} style={{ fontSize: 12, color: '#444', textAlign: 'left', wordBreak: 'break-all', marginBottom: 2 }}>
+                  <span style={{ fontWeight: 700, fontSize: 13 }}>{idx + 1}-</span> {photo.name}
+              </div>
+            ))}
+          </div>
+        )}
         {photos.length > 0 && (
           <p className="text-sm text-gray-700 mt-1">{photos.length}/3</p>
         )}
