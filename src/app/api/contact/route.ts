@@ -130,6 +130,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: true });
     }
   } catch (error) {
+    console.error('Contact API error:', error);
     return NextResponse.json({ success: false, error: (error as Error).message }, { status: 500 });
   }
 }

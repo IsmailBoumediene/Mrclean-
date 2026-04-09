@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 type ConsultFormDict = {
@@ -80,6 +80,44 @@ type FormState = {
   additionalInfo: string;
 };
 
+// Compress an image file to max 1200px and JPEG 0.7 quality to reduce upload size
+function compressImage(file: File, maxWidth = 1200, quality = 0.7): Promise<File> {
+  return new Promise((resolve) => {
+    // If file is already small (< 500KB), skip compression
+    if (file.size < 500 * 1024) {
+      resolve(file);
+      return;
+    }
+    const img = document.createElement('img');
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const scale = img.width > maxWidth ? maxWidth / img.width : 1;
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width * scale;
+      canvas.height = img.height * scale;
+      const ctx = canvas.getContext('2d');
+      ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            resolve(new File([blob], file.name, { type: 'image/jpeg' }));
+          } else {
+            resolve(file);
+          }
+        },
+        'image/jpeg',
+        quality,
+      );
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      resolve(file);
+    };
+    img.src = url;
+  });
+}
+
 export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
   const [formState, setFormState] = useState<FormState>(() => {
     if (typeof window !== 'undefined') {
@@ -109,6 +147,7 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [fieldErrors, setFieldErrors] = useState<{ city?: string; postalCode?: string; lastName?: string; firstName?: string; email?: string }>({});
   const [photos, setPhotos] = useState<File[]>([]);
+  const [photoUrls, setPhotoUrls] = useState<string[]>([]);
   const [photosError, setPhotosError] = useState('');
   const [showMobilePhotoOptions, setShowMobilePhotoOptions] = useState(false);
   const galleryInputRef = useRef<HTMLInputElement>(null);
@@ -125,6 +164,13 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
   useEffect(() => {
     sessionStorage.setItem('consultFormState', JSON.stringify(formState));
   }, [formState]);
+
+  // Create stable blob URLs for photo previews and revoke old ones to free memory
+  useEffect(() => {
+    const urls = photos.map((p) => URL.createObjectURL(p));
+    setPhotoUrls(urls);
+    return () => { urls.forEach((u) => URL.revokeObjectURL(u)); };
+  }, [photos]);
 
   // toggleService removed: now using radio buttons for services
 
@@ -244,14 +290,16 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
     setTimeout(() => setStatus('idle'), 5000);
   };
 
-  const handlePhotosChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files ? Array.from(e.target.files) : [];
+  const handlePhotosChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const rawFiles = e.target.files ? Array.from(e.target.files) : [];
 
-    if (files.length === 0) {
+    if (rawFiles.length === 0) {
       return;
     }
 
-    const nextPhotos = [...photos, ...files];
+    // Compress images to reduce size (max 1200px, JPEG 70%)
+    const compressed = await Promise.all(rawFiles.map((f) => compressImage(f)));
+    const nextPhotos = [...photos, ...compressed];
 
     if (nextPhotos.length > 3) {
       setPhotos(nextPhotos.slice(0, 3));
@@ -610,8 +658,9 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
         <div className="mc-photo-upload-grid">
           {photos.map((photo, idx) => (
             <div key={idx} className="mc-photo-preview" style={{ width: '100%', height: '100%', position: 'relative', borderRadius: 8, border: '1px solid #ccc', overflow: 'hidden', background: '#fafafa', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {photoUrls[idx] && (
               <Image
-                src={URL.createObjectURL(photo)}
+                src={photoUrls[idx]}
                 alt={photo.name}
                 width={100}
                 height={100}
@@ -619,6 +668,7 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
                 style={{ objectFit: 'cover', width: '100%', height: '100%', minWidth: '100%', minHeight: '100%', maxWidth: '100%', maxHeight: '100%', display: 'block' }}
                 unoptimized
               />
+              )}
               <button
                 type="button"
                 className="mc-photo-remove-btn"
