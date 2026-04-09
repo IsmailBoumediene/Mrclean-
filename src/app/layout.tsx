@@ -5,14 +5,23 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Mr Clean+',
-  description: 'Professional cleaning services in Montreal',
+  metadataBase: new URL('https://www.mrcleanplus.ca'),
+  title: {
+    default: 'Mr Clean+ | Professional Cleaning Services in Montreal',
+    template: '%s | Mr Clean+',
+  },
+  description: 'Professional cleaning services in Montreal, Laval, North Shore and South Shore. Residential, commercial, Airbnb, deep cleaning and post-renovation cleaning.',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/favicon.ico',
   },
   openGraph: {
+    type: 'website',
+    siteName: 'Mr Clean+',
+    title: 'Mr Clean+ | Professional Cleaning Services in Montreal',
+    description: 'Professional cleaning services in Montreal, Laval, North Shore and South Shore.',
+    url: 'https://www.mrcleanplus.ca',
     images: [
       {
         url: '/images/logo.png',
@@ -24,6 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    title: 'Mr Clean+ | Professional Cleaning Services in Montreal',
+    description: 'Professional cleaning services in Montreal, Laval, North Shore and South Shore.',
     images: ['/images/logo.png'],
   },
 };

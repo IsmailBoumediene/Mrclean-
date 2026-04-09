@@ -1,7 +1,6 @@
 'use client';
 
 import { ChangeEvent, FormEvent, useCallback, useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 
 type ConsultFormDict = {
   companyName: string;
@@ -88,33 +87,39 @@ function compressImage(file: File, maxWidth = 1200, quality = 0.7): Promise<File
       resolve(file);
       return;
     }
-    const img = document.createElement('img');
-    const url = URL.createObjectURL(file);
-    img.onload = () => {
-      URL.revokeObjectURL(url);
-      const scale = img.width > maxWidth ? maxWidth / img.width : 1;
-      const canvas = document.createElement('canvas');
-      canvas.width = img.width * scale;
-      canvas.height = img.height * scale;
-      const ctx = canvas.getContext('2d');
-      ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
-      canvas.toBlob(
-        (blob) => {
-          if (blob) {
-            resolve(new File([blob], file.name, { type: 'image/jpeg' }));
-          } else {
-            resolve(file);
-          }
-        },
-        'image/jpeg',
-        quality,
-      );
+    // Use FileReader instead of createObjectURL for better Android compatibility
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = document.createElement('img');
+      img.onload = () => {
+        try {
+          const scale = img.width > maxWidth ? maxWidth / img.width : 1;
+          const canvas = document.createElement('canvas');
+          canvas.width = Math.round(img.width * scale);
+          canvas.height = Math.round(img.height * scale);
+          const ctx = canvas.getContext('2d');
+          if (!ctx) { resolve(file); return; }
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          canvas.toBlob(
+            (blob) => {
+              if (blob && blob.size > 0) {
+                resolve(new File([blob], file.name.replace(/\.[^.]+$/, '.jpg'), { type: 'image/jpeg' }));
+              } else {
+                resolve(file);
+              }
+            },
+            'image/jpeg',
+            quality,
+          );
+        } catch {
+          resolve(file);
+        }
+      };
+      img.onerror = () => resolve(file);
+      img.src = reader.result as string;
     };
-    img.onerror = () => {
-      URL.revokeObjectURL(url);
-      resolve(file);
-    };
-    img.src = url;
+    reader.onerror = () => resolve(file);
+    reader.readAsDataURL(file);
   });
 }
 
@@ -289,26 +294,25 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
   };
 
   const handlePhotosChange = async (e: ChangeEvent<HTMLInputElement>) => {
-    const rawFiles = e.target.files ? Array.from(e.target.files) : [];
-
-    if (rawFiles.length === 0) {
-      return;
-    }
+    // Grab files immediately — on Android the input can be cleared after async work
+    const fileList = e.target.files;
+    if (!fileList || fileList.length === 0) return;
+    const rawFiles = Array.from(fileList);
+    // Reset input right away so the same file can be re-selected
+    e.target.value = '';
 
     // Compress images to reduce size (max 1200px, JPEG 70%)
     const compressed = await Promise.all(rawFiles.map((f) => compressImage(f)));
-    const nextPhotos = [...photos, ...compressed];
 
-    if (nextPhotos.length > 3) {
-      setPhotos(nextPhotos.slice(0, 3));
-      setPhotosError(dict.photosErrorMax);
-      e.target.value = '';
-      return;
-    }
-
-    setPhotos(nextPhotos);
-    setPhotosError('');
-    e.target.value = '';
+    setPhotos((prev) => {
+      const nextPhotos = [...prev, ...compressed];
+      if (nextPhotos.length > 3) {
+        setPhotosError(dict.photosErrorMax);
+        return nextPhotos.slice(0, 3);
+      }
+      setPhotosError('');
+      return nextPhotos;
+    });
   };
 
   const openPhotoPicker = () => {
@@ -635,14 +639,12 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
           {photos.map((photo, idx) => (
             <div key={idx} className="mc-photo-preview" style={{ width: '100%', height: '100%', position: 'relative', borderRadius: 8, border: '1px solid #ccc', overflow: 'hidden', background: '#fafafa', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {photoUrls[idx] && (
-              <Image
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
                 src={photoUrls[idx]}
                 alt={photo.name}
-                width={100}
-                height={100}
                 className="mc-photo-preview-img"
-                style={{ objectFit: 'cover', width: '100%', height: '100%', minWidth: '100%', minHeight: '100%', maxWidth: '100%', maxHeight: '100%', display: 'block' }}
-                unoptimized
+                style={{ objectFit: 'cover', width: '100%', height: '100%', display: 'block' }}
               />
               )}
               <button
