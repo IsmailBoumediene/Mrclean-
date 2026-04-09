@@ -627,7 +627,6 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
           id="photos-gallery"
           type="file"
           accept="image/*"
-          multiple
           onChange={handlePhotosChange}
           className="mc-photo-upload-input"
           ref={galleryInputRef}
