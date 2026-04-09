@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 type ConsultFormDict = {
@@ -81,22 +81,30 @@ type FormState = {
 };
 
 export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
-  const [formState, setFormState] = useState<FormState>({
-    companyName: '',
-    lastName: '',
-    firstName: '',
-    email: '',
-    phone: '',
-    city: '',
-    postalCode: '',
-    housingType: '',
-    floors: '',
-    bedrooms: '',
-    services: '',
-    visitPreference: [],
-    frequency: '',
-    oneTimeVisitsPerWeek: '',
-    additionalInfo: '',
+  const [formState, setFormState] = useState<FormState>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = sessionStorage.getItem('consultFormState');
+      if (saved) {
+        try { return JSON.parse(saved); } catch { /* ignore */ }
+      }
+    }
+    return {
+      companyName: '',
+      lastName: '',
+      firstName: '',
+      email: '',
+      phone: '',
+      city: '',
+      postalCode: '',
+      housingType: '',
+      floors: '',
+      bedrooms: '',
+      services: '',
+      visitPreference: [],
+      frequency: '',
+      oneTimeVisitsPerWeek: '',
+      additionalInfo: '',
+    };
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [fieldErrors, setFieldErrors] = useState<{ city?: string; postalCode?: string; lastName?: string; firstName?: string; email?: string }>({});
@@ -112,6 +120,11 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
   const emailRef = useRef<HTMLInputElement>(null);
   const cityRef = useRef<HTMLInputElement>(null);
   const postalCodeRef = useRef<HTMLInputElement>(null);
+
+  // Persist form state to sessionStorage so it survives camera reload on mobile
+  useEffect(() => {
+    sessionStorage.setItem('consultFormState', JSON.stringify(formState));
+  }, [formState]);
 
   // toggleService removed: now using radio buttons for services
 
@@ -203,6 +216,7 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
         setStatus('success');
         setPhotos([]);
         setPhotosError('');
+        sessionStorage.removeItem('consultFormState');
         setFormState({
           companyName: '',
           lastName: '',
