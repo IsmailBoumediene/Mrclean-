@@ -149,9 +149,7 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
   const [photos, setPhotos] = useState<File[]>([]);
   const [photoUrls, setPhotoUrls] = useState<string[]>([]);
   const [photosError, setPhotosError] = useState('');
-  const [showMobilePhotoOptions, setShowMobilePhotoOptions] = useState(false);
   const galleryInputRef = useRef<HTMLInputElement>(null);
-  const cameraInputRef = useRef<HTMLInputElement>(null);
 
   // Refs pour scroll automatique sur erreur
   const lastNameRef = useRef<HTMLInputElement>(null);
@@ -314,22 +312,10 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
   };
 
   const openPhotoPicker = () => {
-    if (window.matchMedia('(max-width: 767px)').matches) {
-      setShowMobilePhotoOptions(true);
-      return;
-    }
-
+    // On all devices, open the standard file picker directly.
+    // On Android/iOS it natively offers Camera + Gallery options.
+    // Using capture="environment" separately caused Android to kill the browser tab.
     galleryInputRef.current?.click();
-  };
-
-  const openGalleryPicker = () => {
-    setShowMobilePhotoOptions(false);
-    galleryInputRef.current?.click();
-  };
-
-  const openCameraPicker = () => {
-    setShowMobilePhotoOptions(false);
-    cameraInputRef.current?.click();
   };
 
   const serviceEntries = [
@@ -646,15 +632,6 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
           className="mc-photo-upload-input"
           ref={galleryInputRef}
         />
-        <input
-          id="photos-camera"
-          type="file"
-          accept="image/*"
-          capture="environment"
-          onChange={handlePhotosChange}
-          className="mc-photo-upload-input"
-          ref={cameraInputRef}
-        />
         <div className="mc-photo-upload-grid">
           {photos.map((photo, idx) => (
             <div key={idx} className="mc-photo-preview" style={{ width: '100%', height: '100%', position: 'relative', borderRadius: 8, border: '1px solid #ccc', overflow: 'hidden', background: '#fafafa', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -713,32 +690,6 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
               </button>
             ))}
         </div>
-        {showMobilePhotoOptions && (
-          <div className="mc-photo-sheet" role="dialog" aria-modal="true" aria-label={dict.photosChoiceTitle}>
-            <button
-              type="button"
-              className="mc-photo-sheet-backdrop"
-              onClick={() => setShowMobilePhotoOptions(false)}
-              aria-label={dict.photosOptionCancel}
-            />
-            <div className="mc-photo-sheet-panel">
-              <p className="mc-photo-sheet-title">{dict.photosChoiceTitle}</p>
-              <button type="button" className="mc-photo-sheet-button" onClick={openGalleryPicker}>
-                {dict.photosOptionUpload}
-              </button>
-              <button type="button" className="mc-photo-sheet-button" onClick={openCameraPicker}>
-                {dict.photosOptionCamera}
-              </button>
-              <button
-                type="button"
-                className="mc-photo-sheet-button mc-photo-sheet-button-cancel"
-                onClick={() => setShowMobilePhotoOptions(false)}
-              >
-                {dict.photosOptionCancel}
-              </button>
-            </div>
-          </div>
-        )}
         <p className="text-sm text-gray-500 mt-2">{dict.photosHelp}</p>
         {photosError && <p className="text-sm text-red-600 mt-1">{photosError}</p>}
         {photos.length > 0 && (
