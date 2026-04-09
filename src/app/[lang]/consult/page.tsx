@@ -77,7 +77,7 @@ export default async function ConsultPage({ params }: { params: { lang: Locale }
       photosErrorMax: isFr ? 'Maximum 3 photos autorisées.' : 'Maximum 3 photos allowed.',
       additionalInfo: isFr ? 'Informations supplémentaires' : 'Additional information',
       submit: isFr ? 'Envoyer' : 'Submit',
-      success: isFr ? 'Soumission envoyée avec succès. Nous vous contacterons rapidement.' : 'Quote request sent successfully. We will contact you shortly.',
+      success: isFr ? 'Votre demande de soumission a été envoyée avec succès. Notre équipe vous contactera dans les plus brefs délais.' : 'Your quote request has been sent successfully. Our team will contact you as soon as possible.',
       error: isFr ? "Une erreur s'est produite. Veuillez réessayer." : 'An error occurred. Please try again.',
     },
   };
