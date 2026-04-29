@@ -197,7 +197,7 @@ a {
 .hero-slide-bg {
   background-image:
     linear-gradient(rgba(7, 89, 133, 0.6), rgba(7, 89, 133, 0.6)),
-    url('/images/slide.png');
+    url('/images/Chambre avant_apres.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -285,7 +285,7 @@ a {
   overflow: hidden;
   background:
     linear-gradient(rgba(7, 89, 133, 0.6), rgba(7, 89, 133, 0.6)),
-    url('/images/slide.png');
+    url('/images/Chambre avant_apres.png');
   background-size: cover;
   background-position: center;
 }

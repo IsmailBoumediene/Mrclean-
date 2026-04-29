@@ -3,7 +3,7 @@ import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import ScrollToServicesBtn from '@/components/ScrollToServicesBtn';
+import HomeHeroCarousel from '@/components/HomeHeroCarousel';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import { FaHome, FaBuilding, FaUsers, FaArrowRight, FaSoap, FaTruckMoving, FaKey } from 'react-icons/fa';
@@ -30,38 +30,15 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
   return (
     <div>
       {/* Hero Section */}
-      <section
-        className="text-white"
-        style={{
-          backgroundImage: "url('/images/slide.png')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-          <div
-            className="text-center max-w-3xl mx-auto"
-            style={{ background: 'rgba(76, 92, 99, 0.58)', padding: 'clamp(1.875rem, 4vw, 2.8125rem)' }}
-          >
-            <h1 className="mc-page-hero-title mb-6 hero-fade-in-title">
-              {dict.hero.title}
-            </h1>
-            <p className="mc-page-hero-subtitle mb-8 text-primary-100 hero-fade-in-subtitle">
-              {dict.hero.subtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ScrollToServicesBtn
-                label={dict.hero.ctaSecondary}
-                className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHeroCarousel
+        title={dict.hero.title}
+        subtitle={dict.hero.subtitle}
+        ctaLabel={dict.hero.ctaSecondary}
+        intervalMs={4000}
+      />
 
       {/* Services Section */}
-      <section id="services" className="py-16 bg-gray-50">
+      <section id="services" className="py-16 bg-gray-50" style={{ paddingTop: '1rem'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
