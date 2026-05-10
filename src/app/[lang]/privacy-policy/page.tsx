@@ -1,8 +1,22 @@
 
+import { Metadata } from 'next';
 import { getDictionary } from '@/lib/i18n/getDictionary';
 import { Locale } from '@/lib/i18n/config';
+import { buildBreadcrumbLd, buildPageMetadata } from '@/lib/seo';
 
 type Props = { params: { lang: Locale } };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const isFr = params.lang === 'fr';
+  return buildPageMetadata({
+    lang: params.lang,
+    route: 'privacy-policy',
+    title: isFr ? 'Politique de Confidentialite - Mr Clean+' : 'Privacy Policy - Mr Clean+',
+    description: isFr
+      ? 'Consultez la politique de confidentialite de Mr Clean+ et la gestion de vos donnees personnelles.'
+      : 'Read Mr Clean+ privacy policy and how we handle your personal data.',
+  });
+}
 
 const Section = ({ id, section }: { id: string; section: any }) => (
   <section id={id}>
@@ -30,6 +44,13 @@ const Section = ({ id, section }: { id: string; section: any }) => (
 
 const PrivacyPolicyPage = async ({ params }: Props) => {
   const dict = await getDictionary(params.lang);
+  const breadcrumbLd = buildBreadcrumbLd({
+    lang: params.lang,
+    items: [
+      { name: dict.nav.home, path: '' },
+      { name: dict.footer.privacy, path: '/privacy-policy' },
+    ],
+  });
   type SectionKey =
     | 'info-collect'
     | 'info-process'
@@ -60,6 +81,10 @@ const PrivacyPolicyPage = async ({ params }: Props) => {
   };
   return (
     <div className="mc-legal-wrap">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       <article className="privacy-policy-container mc-legal-container">
       <h1 className="mc-legal-title">{policy.title}</h1>
       <p><strong>{policy.lastUpdated}</strong></p>

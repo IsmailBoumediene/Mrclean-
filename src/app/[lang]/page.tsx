@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
+import { buildBreadcrumbLd, buildPageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import HomeHeroCarousel from '@/components/HomeHeroCarousel';
@@ -18,17 +19,59 @@ const CoverageMap = dynamic(() => import('@/components/CoverageMap'), { ssr: fal
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
   const dict = await getDictionary(params.lang);
-  return {
+  return buildPageMetadata({
+    lang: params.lang,
+    route: '',
     title: dict.meta.home.title,
     description: dict.meta.home.description,
-  };
+  });
 }
 
 export default async function HomePage({ params }: { params: { lang: Locale } }) {
   const dict = await getDictionary(params.lang);
+  const localBusinessLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CleaningService',
+    name: 'Mr Clean+',
+    url: `https://www.mrcleanplus.ca/${params.lang}`,
+    image: 'https://www.mrcleanplus.ca/images/logo.png',
+    telephone: '+1 (514) 431-9741',
+    email: 'info@mrcleanplus.ca',
+    priceRange: '$$',
+    areaServed: [
+      { '@type': 'City', name: 'Montreal' },
+      { '@type': 'City', name: 'Laval' },
+      { '@type': 'AdministrativeArea', name: 'North Shore' },
+      { '@type': 'AdministrativeArea', name: 'South Shore' },
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '315 Bd Rene-Levesque E, appartement 1605',
+      addressLocality: 'Montreal',
+      addressRegion: 'QC',
+      postalCode: 'H2X 3P3',
+      addressCountry: 'CA',
+    },
+    sameAs: [
+      'https://www.facebook.com/MrCleanPlus/?utm_source=ig&utm_medium=social&utm_content=link_in_bio',
+      'https://www.instagram.com/monsieurcleanplus/',
+    ],
+  };
+  const breadcrumbLd = buildBreadcrumbLd({
+    lang: params.lang,
+    items: [{ name: dict.nav.home, path: '' }],
+  });
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       {/* Hero Section */}
       <HomeHeroCarousel
         title={dict.hero.title}
@@ -210,6 +253,30 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
           >
             {dict.common.getQuote}
           </Link>
+        </div>
+      </section>
+
+      <section className="mc-inner-section bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            {params.lang === 'fr' ? 'Zones de service au Quebec' : 'Service Areas in Quebec'}
+          </h2>
+          <p className="text-lg text-gray-600 mx-auto" style={{ maxWidth: '66ch' }}>
+            {params.lang === 'fr'
+              ? 'Mr Clean+ dessert Montreal, Laval, la Rive-Nord et la Rive-Sud avec des services de nettoyage residentiel et commercial adaptes a vos besoins.'
+              : 'Mr Clean+ serves Montreal, Laval, the North Shore, and the South Shore with residential and commercial cleaning tailored to your needs.'}
+          </p>
+          <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
+            <span className="mc-area-chip">Montreal, QC</span>
+            <span className="mc-area-chip">Laval, QC</span>
+            <span className="mc-area-chip">Rive-Nord / North Shore</span>
+            <span className="mc-area-chip">Rive-Sud / South Shore</span>
+          </div>
+          <div className="mt-8">
+            <Link href={`/${params.lang}/consult`} className="mc-home-cta-button">
+              {dict.common.getQuote}
+            </Link>
+          </div>
         </div>
       </section>
     </div>

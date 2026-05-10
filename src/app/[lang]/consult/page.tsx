@@ -1,19 +1,31 @@
 import { Metadata } from 'next';
 import { Locale } from '@/lib/i18n/config';
 import ConsultForm from '@/components/ConsultForm';
+import { buildBreadcrumbLd, buildPageMetadata } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n/getDictionary';
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
   const isFr = params.lang === 'fr';
-  return {
+  return buildPageMetadata({
+    lang: params.lang,
+    route: 'consult',
     title: isFr ? 'Obtenir une soumission - Mr Clean+' : 'Get a Quote - Mr Clean+',
     description: isFr
       ? 'Obtenez une soumission rapide pour vos besoins de nettoyage résidentiel ou commercial.'
       : 'Get a quick quote for your residential or commercial cleaning needs.',
-  };
+  });
 }
 
 export default async function ConsultPage({ params }: { params: { lang: Locale } }) {
   const isFr = params.lang === 'fr';
+  const commonDict = await getDictionary(params.lang);
+  const breadcrumbLd = buildBreadcrumbLd({
+    lang: params.lang,
+    items: [
+      { name: commonDict.nav.home, path: '' },
+      { name: commonDict.common.getQuote, path: '/consult' },
+    ],
+  });
 
   const dict = {
     title: isFr ? 'OBTENIR UNE SOUMISSION' : 'GET A QUOTE',
@@ -84,6 +96,10 @@ export default async function ConsultPage({ params }: { params: { lang: Locale }
 
   return (
     <div className="mc-inner-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       <section className="hero-slide-bg text-white py-20 mc-inner-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="mc-page-hero-title mb-4">{dict.title}</h1>

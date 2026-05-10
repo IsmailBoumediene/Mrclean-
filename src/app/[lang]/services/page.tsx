@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
+import { buildBreadcrumbLd, buildPageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import residentialBg from '@/images/Residentiel.png';
@@ -12,15 +13,48 @@ import afterConstructionBg from '@/images/Apres construction.png';
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
   const dict = await getDictionary(params.lang);
-  return {
+  return buildPageMetadata({
+    lang: params.lang,
+    route: 'services',
     title: dict.meta.services.title,
     description: dict.meta.services.description,
-  };
+  });
 }
 
 export default async function ServicesPage({ params }: { params: { lang: Locale } }) {
   const dict = await getDictionary(params.lang);
   const isFr = params.lang === 'fr';
+  const servicesLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: dict.services.title,
+    itemListElement: [
+      dict.services.residential,
+      dict.services.airbnb,
+      dict.services.commercial,
+      dict.services.moveRenovation,
+      dict.services.airbnbCleaning,
+      dict.services.staffing,
+    ].map((service, index) => ({
+      '@type': 'Service',
+      position: index + 1,
+      name: service.title,
+      description: service.description,
+      provider: {
+        '@type': 'CleaningService',
+        name: 'Mr Clean+',
+        url: `https://www.mrcleanplus.ca/${params.lang}`,
+      },
+      areaServed: ['Montreal', 'Laval', 'North Shore', 'South Shore'],
+    })),
+  };
+  const breadcrumbLd = buildBreadcrumbLd({
+    lang: params.lang,
+    items: [
+      { name: dict.nav.home, path: '' },
+      { name: dict.nav.services, path: '/services' },
+    ],
+  });
 
   const regularCleaningDetails = isFr ? [
     {
@@ -109,6 +143,14 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
 
   return (
     <div className="mc-services-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       {/* Hero Section */}
       <section className="hero-slide-bg text-white py-20 mc-inner-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -391,6 +433,25 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
           >
             {params.lang === 'fr' ? 'Obtenir une soumission' : dict.common.getQuote}
           </Link>
+        </div>
+      </section>
+
+      <section className="mc-inner-section bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            {params.lang === 'fr' ? 'Nettoyage local partout dans le Grand Montreal' : 'Local Cleaning Across Greater Montreal'}
+          </h2>
+          <p className="text-lg text-gray-600 mx-auto" style={{ maxWidth: '66ch' }}>
+            {params.lang === 'fr'
+              ? 'Nos equipes interviennent a Montreal, Laval, sur la Rive-Nord et la Rive-Sud pour les residences, commerces et locations courte duree.'
+              : 'Our teams operate in Montreal, Laval, the North Shore, and the South Shore for homes, businesses, and short-term rentals.'}
+          </p>
+          <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
+            <span className="mc-area-chip">Montreal, QC</span>
+            <span className="mc-area-chip">Laval, QC</span>
+            <span className="mc-area-chip">Rive-Nord / North Shore</span>
+            <span className="mc-area-chip">Rive-Sud / South Shore</span>
+          </div>
         </div>
       </section>
     </div>
