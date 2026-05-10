@@ -15,9 +15,9 @@ export default async function AboutPage({ params }: { params: { lang: Locale } }
   const dict = await getDictionary(params.lang);
 
   return (
-    <div>
+    <div className="mc-inner-page">
       {/* Hero Section */}
-      <section className="hero-slide-bg text-white py-20">
+      <section className="hero-slide-bg text-white py-20 mc-inner-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="mc-page-hero-title mb-4">
             {dict.about.title}
@@ -29,7 +29,7 @@ export default async function AboutPage({ params }: { params: { lang: Locale } }
       </section>
 
       {/* About Content + Proof Items */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white mc-inner-section">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xl text-gray-700 leading-relaxed mb-10">
             {dict.about.description}
@@ -46,7 +46,7 @@ export default async function AboutPage({ params }: { params: { lang: Locale } }
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 mc-inner-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             {dict.about.whyChooseUs}
@@ -66,7 +66,7 @@ export default async function AboutPage({ params }: { params: { lang: Locale } }
       </section>
 
       {/* Engagement Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 mc-inner-section">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6 text-gray-900">{dict.about.engagementTitle}</h2>
           <p className="text-xl text-gray-900 leading-relaxed">{dict.about.engagementText}</p>
@@ -74,7 +74,7 @@ export default async function AboutPage({ params }: { params: { lang: Locale } }
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white mc-inner-section">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">{dict.about.ctaTitle}</h2>
           <Link href={`/${params.lang}/consult`} className="mc-about-cta-btn">

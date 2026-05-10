@@ -83,15 +83,15 @@ export default async function ConsultPage({ params }: { params: { lang: Locale }
   };
 
   return (
-    <div>
-      <section className="hero-slide-bg text-white py-20">
+    <div className="mc-inner-page">
+      <section className="hero-slide-bg text-white py-20 mc-inner-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="mc-page-hero-title mb-4">{dict.title}</h1>
           <p className="mc-page-hero-subtitle text-primary-100">{dict.subtitle}</p>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white mc-inner-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gray-50 rounded-lg p-8">

@@ -26,7 +26,7 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   const cardStyle = backgroundImage
     ? {
-        backgroundImage: `linear-gradient(rgba(0, 0, 0,0.8), rgba(255, 255, 255, 0.50)), url('${backgroundImage}')`,
+        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.65) 100%), url('${backgroundImage}')`,
         backgroundSize: 'cover',
         backgroundPosition,
         backgroundRepeat: 'no-repeat',
@@ -52,11 +52,11 @@ export default function ServiceCard({
       )}
       {ctaHref && ctaLabel && (
         ctaHref.includes('#') ? (
-          <a href={ctaHref} className="mc-service-card-cta">
+          <a href={ctaHref} className="mc-service-card-cta" aria-label={`${ctaLabel}: ${title}`}>
             {ctaLabel}
           </a>
         ) : (
-          <Link href={ctaHref} className="mc-service-card-cta">
+          <Link href={ctaHref} className="mc-service-card-cta" aria-label={`${ctaLabel}: ${title}`}>
             {ctaLabel}
           </Link>
         )

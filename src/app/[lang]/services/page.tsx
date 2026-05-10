@@ -110,7 +110,7 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
   return (
     <div className="mc-services-page">
       {/* Hero Section */}
-      <section className="hero-slide-bg text-white py-20">
+      <section className="hero-slide-bg text-white py-20 mc-inner-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="mc-page-hero-title mb-4">
             {dict.services.title}
@@ -122,7 +122,7 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
       </section>
 
       {/* Services Detailed Section */}
-      <section className="py-16 bg-white mc-services-detail-section">
+      <section className="py-16 bg-white mc-services-detail-section mc-inner-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Intro */}
           <div className="text-center mb-16 max-w-3xl mx-auto mc-services-intro">

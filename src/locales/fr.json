@@ -14,16 +14,16 @@
     "reserveBtn": "Réservez En Ligne Maintenant",
     "slides": [
       {
-        "text": "Profitez de 20% de rabais sur votre premier nettoyage régulier",
-        "durationMs": 6000
+        "text": "Offre de bienvenue : 20% de rabais sur votre premier nettoyage régulier",
+        "durationMs": 4200
       },
       {
-        "text": "Remplissez le formulaire en moins de 2 minutes",
-        "durationMs": 2500
+        "text": "Soumission rapide en ligne, réponse en quelques minutes",
+        "durationMs": 3200
       },
       {
-        "text": "Service professionnel, rapide et fiable",
-        "durationMs": 2500
+        "text": "Équipe vérifiée, service impeccable, satisfaction garantie",
+        "durationMs": 3200
       }
     ]
   },

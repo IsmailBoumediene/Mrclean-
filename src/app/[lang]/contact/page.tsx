@@ -16,9 +16,9 @@ export default async function ContactPage({ params }: { params: { lang: Locale }
   const dict = await getDictionary(params.lang);
 
   return (
-    <div>
+    <div className="mc-inner-page">
       {/* Hero Section */}
-      <section className="hero-slide-bg text-white py-20">
+      <section className="hero-slide-bg text-white py-20 mc-inner-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="mc-page-hero-title mb-4">
             {dict.contact.title}
@@ -30,7 +30,7 @@ export default async function ContactPage({ params }: { params: { lang: Locale }
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white mc-inner-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Information */}

@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Locale } from '@/lib/i18n/config';
 import LanguageSwitcher from './LanguageSwitcher';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '@/images/logo-nobg.png';
 
 type Dictionary = {
@@ -34,6 +34,21 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
   const navItems = [
     { href: `/${lang}/about`, label: dict.nav.about },
     { href: `/${lang}/faq`, label: dict.nav.faq },
@@ -60,11 +75,11 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
   ];
 
   const isActive = (href: string) => pathname === href;
-  const isServicesActive = pathname === `/${lang}/services`;
+  const isServicesActive = pathname?.startsWith(`/${lang}/services`);
 
   return (
     <header className="mc-header">
-      <nav className="mc-header-nav">
+      <nav className="mc-header-nav" aria-label="Main navigation">
         <div className="mc-header-row">
           {/* Logo */}
           <Link href={`/${lang}`} className="mc-header-logo-link" aria-label="Mr Clean+ home">
@@ -142,6 +157,8 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
             className="mc-header-mobile-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mc-mobile-menu"
           >
             {mobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
@@ -149,7 +166,7 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="mc-header-mobile-menu">
+          <div className="mc-header-mobile-menu" id="mc-mobile-menu">
             {mobileNavItems.map((item) => (
               <Link
                 key={item.href}

@@ -18,6 +18,7 @@ type Dictionary = {
 export default function TopBar({ dict }: { dict: Dictionary }) {
   const slides = dict.topBar.slides;
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   const renderSlideText = (text: string) => {
     return text.split(/(\d+%)/g).map((part, index) => {
@@ -38,7 +39,7 @@ export default function TopBar({ dict }: { dict: Dictionary }) {
   };
 
   useEffect(() => {
-    if (slides.length <= 1) {
+    if (slides.length <= 1 || reducedMotion) {
       return;
     }
 
@@ -48,7 +49,15 @@ export default function TopBar({ dict }: { dict: Dictionary }) {
     }, currentDuration);
 
     return () => window.clearTimeout(timeoutId);
-  }, [currentSlide, slides]);
+  }, [currentSlide, slides, reducedMotion]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateMotion = () => setReducedMotion(mediaQuery.matches);
+    updateMotion();
+    mediaQuery.addEventListener('change', updateMotion);
+    return () => mediaQuery.removeEventListener('change', updateMotion);
+  }, []);
 
   return (
     <div className="mc-topbar">
@@ -64,6 +73,7 @@ export default function TopBar({ dict }: { dict: Dictionary }) {
         </div>
 
         <div className="mc-topbar-slider" aria-live="polite">
+          <span className="mc-topbar-badge" aria-hidden="true">Offre</span>
           <p key={currentSlide} className="mc-topbar-slide-text">
             {renderSlideText(slides[currentSlide]?.text ?? '')}
           </p>

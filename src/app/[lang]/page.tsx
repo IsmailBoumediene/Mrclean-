@@ -38,7 +38,7 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
       />
 
       {/* Services Section */}
-      <section id="services" className="py-16 bg-gray-50" style={{ paddingTop: '1rem'}}>
+      <section id="services" className="mc-home-services-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -49,7 +49,7 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="mc-home-services-grid">
             <ServiceCard
               title={dict.services.residential.title}
               description={dict.services.residential.description}
@@ -128,7 +128,7 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
+       <section className="mc-home-why-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -144,7 +144,7 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
           <div className="mc-home-values-grid">
             {dict.about.values.map((value, index) => (
               <div key={index} className="text-center">
-                <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="mc-home-value-icon-wrap">
                   <span className="text-3xl">{['🎯', '👥', '🌿', '✨'][index]}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{value.title}</h3>
@@ -156,7 +156,7 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="mc-home-testimonials-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -193,12 +193,12 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white py-16">
+      <section className="mc-home-cta-section">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {params.lang === 'fr' ? 'Prêt à avoir un espace impeccable?' : 'Ready for a Spotless Space?'}
           </h2>
-          <p className="text-xl mb-8 text-primary-100">
+          <p className="text-xl mb-8 mc-home-cta-subtitle">
             {params.lang === 'fr' 
               ? 'Contactez-nous aujourd\'hui pour un devis gratuit et sans engagement.'
               : 'Contact us today for a free, no-obligation quote.'
@@ -206,7 +206,7 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
           </p>
           <Link
             href={`/${params.lang}/consult`}
-            className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-block"
+            className="mc-home-cta-button"
           >
             {dict.common.getQuote}
           </Link>

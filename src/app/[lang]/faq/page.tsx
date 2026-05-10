@@ -20,7 +20,7 @@ export default async function FAQPage({ params }: { params: { lang: Locale } }) 
 
   return (
     <div className="mc-faq-page">
-      <section className="mc-faq-hero">
+      <section className="mc-faq-hero mc-inner-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mc-faq-hero-inner">
           <p className="mc-faq-kicker">Mr Clean+ Concierge</p>
           <h1 className="mc-page-hero-title mc-faq-title">{dict.faq.title}</h1>

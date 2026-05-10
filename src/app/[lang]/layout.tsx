@@ -18,13 +18,11 @@ export default async function LocaleLayout({
   const dict = await getDictionary(params.lang);
 
   return (
-    <html lang={params.lang}>
-      <body>
-        <TopBar dict={dict} />
-        <Header lang={params.lang} dict={dict} />
-        <main className="min-h-screen">{children}</main>
-        <Footer lang={params.lang} dict={dict} />
-      </body>
-    </html>
+    <>
+      <TopBar dict={dict} />
+      <Header lang={params.lang} dict={dict} />
+      <main className="min-h-screen">{children}</main>
+      <Footer lang={params.lang} dict={dict} />
+    </>
   );
 }

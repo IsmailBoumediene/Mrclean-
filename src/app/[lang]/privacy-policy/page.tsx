@@ -4,7 +4,7 @@ import { Locale } from '@/lib/i18n/config';
 
 type Props = { params: { lang: Locale } };
 
-const Section = ({ id, section, index }: { id: string; section: any; index: number }) => (
+const Section = ({ id, section }: { id: string; section: any }) => (
   <section id={id}>
     <h2>{section.title}</h2>
     {section.subtitle && <h3>{section.subtitle}</h3>}
@@ -59,15 +59,15 @@ const PrivacyPolicyPage = async ({ params }: Props) => {
     sections: Record<SectionKey, any>;
   };
   return (
-    <div className="privacy-policy-container">
-
-      <span style={{ fontWeight: 'bold', fontSize: '24px', color: 'blue', display: 'block', textAlign: 'center', marginBottom: '10px' }}>{policy.title}</span>
+    <div className="mc-legal-wrap">
+      <article className="privacy-policy-container mc-legal-container">
+      <h1 className="mc-legal-title">{policy.title}</h1>
       <p><strong>{policy.lastUpdated}</strong></p>
 
       {policy.intro && (
         <section className="privacy-policy-intro">
           <p
-            style={{ whiteSpace: 'pre-line' }}
+            className="mc-legal-preline"
             dangerouslySetInnerHTML={{ __html: policy.intro }}
           />
         </section>
@@ -97,9 +97,9 @@ const PrivacyPolicyPage = async ({ params }: Props) => {
           key={item.id}
           id={item.id}
           section={policy.sections[item.id]}
-          index={idx}
         />
       ))}
+      </article>
     </div>
   );
 };

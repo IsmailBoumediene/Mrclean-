@@ -21,6 +21,14 @@ type Dictionary = {
     privacy: string;
     terms: string;
   };
+  services: {
+    residential: { title: string };
+    airbnb: { title: string };
+    commercial: { title: string };
+    moveRenovation: { title: string };
+    airbnbCleaning: { title: string };
+    staffing: { title: string };
+  };
   contact: {
     address: string;
   };
@@ -87,9 +95,31 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dictionary 
             </ul>
           </div>
 
+          <div>
+            <h3 className="mc-footer-heading">{dict.footer.services}</h3>
+            <ul className="mc-footer-links-list">
+              <li><Link href={`/${lang}/services#service-regular-cleaning`} className="mc-footer-link">{dict.services.residential.title}</Link></li>
+              <li><Link href={`/${lang}/services#service-deep-cleaning`} className="mc-footer-link">{dict.services.airbnb.title}</Link></li>
+              <li><Link href={`/${lang}/services#service-commercial`} className="mc-footer-link">{dict.services.commercial.title}</Link></li>
+              <li><Link href={`/${lang}/services#service-move-renovation`} className="mc-footer-link">{dict.services.moveRenovation.title}</Link></li>
+              <li><Link href={`/${lang}/services#service-airbnb-cleaning`} className="mc-footer-link">{dict.services.airbnbCleaning.title}</Link></li>
+              <li><Link href={`/${lang}/services#service-staffing`} className="mc-footer-link">{dict.services.staffing.title}</Link></li>
+            </ul>
+          </div>
+
           {/* Social Media */}
           <div>
             <h3 className="mc-footer-heading">{dict.footer.followUs}</h3>
+            <div className="mc-footer-contact-list">
+              <div className="mc-footer-contact-item">
+                <FaPhone className="mc-footer-icon" />
+                <a href="tel:+15144319741" className="mc-footer-link">+1(514)431-9741</a>
+              </div>
+              <div className="mc-footer-contact-item">
+                <FaEnvelope className="mc-footer-icon" />
+                <a href="mailto:info@mrcleanplus.ca" className="mc-footer-link">info@mrcleanplus.ca</a>
+              </div>
+            </div>
             <div className="mc-footer-socials">
               <a href="https://www.facebook.com/MrCleanPlus/?utm_source=ig&utm_medium=social&utm_content=link_in_bio" className="mc-footer-social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                 <FaFacebook size={24} />

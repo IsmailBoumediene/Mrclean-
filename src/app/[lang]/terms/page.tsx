@@ -8,14 +8,14 @@ const Section = ({ id, section }: { id: string; section: any }) => (
     <h2>{section.title}</h2>
     {section.subtitle && <h3>{section.subtitle}</h3>}
     {section.inShort && <p><strong>{section.inShort}</strong></p>}
-    {section.p1 && <p style={{ whiteSpace: 'pre-line' }}>{section.p1}</p>}
+    {section.p1 && <p className="mc-legal-preline">{section.p1}</p>}
     {section.list && (
       <ul>
         {section.list.map((item: string, i: number) => <li key={i}>{item}</li>)}
       </ul>
     )}
-    {section.p2 && <p style={{ whiteSpace: 'pre-line' }}>{section.p2}</p>}
-    {section.p3 && <p style={{ whiteSpace: 'pre-line' }}>{section.p3}</p>}
+    {section.p2 && <p className="mc-legal-preline">{section.p2}</p>}
+    {section.p3 && <p className="mc-legal-preline">{section.p3}</p>}
     {section.email && (
       <p><a href={`mailto:${section.email}`}>{section.email}</a></p>
     )}
@@ -39,14 +39,15 @@ export default async function TermsPage({ params }: Props) {
   };
 
   return (
-    <div className="privacy-policy-container">
-      <span style={{ fontWeight: 'bold', fontSize: '24px', color: 'blue', display: 'block', textAlign: 'center', marginBottom: '10px' }}>{terms.title}</span>
+    <div className="mc-legal-wrap">
+      <article className="privacy-policy-container mc-legal-container">
+      <h1 className="mc-legal-title">{terms.title}</h1>
       <p><strong>{terms.lastUpdated}</strong></p>
 
       {terms.intro && (
         <section>
           <p
-            style={{ whiteSpace: 'pre-line' }}
+            className="mc-legal-preline"
             dangerouslySetInnerHTML={{ __html: terms.intro }}
           />
         </section>
@@ -70,6 +71,7 @@ export default async function TermsPage({ params }: Props) {
           section={terms.sections[item.id]}
         />
       ))}
+      </article>
     </div>
   );
 }

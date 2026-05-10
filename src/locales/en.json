@@ -14,16 +14,16 @@
     "reserveBtn": "Reserve Online Now",
     "slides": [
       {
-        "text": "Enjoy 20% discount on your first regular cleaning",
-        "durationMs": 6000
+        "text": "Welcome offer: save 20% on your first regular cleaning",
+        "durationMs": 4200
       },
       {
-        "text": "Fill out the form in under 2 minutes",
-        "durationMs": 2500
+        "text": "Fast online quote with response in minutes",
+        "durationMs": 3200
       },
       {
-        "text": "Professional, fast and reliable cleaning",
-        "durationMs": 2500
+        "text": "Verified team, spotless results, satisfaction guaranteed",
+        "durationMs": 3200
       }
     ]
   },
