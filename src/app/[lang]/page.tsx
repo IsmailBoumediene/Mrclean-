@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
-import { buildBreadcrumbLd, buildPageMetadata } from '@/lib/seo';
+import { buildBreadcrumbLd, buildPageMetadata, buildReviewsLd } from '@/lib/seo';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import HomeHeroCarousel from '@/components/HomeHeroCarousel';
@@ -30,38 +30,11 @@ export async function generateMetadata({ params }: { params: { lang: Locale } })
 export default async function HomePage({ params }: { params: { lang: Locale } }) {
   const dict = await getDictionary(params.lang);
   const isFr = params.lang === 'fr';
-  const localBusinessLd = {
-    '@context': 'https://schema.org',
-    '@type': 'CleaningService',
-    name: 'Mr Clean+',
-    url: `https://www.mrcleanplus.ca/${params.lang}`,
-    image: 'https://www.mrcleanplus.ca/images/logo.png',
-    telephone: '+1 (514) 431-9741',
-    email: 'info@mrcleanplus.ca',
-    priceRange: '$$',
-    areaServed: [
-      { '@type': 'City', name: 'Montreal' },
-      { '@type': 'City', name: 'Laval' },
-      { '@type': 'AdministrativeArea', name: 'North Shore' },
-      { '@type': 'AdministrativeArea', name: 'South Shore' },
-    ],
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '315 Bd Rene-Levesque E, appartement 1605',
-      addressLocality: 'Montreal',
-      addressRegion: 'QC',
-      postalCode: 'H2X 3P3',
-      addressCountry: 'CA',
-    },
-    sameAs: [
-      'https://www.facebook.com/MrCleanPlus/?utm_source=ig&utm_medium=social&utm_content=link_in_bio',
-      'https://www.instagram.com/monsieurcleanplus/',
-    ],
-  };
   const breadcrumbLd = buildBreadcrumbLd({
     lang: params.lang,
     items: [{ name: dict.nav.home, path: '' }],
   });
+  const reviewLds = buildReviewsLd(dict.testimonials.items);
 
   const trustStats = [
     {
@@ -90,12 +63,15 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessLd) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+      {reviewLds.map((ld, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
 
       {/* Hero Section */}
       <HomeHeroCarousel

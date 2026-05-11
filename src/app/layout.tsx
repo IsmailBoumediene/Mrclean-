@@ -1,42 +1,83 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Manrope } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', display: 'swap' });
+
+const SITE_URL = 'https://www.mrcleanplus.ca';
+const DEFAULT_TITLE = 'Mr Clean+ | Service de nettoyage professionnel à Montréal, Laval, Rive-Nord et Rive-Sud';
+const DEFAULT_DESCRIPTION =
+  'Service de nettoyage professionnel à Montréal, Laval, Rive-Nord et Rive-Sud. Nettoyage résidentiel, commercial, Airbnb, grand ménage et après-construction. Soumission gratuite — 20% de rabais sur votre premier nettoyage régulier.';
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#FAF8F3' },
+    { media: '(prefers-color-scheme: dark)', color: '#0B1B26' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  colorScheme: 'light',
+};
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.mrcleanplus.ca'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Mr Clean+ | Professional Cleaning Services in Montreal',
+    default: DEFAULT_TITLE,
     template: '%s | Mr Clean+',
   },
-  description: 'Professional cleaning services in Montreal, Laval, North Shore and South Shore. Residential, commercial, Airbnb, deep cleaning and post-renovation cleaning.',
+  description: DEFAULT_DESCRIPTION,
+  applicationName: 'Mr Clean+',
+  authors: [{ name: 'Mr Clean+', url: SITE_URL }],
+  creator: 'Mr Clean+',
+  publisher: 'Mr Clean+',
+  category: 'Cleaning Services',
+  formatDetection: { telephone: true, address: true, email: true },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/favicon.ico',
   },
+  robots: {
+    index: true,
+    follow: true,
+    'max-snippet': -1,
+    'max-image-preview': 'large',
+    'max-video-preview': -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
   openGraph: {
     type: 'website',
     siteName: 'Mr Clean+',
-    title: 'Mr Clean+ | Professional Cleaning Services in Montreal',
-    description: 'Professional cleaning services in Montreal, Laval, North Shore and South Shore.',
-    url: 'https://www.mrcleanplus.ca',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    locale: 'fr_CA',
+    alternateLocale: ['en_CA'],
     images: [
       {
         url: '/images/logo.png',
-        width: 512,
-        height: 512,
-        alt: 'Mr Clean+ Logo',
+        width: 1200,
+        height: 630,
+        alt: 'Mr Clean+ — Cleaning services Montreal',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mr Clean+ | Professional Cleaning Services in Montreal',
-    description: 'Professional cleaning services in Montreal, Laval, North Shore and South Shore.',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
     images: ['/images/logo.png'],
+  },
+  verification: {
+    google: 'N7Z7q83a_9kJjUAHRolY8TZSuOdCjKGRTB11QjLU8lY',
   },
 };
 
@@ -46,9 +87,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="fr-CA">
       <head>
-        <meta name="google-site-verification" content="N7Z7q83a_9kJjUAHRolY8TZSuOdCjKGRTB11QjLU8lY" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
       </head>
       <body className={`${inter.variable} ${manrope.variable}`}>{children}</body>
     </html>

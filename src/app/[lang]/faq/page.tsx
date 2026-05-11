@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
 import { FAQItem } from '@/types/faq';
-import { buildBreadcrumbLd, buildPageMetadata } from '@/lib/seo';
+import { buildBreadcrumbLd, buildFaqLd, buildPageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
   const dict = await getDictionary(params.lang);
@@ -20,19 +20,7 @@ export default async function FAQPage({ params }: { params: { lang: Locale } }) 
   const dict = await getDictionary(params.lang);
   const faqItems = dict.faq.items as FAQItem[];
   const isFr = params.lang === 'fr';
-  const faqLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: params.lang,
-    mainEntity: faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
-  };
+  const faqLd = buildFaqLd(faqItems, params.lang);
   const breadcrumbLd = buildBreadcrumbLd({
     lang: params.lang,
     items: [

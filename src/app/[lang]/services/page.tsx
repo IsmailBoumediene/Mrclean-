@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
-import { buildBreadcrumbLd, buildPageMetadata } from '@/lib/seo';
+import { buildBreadcrumbLd, buildPageMetadata, buildServicesItemListLd } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import residentialBg from '@/images/Residentiel.png';
@@ -24,30 +24,17 @@ export async function generateMetadata({ params }: { params: { lang: Locale } })
 export default async function ServicesPage({ params }: { params: { lang: Locale } }) {
   const dict = await getDictionary(params.lang);
   const isFr = params.lang === 'fr';
-  const servicesLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: dict.services.title,
-    itemListElement: [
+  const servicesLd = buildServicesItemListLd({
+    lang: params.lang,
+    services: [
       dict.services.residential,
       dict.services.airbnb,
       dict.services.commercial,
       dict.services.moveRenovation,
       dict.services.airbnbCleaning,
       dict.services.staffing,
-    ].map((service, index) => ({
-      '@type': 'Service',
-      position: index + 1,
-      name: service.title,
-      description: service.description,
-      provider: {
-        '@type': 'CleaningService',
-        name: 'Mr Clean+',
-        url: `https://www.mrcleanplus.ca/${params.lang}`,
-      },
-      areaServed: ['Montreal', 'Laval', 'North Shore', 'South Shore'],
-    })),
-  };
+    ].map((s) => ({ title: s.title, description: s.description })),
+  });
   const breadcrumbLd = buildBreadcrumbLd({
     lang: params.lang,
     items: [

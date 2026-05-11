@@ -28,14 +28,14 @@
     ]
   },
   "hero": {
-    "title": "Your expert in residential and commercial cleaning",
-    "subtitle": "Serving Montreal, Laval, North Shore and South Shore",
+    "title": "Professional cleaning services in Montreal, Laval, North Shore & South Shore",
+    "subtitle": "Residential, commercial, Airbnb, deep cleaning and post-construction — verified team, free quote.",
     "cta": "Get a Quote",
     "ctaSecondary": "Our Services"
   },
   "services": {
-    "title": "Our Services",
-    "subtitle": "Comprehensive cleaning solutions tailored to your needs",
+    "title": "Cleaning Services in Montreal",
+    "subtitle": "Residential, commercial, Airbnb, deep and post-construction cleaning across Greater Montreal",
     "residential": {
       "title": "Regular residential cleaning",
       "description": "Give your home impeccable cleanliness with a reliable and discreet service tailored to your needs, including complete surface cleaning and floor care (vacuuming and mopping).",
@@ -486,28 +486,28 @@
   },
   "meta": {
     "home": {
-      "title": "Mr Clean+ - Professional Cleaning Services in Montreal",
-      "description": "Professional cleaning services in Montreal, Laval, North Shore and South Shore. Residential, commercial, post-construction and move-in/move-out cleaning. Reliable, fast and detailed service. Free quote."
+      "title": "House Cleaning Montreal — 20% Off Your First Cleaning",
+      "description": "Top-rated cleaning service in Montreal, Laval, North Shore & South Shore. Residential, commercial, Airbnb, deep & post-construction cleaning. Free quote, verified team, 20% off your first regular cleaning."
     },
     "services": {
-      "title": "Our Cleaning Services - Mr Clean+ Montreal",
-      "description": "Residential cleaning, commercial cleaning, Airbnb cleaning, and trained staffing services in Montreal. Get a free quote today."
+      "title": "Cleaning Services in Montreal, Laval & South Shore",
+      "description": "Residential, commercial, Airbnb, deep cleaning and post-construction cleaning across Greater Montreal. Trained, verified team — free quote with no obligation."
     },
     "about": {
-      "title": "About Us - Mr Clean+ Montreal",
-      "description": "Learn about Mr Clean+, your trusted cleaning partner in Montreal. Eco-friendly, reliable, and professional cleaning services."
+      "title": "About — Trusted Cleaning Team in Montreal",
+      "description": "Mr Clean+ is a Montreal cleaning company serving Laval, the North Shore and the South Shore with reliable residential & commercial cleaning by a trained, verified team."
     },
     "careers": {
-      "title": "Careers - Join Mr Clean+",
-      "description": "Join our team of professional cleaners in Montreal. Competitive pay, flexible schedules, and growth opportunities."
+      "title": "Careers — Join the Mr Clean+ Team",
+      "description": "Join our Montreal cleaning team. Competitive pay, flexible schedules, supportive environment and growth opportunities for professional cleaners."
     },
     "contact": {
-      "title": "Contact Us - Mr Clean+ Montreal",
-      "description": "Get in touch for a free quote. Professional cleaning services in Montreal and surrounding areas."
+      "title": "Contact — Free Cleaning Quote in Montreal",
+      "description": "Reach Mr Clean+ for a free, no-obligation cleaning quote in Montreal, Laval, North Shore and South Shore. Phone, email and online form available."
     },
     "faq": {
-      "title": "FAQ - Mr Clean+ Montreal",
-      "description": "Find answers to common questions about our residential and commercial cleaning services."
+      "title": "FAQ — Cleaning Services in Montreal",
+      "description": "Answers to the most common questions about residential, commercial, deep, Airbnb and post-construction cleaning in Montreal, Laval and surrounding areas."
     }
   },
   "terms": {
