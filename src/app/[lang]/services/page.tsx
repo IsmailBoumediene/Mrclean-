@@ -152,12 +152,13 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       {/* Hero Section */}
-      <section className="hero-slide-bg text-white py-20 mc-inner-hero">
+      <section className="hero-slide-bg mc-inner-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="mc-eyebrow mc-eyebrow-on-dark">{isFr ? 'Services' : 'Services'}</span>
           <h1 className="mc-page-hero-title mb-4">
             {dict.services.title}
           </h1>
-          <p className="mc-page-hero-subtitle text-primary-100">
+          <p className="mc-page-hero-subtitle">
             {dict.services.subtitle}
           </p>
         </div>
@@ -417,40 +418,39 @@ export default async function ServicesPage({ params }: { params: { lang: Locale 
       </section>
 
       {/* Final CTA */}
-      <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white py-16 mc-services-final-cta">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="mc-services-final-cta">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" style={{ position: 'relative', zIndex: 1 }}>
+          <span className="mc-eyebrow mc-eyebrow-on-dark">{isFr ? 'Soumission gratuite' : 'Free quote'}</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {params.lang === 'fr' ? 'Prêt à commencer?' : 'Ready to get started?'}
+            {isFr ? 'Prêt à commencer?' : 'Ready to get started?'}
           </h2>
-          <p className="text-xl mb-8 text-primary-100">
-            {params.lang === 'fr' 
+          <p className="text-xl mb-8" style={{ color: 'rgba(255,255,255,0.85)' }}>
+            {isFr
               ? 'Contactez-nous aujourd\'hui pour un devis gratuit et sans engagement.'
               : 'Contact us today for a free, no-obligation quote.'}
           </p>
-          <Link
-            href={`/${params.lang}/consult`}
-            className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-block mc-services-final-cta-btn"
-          >
-            {params.lang === 'fr' ? 'Obtenir une soumission' : dict.common.getQuote}
+          <Link href={`/${params.lang}/consult`} className="mc-services-final-cta-btn">
+            {isFr ? 'Obtenir une soumission' : dict.common.getQuote}
           </Link>
         </div>
       </section>
 
-      <section className="mc-inner-section bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="mc-inner-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mc-section-head">
+          <span className="mc-eyebrow">{isFr ? 'Zones desservies' : 'Service area'}</span>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            {params.lang === 'fr' ? 'Nettoyage local partout dans le Grand Montreal' : 'Local Cleaning Across Greater Montreal'}
+            {isFr ? 'Nettoyage local partout dans le Grand Montréal' : 'Local Cleaning Across Greater Montreal'}
           </h2>
-          <p className="text-lg text-gray-600 mx-auto" style={{ maxWidth: '66ch' }}>
-            {params.lang === 'fr'
-              ? 'Nos equipes interviennent a Montreal, Laval, sur la Rive-Nord et la Rive-Sud pour les residences, commerces et locations courte duree.'
+          <p className="text-lg text-gray-600 mx-auto mc-section-lede" style={{ maxWidth: '66ch' }}>
+            {isFr
+              ? 'Nos équipes interviennent à Montréal, Laval, sur la Rive-Nord et la Rive-Sud pour les résidences, commerces et locations courte durée.'
               : 'Our teams operate in Montreal, Laval, the North Shore, and the South Shore for homes, businesses, and short-term rentals.'}
           </p>
           <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
             <span className="mc-area-chip">Montreal, QC</span>
             <span className="mc-area-chip">Laval, QC</span>
-            <span className="mc-area-chip">Rive-Nord / North Shore</span>
-            <span className="mc-area-chip">Rive-Sud / South Shore</span>
+            <span className="mc-area-chip">{isFr ? 'Rive-Nord' : 'North Shore'}</span>
+            <span className="mc-area-chip">{isFr ? 'Rive-Sud' : 'South Shore'}</span>
           </div>
         </div>
       </section>

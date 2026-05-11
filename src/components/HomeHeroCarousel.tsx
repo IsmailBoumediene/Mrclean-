@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import ScrollToServicesBtn from '@/components/ScrollToServicesBtn';
 import chambreBeforeAfter from '@/images/Chambre avant_apres.png';
 import chambreBeforeAfterMobile from '@/images/Chambre avant_apres_mobile.png';
@@ -38,6 +39,10 @@ type HomeHeroCarouselProps = {
   ctaLabel: string;
   images?: string[];
   intervalMs?: number;
+  promoHeadline?: string;
+  promoTagline?: string;
+  primaryCtaLabel?: string;
+  primaryCtaHref?: string;
 };
 
 export default function HomeHeroCarousel({
@@ -46,6 +51,10 @@ export default function HomeHeroCarousel({
   ctaLabel,
   images,
   intervalMs = 5000,
+  promoHeadline,
+  promoTagline,
+  primaryCtaLabel,
+  primaryCtaHref,
 }: HomeHeroCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -104,12 +113,29 @@ export default function HomeHeroCarousel({
 
       <div className="mc-hero-content-wrap">
         <div className="mc-hero-content">
+          {promoHeadline && (
+            <div className="mc-hero-promo" role="note">
+              <span className="mc-hero-promo-badge" aria-hidden="true">
+                <span className="mc-hero-promo-pct">20%</span>
+                <span className="mc-hero-promo-pct-label">OFF</span>
+              </span>
+              <span className="mc-hero-promo-text">
+                <strong>{promoHeadline}</strong>
+                {promoTagline && <span className="mc-hero-promo-tagline">{promoTagline}</span>}
+              </span>
+            </div>
+          )}
           <h1 className="mc-page-hero-title">{title}</h1>
           <p className="mc-page-hero-subtitle">{subtitle}</p>
           <div className="mc-hero-actions">
+            {primaryCtaLabel && primaryCtaHref ? (
+              <Link href={primaryCtaHref} className="mc-hero-cta">
+                {primaryCtaLabel}
+              </Link>
+            ) : null}
             <ScrollToServicesBtn
               label={ctaLabel}
-              className="mc-hero-cta"
+              className={primaryCtaLabel ? 'mc-hero-cta-ghost' : 'mc-hero-cta'}
             />
           </div>
         </div>
