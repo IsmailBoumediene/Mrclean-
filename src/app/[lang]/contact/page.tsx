@@ -1,107 +1,83 @@
 import { Metadata } from 'next';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
+import { buildBreadcrumbLd, buildPageMetadata } from '@/lib/seo';
 import ContactForm from '@/components/ContactForm';
 import { FaPhone, FaEnvelope, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
   const dict = await getDictionary(params.lang);
-  return {
+  return buildPageMetadata({
+    lang: params.lang,
+    route: 'contact',
     title: dict.meta.contact.title,
     description: dict.meta.contact.description,
-  };
+  });
 }
 
 export default async function ContactPage({ params }: { params: { lang: Locale } }) {
   const dict = await getDictionary(params.lang);
+  const isFr = params.lang === 'fr';
+  const breadcrumbLd = buildBreadcrumbLd({
+    lang: params.lang,
+    items: [
+      { name: dict.nav.home, path: '' },
+      { name: dict.nav.contact, path: '/contact' },
+    ],
+  });
+
+  const contactItems = [
+    { icon: <FaPhone />, label: dict.contact.phone, value: '+1 (514) 431-9741', href: 'tel:+15144319741' },
+    { icon: <FaEnvelope />, label: dict.contact.email, value: 'info@mrcleanplus.ca', href: 'mailto:info@mrcleanplus.ca' },
+    { icon: <FaClock />, label: dict.contact.hours, value: dict.contact.hoursValue, isHtml: true },
+    { icon: <FaMapMarkerAlt />, label: dict.contact.serviceArea, value: dict.contact.serviceAreaValue },
+  ];
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="hero-slide-bg text-white py-20">
+    <div className="mc-inner-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <section className="hero-slide-bg mc-inner-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="mc-page-hero-title mb-4">
-            {dict.contact.title}
-          </h1>
-          <p className="mc-page-hero-subtitle text-primary-100">
-            {dict.contact.subtitle}
-          </p>
+          <span className="mc-eyebrow mc-eyebrow-on-dark">{isFr ? 'Contact' : 'Contact'}</span>
+          <h1 className="mc-page-hero-title mb-4">{dict.contact.title}</h1>
+          <p className="mc-page-hero-subtitle">{dict.contact.subtitle}</p>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-16 bg-white">
+      <section className="mc-inner-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+          <div className="mc-contact-grid">
+            <div className="mc-contact-info">
+              <span className="mc-eyebrow">{isFr ? 'Coordonnées' : 'Reach us'}</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
                 {dict.contact.info}
               </h2>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary-100 p-3 rounded-lg">
-                    <FaPhone className="text-primary-600 text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      {dict.contact.phone}
-                    </h3>
-                    <a href="tel:+15144319741" className="text-gray-600 hover:text-primary-600">
-                      +1(514)431-9741
-                    </a>
-                  </div>
-                </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary-100 p-3 rounded-lg">
-                    <FaEnvelope className="text-primary-600 text-xl" />
+              <div className="mc-contact-list">
+                {contactItems.map((item, i) => (
+                  <div key={i} className="mc-contact-item">
+                    <span className="mc-contact-item-icon" aria-hidden="true">{item.icon}</span>
+                    <div className="mc-contact-item-body">
+                      <h3 className="mc-contact-item-label">{item.label}</h3>
+                      {item.href ? (
+                        <a href={item.href} className="mc-contact-item-value mc-contact-item-link">{item.value}</a>
+                      ) : item.isHtml ? (
+                        <div className="mc-contact-item-value" dangerouslySetInnerHTML={{ __html: item.value }} />
+                      ) : (
+                        <p className="mc-contact-item-value">{item.value}</p>
+                      )}
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      {dict.contact.email}
-                    </h3>
-                    <a href="mailto:info@mrcleanplus.ca" className="text-gray-600 hover:text-primary-600">
-                      info@mrcleanplus.ca
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary-100 p-3 rounded-lg">
-                    <FaClock className="text-primary-600 text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      {dict.contact.hours}
-                    </h3>
-                    <div 
-                      className="text-gray-600" 
-                      dangerouslySetInnerHTML={{ __html: dict.contact.hoursValue }}
-                    />
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-primary-100 p-3 rounded-lg">
-                    <FaMapMarkerAlt className="text-primary-600 text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      {dict.contact.serviceArea}
-                    </h3>
-                    <p className="text-gray-600">
-                      {dict.contact.serviceAreaValue}
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="bg-gray-50 rounded-lg p-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <div className="mc-contact-form-wrap">
+              <span className="mc-eyebrow">{isFr ? 'Écrivez-nous' : 'Send us a message'}</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 {dict.contact.form.title}
               </h2>
               <ContactForm dict={dict.contact.form} />

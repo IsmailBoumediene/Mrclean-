@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
 import { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/getDictionary';
+import { buildBreadcrumbLd, buildPageMetadata, buildReviewsLd } from '@/lib/seo';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import HomeHeroCarousel from '@/components/HomeHeroCarousel';
 import ServiceCard from '@/components/ServiceCard';
 import TestimonialCard from '@/components/TestimonialCard';
-import { FaHome, FaBuilding, FaUsers, FaArrowRight, FaSoap, FaTruckMoving, FaKey } from 'react-icons/fa';
+import { FaHome, FaBuilding, FaUsers, FaArrowRight, FaSoap, FaTruckMoving, FaKey, FaCheckCircle, FaLeaf, FaShieldAlt, FaClock } from 'react-icons/fa';
 import residentialBg from '@/images/Residentiel.png';
 import commercialBg from '@/images/Commercial.png';
 import deepCleaningBg from '@/images/Grand-menage-new.jpg';
@@ -18,38 +19,101 @@ const CoverageMap = dynamic(() => import('@/components/CoverageMap'), { ssr: fal
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
   const dict = await getDictionary(params.lang);
-  return {
+  return buildPageMetadata({
+    lang: params.lang,
+    route: '',
     title: dict.meta.home.title,
     description: dict.meta.home.description,
-  };
+  });
 }
 
 export default async function HomePage({ params }: { params: { lang: Locale } }) {
   const dict = await getDictionary(params.lang);
+  const isFr = params.lang === 'fr';
+  const breadcrumbLd = buildBreadcrumbLd({
+    lang: params.lang,
+    items: [{ name: dict.nav.home, path: '' }],
+  });
+  const reviewLds = buildReviewsLd(dict.testimonials.items);
+
+  const trustStats = [
+    {
+      icon: <FaCheckCircle />,
+      value: '100+',
+      label: isFr ? 'Mandats complétés' : 'Jobs completed',
+    },
+    {
+      icon: <FaShieldAlt />,
+      value: '99%',
+      label: isFr ? 'Clients satisfaits' : 'Satisfied clients',
+    },
+    {
+      icon: <FaClock />,
+      value: '7/7',
+      label: isFr ? 'Horaire flexible' : 'Flexible scheduling',
+    },
+    {
+      icon: <FaLeaf />,
+      value: isFr ? 'Éco' : 'Eco',
+      label: isFr ? 'Produits adaptés' : 'Eco-friendly options',
+    },
+  ];
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      {reviewLds.map((ld, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
+
       {/* Hero Section */}
       <HomeHeroCarousel
         title={dict.hero.title}
         subtitle={dict.hero.subtitle}
         ctaLabel={dict.hero.ctaSecondary}
         intervalMs={4000}
+        promoHeadline={isFr ? 'Offre de bienvenue' : 'Welcome offer'}
+        promoTagline={isFr ? 'sur votre premier nettoyage régulier' : 'on your first regular cleaning'}
+        primaryCtaLabel={isFr ? 'Réclamer mon 20% de rabais' : 'Claim my 20% off quote'}
+        primaryCtaHref={`/${params.lang}/consult?promo=welcome20`}
       />
 
+      {/* Trust Strip */}
+      <section className="mc-trust-strip">
+        <div className="mc-trust-strip-inner">
+          {trustStats.map((stat, i) => (
+            <div key={i} className="mc-trust-item">
+              <span className="mc-trust-icon" aria-hidden="true">{stat.icon}</span>
+              <div className="mc-trust-text">
+                <span className="mc-trust-value">{stat.value}</span>
+                <span className="mc-trust-label">{stat.label}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Services Section */}
-      <section id="services" className="py-16 bg-gray-50" style={{ paddingTop: '1rem'}}>
+      <section id="services" className="mc-home-services-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 mc-section-head">
+            <span className="mc-eyebrow">{isFr ? 'Nos services' : 'Our services'}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {dict.services.title}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 mc-section-lede">
               {dict.services.subtitle}
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <div className="mc-home-services-grid">
             <ServiceCard
               title={dict.services.residential.title}
               description={dict.services.residential.description}
@@ -118,9 +182,9 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
           <div className="text-center mt-12">
             <Link
               href={`/${params.lang}/services`}
-              className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+              className="mc-link-arrow"
             >
-              {dict.common.learnMore}
+              {isFr ? 'Voir tous les services' : 'View all services'}
               <FaArrowRight />
             </Link>
           </div>
@@ -128,27 +192,26 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
+      <section className="mc-home-why-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
+          <div className="text-center mb-12 mc-section-head">
+            <span className="mc-eyebrow">{isFr ? 'Pourquoi nous choisir' : 'Why us'}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {dict.about.whyChooseUs}
             </h2>
+            <p className="text-lg text-gray-600 mc-section-lede" style={{ maxWidth: '62ch', margin: '0 auto' }}>
+              {dict.about.companyDescription}
+            </p>
           </div>
 
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h3 className="text-2xl font-bold text-primary-600 mb-4">Mr Clean+</h3>
-            <p className="text-gray-600 leading-relaxed">{dict.about.companyDescription}</p>
-          </div>
-          
           <div className="mc-home-values-grid">
             {dict.about.values.map((value, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">{['🎯', '👥', '🌿', '✨'][index]}</span>
+              <div key={index}>
+                <div className="mc-home-value-icon-wrap">
+                  <span style={{ fontSize: '1.75rem' }}>{['🎯', '👥', '🌿', '✨'][index]}</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
+                <h3>{value.title}</h3>
+                <p>{value.description}</p>
               </div>
             ))}
           </div>
@@ -156,14 +219,15 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="mc-home-testimonials-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 mc-section-head">
+            <span className="mc-eyebrow">{isFr ? 'Témoignages' : 'Testimonials'}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               {dict.testimonials.title}
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {dict.testimonials.items.map((testimonial, index) => (
               <TestimonialCard
@@ -178,35 +242,44 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
       </section>
 
       {/* Map Section */}
-      <section className="py-0">
-        <div className="relative w-full" style={{ height: '420px' }}>
-          <CoverageMap lang={params.lang} />
-          <div
-            className="absolute bottom-0 left-0 right-0 text-white text-center py-3"
-            style={{ background: 'rgba(2, 132, 199, 0.85)' }}
-          >
-            <p className="font-semibold">
-              {params.lang === 'fr' ? '📍 Zones couvertes : Montréal, Laval, Rive-Nord et Rive-Sud' : '📍 Covered areas: Montreal, Laval, North Shore and South Shore'}
-            </p>
+      <section className="mc-home-map-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center mc-section-head">
+          <span className="mc-eyebrow">{isFr ? 'Zones desservies' : 'Service area'}</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            {isFr ? 'Présents partout dans le Grand Montréal' : 'Across Greater Montreal'}
+          </h2>
+          <p className="text-lg text-gray-600 mx-auto mc-section-lede" style={{ maxWidth: '66ch' }}>
+            {isFr
+              ? "Nos équipes interviennent à Montréal, Laval, sur la Rive-Nord et la Rive-Sud pour résidences, commerces et locations courte durée."
+              : 'Our teams operate in Montreal, Laval, the North Shore, and the South Shore for homes, businesses, and short-term rentals.'}
+          </p>
+          <div className="mt-6 flex items-center justify-center gap-3 flex-wrap">
+            <span className="mc-area-chip">Montreal, QC</span>
+            <span className="mc-area-chip">Laval, QC</span>
+            <span className="mc-area-chip">{isFr ? 'Rive-Nord' : 'North Shore'}</span>
+            <span className="mc-area-chip">{isFr ? 'Rive-Sud' : 'South Shore'}</span>
           </div>
+        </div>
+        <div className="mc-home-map-wrap">
+          <CoverageMap lang={params.lang} />
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-accent-600 text-white py-16">
+      <section className="mc-home-cta-section">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="mc-eyebrow mc-eyebrow-on-dark">{isFr ? 'Soumission gratuite' : 'Free quote'}</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {params.lang === 'fr' ? 'Prêt à avoir un espace impeccable?' : 'Ready for a Spotless Space?'}
+            {isFr ? 'Prêt à avoir un espace impeccable?' : 'Ready for a spotless space?'}
           </h2>
-          <p className="text-xl mb-8 text-primary-100">
-            {params.lang === 'fr' 
-              ? 'Contactez-nous aujourd\'hui pour un devis gratuit et sans engagement.'
-              : 'Contact us today for a free, no-obligation quote.'
-            }
+          <p className="text-xl mb-8 mc-home-cta-subtitle">
+            {isFr
+              ? "Contactez-nous aujourd'hui pour un devis gratuit et sans engagement."
+              : 'Contact us today for a free, no-obligation quote.'}
           </p>
           <Link
             href={`/${params.lang}/consult`}
-            className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-block"
+            className="mc-home-cta-button"
           >
             {dict.common.getQuote}
           </Link>

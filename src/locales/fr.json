@@ -14,28 +14,28 @@
     "reserveBtn": "Réservez En Ligne Maintenant",
     "slides": [
       {
-        "text": "Profitez de 20% de rabais sur votre premier nettoyage régulier",
-        "durationMs": 6000
+        "text": "Offre de bienvenue : 20% de rabais sur votre premier nettoyage régulier",
+        "durationMs": 4200
       },
       {
-        "text": "Remplissez le formulaire en moins de 2 minutes",
-        "durationMs": 2500
+        "text": "Soumission rapide en ligne, réponse en quelques minutes",
+        "durationMs": 3200
       },
       {
-        "text": "Service professionnel, rapide et fiable",
-        "durationMs": 2500
+        "text": "Équipe vérifiée, service impeccable, satisfaction garantie",
+        "durationMs": 3200
       }
     ]
   },
   "hero": {
-    "title": "Votre expert en nettoyage résidentiel et commercial",
-    "subtitle": "Partout à Montréal, Laval, Rive-Nord et Rive-Sud",
-    "cta": "Demander un Devis",
+    "title": "Service de nettoyage à Montréal, Laval, Rive-Nord et Rive-Sud",
+    "subtitle": "Résidentiel, commercial, Airbnb, grand ménage et après-construction — équipe vérifiée, soumission gratuite.",
+    "cta": "Demander un devis",
     "ctaSecondary": "Nos services"
   },
   "services": {
-    "title": "Nos services",
-    "subtitle": "Solutions de nettoyage complètes adaptées à vos besoins",
+    "title": "Services de nettoyage à Montréal",
+    "subtitle": "Résidentiel, commercial, Airbnb, grand ménage et après-construction dans le Grand Montréal",
     "residential": {
       "title": "Nettoyage résidentiel régulier",
       "description": "Offrez à votre maison une propreté impeccable grâce à un service fiable, discret et adapté à vos besoins, incluant l'entretien des surfaces extérieures ainsi que le nettoyage des planchers (aspirateur et lavage).",
@@ -489,28 +489,28 @@
   },
   "meta": {
     "home": {
-      "title": "Mr Clean+ - Services de Nettoyage Professionnels à Montréal",
-      "description": "Nettoyage professionnel à Montréal, Laval, Rive-Nord et Rive-Sud. Services résidentiels, commerciaux et après construction ou déménagement. Service fiable, rapide et minutieux. Soumission gratuite."
+      "title": "Nettoyage à Montréal — 20% sur votre 1er ménage régulier",
+      "description": "Service de nettoyage à Montréal, Laval, Rive-Nord et Rive-Sud : résidentiel, commercial, Airbnb, grand ménage et après-construction. Équipe vérifiée, soumission gratuite — 20% de rabais sur votre premier ménage régulier."
     },
     "services": {
-      "title": "Nos Services de Nettoyage - Mr Clean+ Montréal",
-      "description": "Services de nettoyage résidentiel, commercial, Airbnb et personnel formé à Montréal. Obtenez un devis gratuit aujourd'hui."
+      "title": "Services de nettoyage Montréal, Laval, Rive-Nord et Rive-Sud",
+      "description": "Nettoyage résidentiel, commercial, Airbnb, grand ménage et après-construction dans le Grand Montréal. Équipe formée et vérifiée — soumission gratuite sans engagement."
     },
     "about": {
-      "title": "À Propos - Mr Clean+ Montréal",
-      "description": "Découvrez Mr Clean+, votre partenaire de nettoyage de confiance à Montréal. Services écologiques, fiables et professionnels."
+      "title": "À propos — Compagnie de nettoyage à Montréal",
+      "description": "Mr Clean+ est une compagnie de nettoyage à Montréal qui dessert Laval, la Rive-Nord et la Rive-Sud. Équipe formée, fiable et rigoureuse pour les services résidentiels et commerciaux."
     },
     "careers": {
-      "title": "Carrières - Rejoignez Mr Clean+",
-      "description": "Rejoignez notre équipe de nettoyeurs professionnels à Montréal. Salaire compétitif, horaires flexibles et opportunités de croissance."
+      "title": "Carrières — Rejoindre l'équipe Mr Clean+",
+      "description": "Rejoignez notre équipe de nettoyage à Montréal. Salaire compétitif, horaires flexibles, environnement bienveillant et possibilités d'évolution."
     },
     "contact": {
-      "title": "Contactez-Nous - Mr Clean+ Montréal",
-      "description": "Contactez-nous pour un devis gratuit. Services de nettoyage professionnels à Montréal et environs."
+      "title": "Contact — Soumission gratuite de nettoyage à Montréal",
+      "description": "Joignez Mr Clean+ pour une soumission gratuite à Montréal, Laval, Rive-Nord et Rive-Sud. Téléphone, courriel et formulaire en ligne disponibles."
     },
     "faq": {
-      "title": "FAQ - Mr Clean+ Montréal",
-      "description": "Consultez les réponses aux questions les plus fréquentes sur nos services de nettoyage résidentiel et commercial."
+      "title": "FAQ — Services de nettoyage à Montréal",
+      "description": "Réponses aux questions les plus fréquentes sur nos services de nettoyage résidentiel, commercial, grand ménage, Airbnb et après-construction à Montréal et environs."
     }
   },
   "terms": {

@@ -1,19 +1,31 @@
 import { Metadata } from 'next';
 import { Locale } from '@/lib/i18n/config';
 import ConsultForm from '@/components/ConsultForm';
+import { buildBreadcrumbLd, buildPageMetadata } from '@/lib/seo';
+import { getDictionary } from '@/lib/i18n/getDictionary';
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
   const isFr = params.lang === 'fr';
-  return {
+  return buildPageMetadata({
+    lang: params.lang,
+    route: 'consult',
     title: isFr ? 'Obtenir une soumission - Mr Clean+' : 'Get a Quote - Mr Clean+',
     description: isFr
       ? 'Obtenez une soumission rapide pour vos besoins de nettoyage résidentiel ou commercial.'
       : 'Get a quick quote for your residential or commercial cleaning needs.',
-  };
+  });
 }
 
 export default async function ConsultPage({ params }: { params: { lang: Locale } }) {
   const isFr = params.lang === 'fr';
+  const commonDict = await getDictionary(params.lang);
+  const breadcrumbLd = buildBreadcrumbLd({
+    lang: params.lang,
+    items: [
+      { name: commonDict.nav.home, path: '' },
+      { name: commonDict.common.getQuote, path: '/consult' },
+    ],
+  });
 
   const dict = {
     title: isFr ? 'OBTENIR UNE SOUMISSION' : 'GET A QUOTE',
@@ -83,23 +95,50 @@ export default async function ConsultPage({ params }: { params: { lang: Locale }
   };
 
   return (
-    <div>
-      <section className="hero-slide-bg text-white py-20">
+    <div className="mc-inner-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <section className="hero-slide-bg mc-inner-hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="mc-eyebrow mc-eyebrow-on-dark">{isFr ? 'Soumission gratuite' : 'Free quote'}</span>
           <h1 className="mc-page-hero-title mb-4">{dict.title}</h1>
-          <p className="mc-page-hero-subtitle text-primary-100">{dict.subtitle}</p>
+          <p className="mc-page-hero-subtitle">{dict.subtitle}</p>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="mc-inner-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mc-promo-banner" role="note">
+            <div className="mc-promo-banner-badge" aria-hidden="true">
+              <span className="mc-promo-banner-pct">20%</span>
+              <span className="mc-promo-banner-pct-label">OFF</span>
+            </div>
+            <div className="mc-promo-banner-body">
+              <h2 className="mc-promo-banner-title">
+                {isFr ? 'Offre de bienvenue · Nouveaux clients' : 'Welcome offer · New clients'}
+              </h2>
+              <p className="mc-promo-banner-text">
+                {isFr
+                  ? 'Remplissez le formulaire et économisez 20% sur votre premier nettoyage régulier. Aucune carte requise, aucune obligation.'
+                  : 'Fill in the form and save 20% on your first regular cleaning. No card required, no obligation.'}
+              </p>
+              <ul className="mc-promo-banner-perks">
+                <li>{isFr ? 'Devis en quelques minutes' : 'Quote in minutes'}</li>
+                <li>{isFr ? 'Équipe vérifiée' : 'Verified team'}</li>
+                <li>{isFr ? 'Satisfaction garantie' : 'Satisfaction guaranteed'}</li>
+              </ul>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 rounded-lg p-8">
+            <div className="mc-consult-form-card">
               <ConsultForm dict={dict.form} />
             </div>
 
             <div className="space-y-6">
-              <div className="bg-gray-50 rounded-lg p-8">
+              <div className="mc-consult-aside-card">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{dict.contactTitle}</h3>
                 <div className="space-y-2 text-gray-700">
                   <p>{dict.location}</p>
@@ -110,6 +149,17 @@ export default async function ConsultPage({ params }: { params: { lang: Locale }
                     <a href="tel:+15144319741" className="text-primary-600 hover:text-primary-700">{dict.phone}</a>
                   </p>
                 </div>
+              </div>
+
+              <div className="mc-consult-trust-card">
+                <p className="mc-consult-trust-lede">
+                  {isFr ? "Pourquoi nous?" : 'Why choose us?'}
+                </p>
+                <ul className="mc-consult-trust-list">
+                  <li>✓ {isFr ? '+100 mandats complétés' : '100+ jobs completed'}</li>
+                  <li>✓ {isFr ? '99% clients satisfaits' : '99% satisfied clients'}</li>
+                  <li>✓ {isFr ? 'Réponse rapide, sans engagement' : 'Quick reply, no obligation'}</li>
+                </ul>
               </div>
             </div>
           </div>

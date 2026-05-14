@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Locale, localeNames } from '@/lib/i18n/config';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function FlagIcon({ locale }: { locale: Locale }) {
   if (locale === 'fr') {
@@ -38,6 +38,29 @@ function FlagIcon({ locale }: { locale: Locale }) {
 export default function LanguageSwitcher({ currentLocale }: { currentLocale: Locale }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onPointerDown = (event: MouseEvent) => {
+      if (!menuRef.current) return;
+      if (!menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.removeEventListener('mousedown', onPointerDown);
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
 
   const switchLocale = (newLocale: Locale) => {
     if (!pathname) return '/';
@@ -47,11 +70,13 @@ export default function LanguageSwitcher({ currentLocale }: { currentLocale: Loc
   };
 
   return (
-    <div className="mc-lang-switcher">
+    <div className="mc-lang-switcher" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="mc-lang-switcher-trigger"
-        aria-label="Switch language"
+        aria-label="Change language"
+        aria-expanded={isOpen}
+        aria-controls="mc-lang-switcher-menu"
       >
         <span className="mc-lang-switcher-label">
           <FlagIcon locale={currentLocale} />
@@ -60,7 +85,7 @@ export default function LanguageSwitcher({ currentLocale }: { currentLocale: Loc
       </button>
       
       {isOpen && (
-        <div className="mc-lang-switcher-menu">
+        <div className="mc-lang-switcher-menu" id="mc-lang-switcher-menu">
           <Link
             href={switchLocale('fr')}
             className="mc-lang-switcher-option"

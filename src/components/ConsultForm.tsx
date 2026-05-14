@@ -123,32 +123,29 @@ function compressImage(file: File, maxWidth = 1200, quality = 0.7): Promise<File
   });
 }
 
+const EMPTY_FORM_STATE: FormState = {
+  companyName: '',
+  lastName: '',
+  firstName: '',
+  email: '',
+  phone: '',
+  city: '',
+  postalCode: '',
+  housingType: '',
+  floors: '',
+  bedrooms: '',
+  services: '',
+  visitPreference: [],
+  frequency: '',
+  oneTimeVisitsPerWeek: '',
+  additionalInfo: '',
+};
+
 export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
-  const [formState, setFormState] = useState<FormState>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = sessionStorage.getItem('consultFormState');
-      if (saved) {
-        try { return JSON.parse(saved); } catch { /* ignore */ }
-      }
-    }
-    return {
-      companyName: '',
-      lastName: '',
-      firstName: '',
-      email: '',
-      phone: '',
-      city: '',
-      postalCode: '',
-      housingType: '',
-      floors: '',
-      bedrooms: '',
-      services: '',
-      visitPreference: [],
-      frequency: '',
-      oneTimeVisitsPerWeek: '',
-      additionalInfo: '',
-    };
-  });
+  // Start with empty defaults on both server and client to keep the first render
+  // identical (no hydration mismatch). We restore from sessionStorage after mount.
+  const [formState, setFormState] = useState<FormState>(EMPTY_FORM_STATE);
+  const [hydrated, setHydrated] = useState(false);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [fieldErrors, setFieldErrors] = useState<{ city?: string; postalCode?: string; lastName?: string; firstName?: string; email?: string }>({});
   const [photos, setPhotos] = useState<File[]>([]);
@@ -165,10 +162,26 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
   const cityRef = useRef<HTMLInputElement>(null);
   const postalCodeRef = useRef<HTMLInputElement>(null);
 
-  // Persist form state to sessionStorage so it survives camera reload on mobile
+  // Restore saved form state after mount (avoids SSR/CSR mismatch)
   useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem('consultFormState');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setFormState((prev) => ({ ...prev, ...parsed }));
+      }
+    } catch {
+      /* ignore corrupt storage */
+    }
+    setHydrated(true);
+  }, []);
+
+  // Persist form state to sessionStorage (only after hydration to avoid wiping it
+  // with the initial empty defaults on first mount).
+  useEffect(() => {
+    if (!hydrated) return;
     sessionStorage.setItem('consultFormState', JSON.stringify(formState));
-  }, [formState]);
+  }, [formState, hydrated]);
 
   // Create stable blob URLs for photo previews and revoke old ones to free memory
   useEffect(() => {
@@ -268,23 +281,7 @@ export default function ConsultForm({ dict }: { dict: ConsultFormDict }) {
         setPhotos([]);
         setPhotosError('');
         sessionStorage.removeItem('consultFormState');
-        setFormState({
-          companyName: '',
-          lastName: '',
-          firstName: '',
-          email: '',
-          phone: '',
-          city: '',
-          postalCode: '',
-          housingType: '',
-          floors: '',
-          bedrooms: '',
-          services: '',
-          visitPreference: [],
-          frequency: '',
-          oneTimeVisitsPerWeek: '',
-          additionalInfo: '',
-        });
+        setFormState(EMPTY_FORM_STATE);
         setFieldErrors({});
       } else {
         setStatus('error');

@@ -42,7 +42,7 @@ function getLocaleFromRequest(request: NextRequest): string {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next, api, static files, sitemap, .well-known)
-    '/((?!api|_next/static|_next/image|favicon.ico|images|sitemap.xml|\\.well-known).*)',
+    // Skip internal paths and SEO/static files
+    '/((?!api|_next/static|_next/image|favicon.ico|images|flags|sitemap.xml|robots.txt|manifest.json|opengraph-image|twitter-image|\\.well-known).*)',
   ],
 };

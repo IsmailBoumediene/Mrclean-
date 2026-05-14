@@ -1,10 +1,24 @@
 
+import { Metadata } from 'next';
 import { getDictionary } from '@/lib/i18n/getDictionary';
 import { Locale } from '@/lib/i18n/config';
+import { buildBreadcrumbLd, buildPageMetadata } from '@/lib/seo';
 
 type Props = { params: { lang: Locale } };
 
-const Section = ({ id, section, index }: { id: string; section: any; index: number }) => (
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const isFr = params.lang === 'fr';
+  return buildPageMetadata({
+    lang: params.lang,
+    route: 'privacy-policy',
+    title: isFr ? 'Politique de Confidentialite - Mr Clean+' : 'Privacy Policy - Mr Clean+',
+    description: isFr
+      ? 'Consultez la politique de confidentialite de Mr Clean+ et la gestion de vos donnees personnelles.'
+      : 'Read Mr Clean+ privacy policy and how we handle your personal data.',
+  });
+}
+
+const Section = ({ id, section }: { id: string; section: any }) => (
   <section id={id}>
     <h2>{section.title}</h2>
     {section.subtitle && <h3>{section.subtitle}</h3>}
@@ -30,6 +44,13 @@ const Section = ({ id, section, index }: { id: string; section: any; index: numb
 
 const PrivacyPolicyPage = async ({ params }: Props) => {
   const dict = await getDictionary(params.lang);
+  const breadcrumbLd = buildBreadcrumbLd({
+    lang: params.lang,
+    items: [
+      { name: dict.nav.home, path: '' },
+      { name: dict.footer.privacy, path: '/privacy-policy' },
+    ],
+  });
   type SectionKey =
     | 'info-collect'
     | 'info-process'
@@ -59,15 +80,19 @@ const PrivacyPolicyPage = async ({ params }: Props) => {
     sections: Record<SectionKey, any>;
   };
   return (
-    <div className="privacy-policy-container">
-
-      <span style={{ fontWeight: 'bold', fontSize: '24px', color: 'blue', display: 'block', textAlign: 'center', marginBottom: '10px' }}>{policy.title}</span>
+    <div className="mc-legal-wrap">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+      <article className="privacy-policy-container mc-legal-container">
+      <h1 className="mc-legal-title">{policy.title}</h1>
       <p><strong>{policy.lastUpdated}</strong></p>
 
       {policy.intro && (
         <section className="privacy-policy-intro">
           <p
-            style={{ whiteSpace: 'pre-line' }}
+            className="mc-legal-preline"
             dangerouslySetInnerHTML={{ __html: policy.intro }}
           />
         </section>
@@ -97,9 +122,9 @@ const PrivacyPolicyPage = async ({ params }: Props) => {
           key={item.id}
           id={item.id}
           section={policy.sections[item.id]}
-          index={idx}
         />
       ))}
+      </article>
     </div>
   );
 };
