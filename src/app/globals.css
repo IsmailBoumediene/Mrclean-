@@ -160,8 +160,10 @@ html {
   --color-yellow-400: var(--gold-500);
 
   /* Type scale (fluid) */
-  --font-display: var(--font-manrope), 'Manrope', system-ui, sans-serif;
-  --font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
+  /* --font-display and --font-body are injected by next/font on <body>;
+     fallbacks below kick in only if the variable is undefined. */
+  --font-display-fallback: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body-fallback: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   --fs-xs: 0.78rem;
   --fs-sm: 0.875rem;
@@ -230,7 +232,7 @@ body {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-body), var(--font-body-fallback);
   font-size: var(--fs-base);
   line-height: var(--lh-base);
   font-weight: 400;
@@ -243,7 +245,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: var(--font-display);
+  font-family: var(--font-display), var(--font-display-fallback);
   font-weight: 700;
   letter-spacing: -0.018em;
   line-height: var(--lh-snug);
@@ -3336,17 +3338,17 @@ textarea.mc-form-control {
 .mc-promo-banner-pct { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; }
 .mc-promo-banner-pct-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; margin-top: 0.15rem; }
 
-.mc-promo-banner-body { display: flex; flex-direction: column; gap: 0.5rem; }
-.mc-promo-banner-title {
+.mc-promo-banner .mc-promo-banner-body { display: flex; flex-direction: column; gap: 0.5rem; }
+.mc-promo-banner h2.mc-promo-banner-title {
   font-family: var(--font-display);
-  color: #fff;
+  color: #ffffff;
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-weight: 800;
   letter-spacing: -0.015em;
   margin: 0;
 }
-.mc-promo-banner-text {
-  color: rgba(255, 255, 255, 0.86);
+.mc-promo-banner p.mc-promo-banner-text {
+  color: #ffffff;
   font-size: 0.97rem;
   line-height: 1.6;
   margin: 0;
